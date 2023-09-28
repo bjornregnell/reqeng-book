@@ -12,6 +12,9 @@
 **/*.fdb_latexmk
 **/*.fls
 **/*.dvi
+**/*.bbl
+**/*.blg
+**/*.pdf
 
 # Scala
 **/.scala-build/
