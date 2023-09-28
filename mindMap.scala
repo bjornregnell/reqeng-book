@@ -1,4 +1,4 @@
-def mindMap: String = """
+def mindMap: String = s"""
   requirements engineering (RE):
     activities: 
       elicitation: learning:
