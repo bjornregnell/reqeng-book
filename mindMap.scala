@@ -1,7 +1,7 @@
 def mindMap: String = s"""
   requirements engineering (RE):
     activities: 
-      elicitation: learning:
+      elicitation: discovering and learning:
         interviews
         brain-storming and creativity
         focus-groups
@@ -11,7 +11,7 @@ def mindMap: String = s"""
           A/B-testing
         analytical investigations, mathematical modeling
       specification: modeling (of requirements to represent ideas and decisions about the future system):
-        specification aspects: 
+        different aspects of requirements: 
           product functionality (functional requirements, FR):
             data (static)
             logic (dynamic)
@@ -23,8 +23,8 @@ def mindMap: String = s"""
             verifiability
             security
             safety
-        specification levels:
-          levels of abstraction (goal-design-scale): 
+        different levels of specification:
+          abstraction level (goal-design-scale): 
             goal level
             domain level
             product level
@@ -69,6 +69,7 @@ def mindMap: String = s"""
               pre-conditions (initial state)
               success/failure criteria (positive or negative tests)
       validation: checking (that requirements are of sufficient quality):
+        the ideal requirement and the representation of the ideal requirement
         quality of requirements:
           completeness
           ambiguity
