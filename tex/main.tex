@@ -1,0 +1,44 @@
+\documentclass[a4paper]{nicebook}
+\usepackage[utf8]{inputenc}
+
+\title{
+\bf\sffamily\fontsize{30}{40}\selectfont
+Introduction to Software Requirements Engineering
+}
+
+\author{Björn Regnell}
+
+\date{\today}
+
+\begin{document}
+
+\pagenumbering{roman}
+\frontmatter
+\maketitle
+
+\input{chapters/0-preface}
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\mainmatter
+\pagenumbering{arabic}
+
+\input{chapters/1-context}
+\input{chapters/2-elicitation}
+\input{chapters/3-prioritization}
+\input{chapters/4-functionality}
+\input{chapters/5-quality}
+\input{chapters/6-management}
+\input{chapters/7-validation}
+
+\chapter{Conclusion}
+``I always thought something was fundamentally wrong with the universe'' \cite{adams1995hitchhiker}
+
+
+\input{chapters/8-appendices}
+
+
+
+\bibliographystyle{alpha}%{plain}
+\bibliography{references}
+\end{document}
