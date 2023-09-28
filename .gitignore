@@ -1,0 +1,25 @@
+# Latex
+**/*.aux
+**/*.log
+**/*.nav
+**/*.out
+**/*.snm
+**/*.vrb
+**/*.synctex.gz
+**/*.synctex.gz(busy)
+**/*.synctex(busy)
+**/*.toc
+**/*.fdb_latexmk
+**/*.fls
+**/*.dvi
+
+# Scala
+**/.scala-build/
+**.metals/
+**/.bloop/
+**/.bsp
+**/metals.sbt
+**/.vscode/
+**/*.jar
+**/target/
+**/*.class
