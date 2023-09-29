@@ -9,35 +9,46 @@
 
 \noindent Requirements engineering (RE) is the process focused on the \textit{requirements} of software-intensive systems under development and their \textit{context}, which includes users as well as other surrounding systems. 
 The requirements engineering process involves activities such as eliciting, specifying, validating, and selecting requirements. 
-Requirements engineering is both a research discipline and an engineering practice, forming the foundation for our human ability to create useful software with high quality in service of mankind. Whenever you work on things involved in the decision-making process of software development you are doing requirements engineering.  
+Requirements engineering is both a research discipline and an engineering practice, forming the foundation for our human ability to create useful software with high quality in the service of mankind. Whenever you work on things involved in the decision-making process of software development you are doing requirements engineering.  
 
-The word ''requirement'' is, within software engineering (SE), often used in a very general sense, standing for \textbf{something needed or wanted}. It is typically used as an abstract term denoting \textit{any} type of information relevant to the intentions behind system development. But not always. The term ''requirement'' is a bit tricky as it is overloaded with several meanings. Sometimes it means that it is an optional wish and sometimes it refers to something already decided and committed for delivery. Sometimes we mean the underlying need or want of a user, but maybe still elusive, while we also may mean the documented \textit{representation} of that underlying need or want. This documented representation may very well differ from the underlying actual need, due to imperfections of our representation. Requirements come in different kinds and shapes at different abstraction levels. Hence, it is wise to be more clear and specific about what kind of requirement we mean, to avoid that our usage of the term is misinterpreted. 
+The word ''requirement'' is, within software engineering (SE), often used in a very general sense, standing for \textbf{something needed or wanted}. It is typically used as an abstract term denoting \textit{any} type of information relevant to the intentions behind system development. But not always. The term ''requirement'' is a bit tricky as it is overloaded with several meanings. Sometimes it means that it is an optional wish and sometimes it refers to something already decided and committed for delivery. Sometimes we mean the actual underlying need of a user, but maybe still elusive and not explicitly stated, while we also may mean the documented \textit{representation} of that underlying need. This documented representation may very well unintendedly differ from the underlying actual need, due to imperfections of our specification. Requirements come in different kinds and shapes at different abstraction levels. Hence, it is wise to be more clear and specific about what kind of requirement we mean, to avoid that our usage of the term is misinterpreted. 
 
-This chapter aims to provide a set of terms that you can use when you think and communicate about requirements. This terminology is the starting-point for learning more about requirements engineering and developing skills needed to contribute to the invention of tomorrows' software.
+This chapter aims to provide a concise overview of the set of terms that you can use when you think and communicate about requirements. This terminology is the starting-point for learning more about requirements engineering and developing skills needed to contribute to the invention of tomorrows' software.
 
 \section*{Activities in Requirements Engineering}
 
-Working with requirements involves many different tasks and skills. The RE process is often characterized by these interdependent activities: 
+Working with requirements involves many different tasks and skills. The RE process is often characterized by these interrelated activities: 
 
 \begin{itemize}
-  \item \textbf{Elicitation}: to learn, discover \& invent. Requirements needs to be identified before the can play a role in software engineering. But this is often not trivial. We need to work hard to discover the future needs of our users and sometimes we need to be very creative and invent the requirements that represent new ideas for future software technology. Requirements elicitation is a learning and innovation process that provides the knowledge needed by other RE and SE activities.
-  \item \textbf{Specification}: to represent, communicate and make persistent. It is not enough to just keep our knowledge about the evolving requirements in our heads. Requirements needs to be represented in a persistent way to that we can communicate over time and space while they evolve. The requirements models that are the results of the requirements specification process should be useful to all humans involved in all dependent software engineering processes through the whole product life-cycle.
-  \item \textbf{Validation}: to check that we have modelled the right requirements in a good way. Adequate quality ''good enough'' 
-  \item \textbf{Selection}: Prioritize decide plan
+  \item \textbf{Elicitation}: to learn, discover and invent. We need to identify requirements before they can play a role in our software engineering process. Identifying requirements is far from trivial and we often need to work hard to discover the future needs of our users and sometimes we must be really creative and actually invent requirements representing our novel ideas on future software technology. Requirements elicitation is a learning and innovation process that provides the knowledge needed by other RE and SE activities. Elicitation also involves paving the way for agreement among stakeholders  if they have different views and conflicting goals, or at least elicit such conflicting goal as input to specification and selection.
+  \item \textbf{Specification}: to represent, communicate and make persistent. It is not enough to just keep our knowledge about the evolving requirements in our heads. Requirements needs to be represented in a persistent way, so that we can retrieve and communicate them over time and space, as they evolve. The requirements models that are the results of requirements specification should be useful to all humans and tools involved in all dependent software engineering processes throughout the whole product life-cycle.
+  \item \textbf{Validation}: to check that we have represented the right requirements in a good way. It is important to continuously validate that the current set of requirements are relevant and that their representation is of adequate quality. There is no such thing as a perfect and totally complete requirements specification, as that would require infinite resources and perfect knowledge about the future -- the major challenge is to tell when it is ''good enough'' for the involved stakeholders. With our requirements validation efforts we want to significantly reduce the risk of developing an unwanted system.
+  \item \textbf{Selection}: to prioritize and decide what to include in the set of requirements that we make a commitment to implement, according to our product strategy and delivery plan, in relation to stakeholders' goals. Prioritization involves estimation using some measurement scale according to relevant selection criteria such as market value, development cost, requirements volatility, financial risk, etc. Delivery planning needs to take into account constraints on requirements implementation order, given that some requirements often depend on other requirements. 
 \end{itemize}
 
-\section*{Different aspects of requirements}
+These activities are often conducted concurrently and in an iterative maner. When you specify or validate, you often discover missing requirements. When you elicit, you need to write down what you find in order not to forget all the things you learn. When you try to prioritize and make delivery plans, you may realize that you need to elicit more knowledge about requirements dependencies. Etcetera. Do not expect to carry out the above activities one at a time from top to bottom -- your RE work will be similar to a juggler having many balls in the air at the same time. 
+
+\section*{Different requirements modelling aspects}
 
 \subsection*{Functionality aspects}
-Functional requirements deals with the expected logical behaviour and the related data needed.
+Functional requirements deals with the expected logical behavior and the related data that is needed by the system to do what it should.
 \begin{itemize}
-  \item \textbf{data}: what data is stored, domain data model, input, output.
-  \item \textbf{logic}: expected behaviour, the functional relation between input and output
+  \item \textbf{data}: information stored by the system, including its domain-specific data model and the format of input and output data. Data requirements often involves a data base or some other form of reliable mass-storage of domain-specific data. Data requriements are often related to the user interface as users expect to see relevant data when they interact with the system to accomplish their tasks. 
+  \item \textbf{behavior}: the functional relation between input and output.
 \end{itemize}
 
+The term ''functional requirements is often used to cover both requirements on data and behavior, but sometimes the former kind of functional requirements are called ''data requirements''. Behavioral requirements are often called ''business logic''. Data requirements are often easier to elicit and specify compared to functional requirements that deal with complex behavior 
+
 \subsection*{Quality aspects}
+
 \begin{itemize}
   \item \textbf{accuracy}:
+  \item \textbf{capacity}:
+  \item \textbf{capacity}:
+  \item \textbf{capacity}:
+  \item \textbf{capacity}:
+  \item \textbf{capacity}:
+  \item \textbf{capacity}:
   \item \textbf{capacity}:
 \end{itemize}
 
