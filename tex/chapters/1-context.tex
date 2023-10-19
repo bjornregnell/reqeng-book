@@ -1,15 +1,15 @@
 %!TEX encoding = UTF-8 Unicode
 %!TEX root = ../main.tex
 
-\chapter*{What is requirements engineering?}
+\chapter*{Introduction to Software Requirements Engineering}
 
-\textit{Requirements engineering: working with software requirements in context.}
+\textit{Björn Regnell\hfill~\copyright~2023~~\url{https://bjornregnell.se}}
 
-\vspace{1em}
+\vspace{3em}
 
-\noindent Requirements engineering (RE) is the process focused on the \textit{requirements} of software-intensive systems under development and their \textit{context}, which includes users as well as other surrounding systems. 
+\noindent Requirements Engineering (RE) is the sub-discipline of Software Engineering (SE) that is focused on the \textit{requirements} of software-intensive systems and their \textit{context}, which includes users and surrounding systems. 
 The requirements engineering process involves activities such as eliciting, specifying, validating, and selecting requirements. 
-Requirements engineering is both a research discipline and an engineering practice, forming the foundation for our human ability to create useful software with high quality in the service of mankind. Whenever you work on things involved in the decision-making process of software development you are doing requirements engineering.  
+Requirements engineering is both a research discipline and an engineering practice, forming the foundation for our human ability to create useful software with high quality. When you work with anything related to the decision-making process of software development you are doing requirements engineering.  
 
 The word ''requirement'' is, within software engineering (SE), often used in a very general sense, standing for \textbf{something needed or wanted}. It is typically used as an abstract term denoting \textit{any} type of information relevant to the intentions behind system development. But not always. The term ''requirement'' is a bit tricky as it is overloaded with several meanings. Sometimes it means that it is an optional wish and sometimes it refers to something already decided and committed for delivery. Sometimes we mean the actual underlying need of a user, but maybe still elusive and not explicitly stated, while we also may mean the documented \textit{representation} of that underlying need. This documented representation may very well unintendedly differ from the underlying actual need, due to imperfections of our specification. Requirements come in different kinds and shapes at different abstraction levels. Hence, it is wise to be more clear and specific about what kind of requirement we mean, to avoid that our usage of the term is misinterpreted. 
 
@@ -28,53 +28,91 @@ Working with requirements involves many different tasks and skills. The RE proce
 
 These activities are often conducted concurrently and in an iterative maner. When you specify or validate, you often discover missing requirements. When you elicit, you need to write down what you find in order not to forget all the things you learn. When you try to prioritize and make delivery plans, you may realize that you need to elicit more knowledge about requirements dependencies. Etcetera. Do not expect to carry out the above activities one at a time from top to bottom -- your RE work will be similar to a juggler having many balls in the air at the same time. 
 
-\section*{Different requirements modelling aspects}
+\section*{Aspects of Requirements Modelling}
 
-\subsection*{Functionality aspects}
+When we elicit, specify, validate and select requirements we need to represent them in a useful way. We call such representations \textit{requirements models}. A requirement model is a \emph{simplified} representation of future versions of a system under development including its surrounding world -- we cannot expect to model every aspect with all its details, and we cannot fully predict every facet of all future stakeholders' intentions. We have limited time and resources so we need to make good-enough models that can reasonably support decision-making, design, verification, implementation and deployment in a cost-efficient way.
+
+There are many aspects of requirements modelling and many different kinds of requirements. We need to model both functional and quality requirements, and model the requirements at different levels of abstraction and detail, while keeping in mind how the requirements models will be used by different stakeholders throughout a software product's whole life-cycle. Requirements are interrelated and can be part of a structure. Hence it is often useful to aggregate requirements into coherent bundles that each can be used as a single entity in requirements selection, while tracking its relations to other entities. Such interrelated requirements aggregates are often called \emph{features}. A set of features may be selected for implementation in a coming release based on priorities of stakeholders and available development resources. Therefore, we also need to represent priorities and resource constraints in our requirements models.
+
+\subsection*{The Quality of Requirements Models}
+
+What is a good requirements model? When is a requirements model ready? These are difficult questions that call for a definition of what we mean by a the quality of a requirements model. The quality of a requirements model is assessed during requirements validation and that activity seeks to answer if a requirements model is good enough or if we need to do more work in order to improve its quality.
+
+Here are some examples of typical quality aspects of requirements models that are assessed during validation:
+\begin{itemize}
+  \item \textbf{Correctness}.
+  \item \textbf{Completeness}.
+  \item \textbf{Conciseness}
+  \item \textbf{Ambiguity}.
+  \item \textbf{Verifiability}.
+  \item \textbf{Consistency}
+  \item \textbf{Traceability}
+\end{itemize}
+
+\subsection*{Requirements on Functionality}
 Functional requirements deals with the expected logical behavior and the related data that is needed by the system to do what it should.
 \begin{itemize}
-  \item \textbf{data}: information stored by the system, including its domain-specific data model and the format of input and output data. Data requirements often involves a data base or some other form of persistent storage of domain-specific data. Data requirements are related to user interface design, as users expect to see relevant data when they interact with the system to should help them accomplish their tasks. Data requirements usually includes some abstract representation of the internal system state, at-least those parts of the system state that are externally observable.
-  \item \textbf{behavior}: the functional relation between input and output.
+  \item \textbf{Data}: information stored by the system, including its domain-specific data model and the format of input and output data. Data requirements often involves a data base or some other form of persistent storage of domain-specific data. Data requirements are related to user interface design, as users expect to see relevant data when they interact with the system to should help them accomplish their tasks. Data requirements usually includes some abstract representation of the internal system state, at-least those parts of the system state that are externally observable.
+  \item \textbf{Logic}: the functional relation between input and output. The modelling of requirements on the logical behavior of a system involves the analysis of what is the desired output of a specific computation given some expected input in a specific usage context, and also what happens if unexpected input is given. We want to specify logic at a higher abstraction level than the actual implementation in source code, while capturing the underlying intent of the requested functionality. 
 \end{itemize}
 
-The term ''functional requirements is often used to cover both requirements on data and behavior, but sometimes the former kind of functional requirements are called ''data requirements''. Behavioral requirements are often called ''business logic''. Data requirements are often easier to elicit and specify compared to functional requirements that deal with complex behavior 
+Behavioral requirements are often called ''business logic'' or just ''business requriements''. Data requirements on domain-related information are often less complex and easier to elicit, specify and validate, compared to requirements that deal with intricate business logic in a multi-faceted usage context. Here we use the term ''functional requirements'' to cover both requirements on data and logical behavior, but sometimes data requirements are treated as a its own kind of requirements, in separation of (other) functional requirements. 
 
-\subsection*{Quality aspects}
+\subsection*{Requirements on Quality}
 
 \begin{itemize}
-  \item \textbf{accuracy}:
-  \item \textbf{capacity}:
-  \item \textbf{performance}:
-  \item \textbf{reliability}:
-  \item \textbf{usability}:
-  \item \textbf{security}:
-  \item \textbf{safety}:
+  \item \textbf{Accuracy}:
+  \item \textbf{Capacity}:
+  \item \textbf{Performance}:
+  \item \textbf{Reliability}:
+  \item \textbf{Usability}:
+  \item \textbf{Security}:
+  \item \textbf{Safety}:
 \end{itemize}
 
-\subsection*{Levels of abstraction}
+Quality and functionality are often intertwined and quality often manifest itself into behavior logic and data that support the achievement of a system quality. As an example consider system security. In order to have high security we may want to implement a user login function implying that the system needs to store data about user identities and secret passwords. As quality and functionality often come hand-in-hand, it is often wise to specify these aspects together by letting feature models include both functional and quality aspects. However, many quality aspects are cross-cutting, with system-wide impact, so we also often need a high-level, verifiable model of quality at system level. 
+
+A further complication is that quality aspects often work against each other. For example, achieving high security often involved implementing features such as authentication and encryption, while these features can negatively impact the usability of the system.
+
+
+\subsection*{Requirements at Different Levels} 
+
+\subsubsection*{Levels of Abstraction}
 The Goal-Design scale
-\subsection*{Levels of details}
 
-\subsection*{Levels of aggregation}
+\subsubsection*{Levels of Details}
 
-\subsection*{Levels of formality}
+\subsubsection*{Levels of Aggregation}
 
+\subsubsection*{Levels of Formality}
 
+\section*{The Context of Requirements Engineering Process}
+
+Different kinds of products, markets, business models.
+
+\section*{Representing the Context of Requirements}
+
+Context Diagram.
 
 \section*{Requirements Engineering in relation to other disciplines}
 
 \begin{itemize}
-  \item \textbf{Software Engineering}
-  \item \textbf{Product Management}
-  \item \textbf{Project Management}
+  \item \textbf{Software and Systems Engineering}
+  \item \textbf{Product and Project Management}
   \item \textbf{Agile Development}
   \item \textbf{Open Source Software}
   \item \textbf{Software Testing}
-  \item \textbf{Configuration Management}
+  \item \textbf{Software Configuration Management}
   \item \textbf{Continuous Integration \& Continuous Delivery}
 \end{itemize}
 
------ 
+-----
+
+-----
+
+-----
+ 
+-----
 
 \section{What is a Requirement?}
 
