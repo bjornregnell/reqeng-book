@@ -95,9 +95,11 @@
 \begin{document}
 \maketitle
 
-\begin{frame}[fragile]{Who am I?}
+\begin{frame}[fragile]{Who is Björn Regnell?}
+\begin{minipage}[t][1.0\textheight]{0.78\textwidth}
+\vspace{0pt}
 \begin{itemize}
-\item Björn Regnell is Professor in Software Engineering at the Faculty of Engineering, LTH, Lund University, Sweden.
+\item Professor in Software Engineering at the Faculty of Engineering, LTH, Lund University, Sweden.
 \item Research areas: 
 \begin{itemize}
 \item Software Engineering
@@ -106,20 +108,24 @@
 \end{itemize}
 \item Current teaching: 
 \begin{itemize}
-  \item Software Requirements Engineering
-  \item Introduction to Programming in Scala 
+\item Software Requirements Engineering
+\item Introduction to Programming in Scala 
 \end{itemize}
 \item Homepage: 
 \begin{itemize}
 \item \url{https://cs.lth.se/bjorn-regnell}
 \end{itemize}
 \end{itemize}
+\end{minipage}%
+\hspace*{1em}\begin{minipage}[t][1.0\textheight]{0.22\textwidth}
+\vspace{0pt}\hfill\includegraphics[width=0.9\textwidth]{img/bjorn-regnell}
+\end{minipage}%
 \end{frame}
 
 \begin{frame}[fragile]{What is Requirements Engineering (RE)?}
 \begin{itemize}
 \item  Requirements Engineering (RE) is a sub-discipline of Software Engineering (SE) that is focused on the \textit{requirements} of software-intensive systems and their \textit{context}, which includes users and surrounding systems.
-\item When you work with anything related to the \textit{decision-making process} of software development and its underlying intentions you are doing requirements engineering.
+\item When you work with anything related to the \textit{decision-making process} of software development and its \emph{underlying intentions} you are doing requirements engineering.
 \end{itemize}
 \end{frame}
 
@@ -129,37 +135,47 @@
 \item A documented representation of \\something needed or wanted.
 \item The word ''requirement'' can have different meanings:
 \begin{itemize}
-\item An idea, a decision, a feature, a wish, a must, something optional, an important design detail, a rationale, ...
-\item Its most general meaning:
-\item[] any kind of information entity used in RE
+\item ... must, wish, idea, design detail, rationale, ...
+\item The most general meaning of ''requirement'':
+\item[] \emph{any} kind of information entity used in RE
 \end{itemize}
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{xx}
+\begin{frame}[fragile]{Activities in Requirements Engineering}
 \begin{itemize}
-\item xx 
-\begin{itemize}
-\item xx 
+\item \textbf{Elicitation}: learn, invent and agree.
+\item \textbf{Specification}: represent, communicate \& make persistent.
+\item \textbf{Validation}: check if requirements are good.
+\item \textbf{Selection}: prioritize, decide and plan.
 \end{itemize}
+\vspace*{1em}
+Often conducted concurrently and iteratively.
+\end{frame}
+
+\begin{frame}[fragile]{Aspects of Requirements Modelling}
+\begin{itemize}
+\item Qualities of requirements models
+\item Requirements on functionality and quality
+\item Requirements at Different Levels
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{xx}
+\begin{frame}[fragile]{Quality of Requirements Models}
+What is a good requirements model? good enough
+\\ \vspace*{1em}Examples of quality aspects fulfilled to some degree:
 \begin{itemize}
-\item xx 
-\begin{itemize}
-\item xx 
-\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{xx}
-\begin{itemize}
-\item xx 
-\begin{itemize}
-\item xx 
-\end{itemize}
+\item \textbf{Correctness}: reflect the expected, intended behavior
+\item \textbf{Unambiguity}: stakholders have similar interpretation
+\item \textbf{Completeness}: most important, relevant aspects included
+\item \textbf{Consistency}: no contradictions among requirements
+\item \textbf{Conciseness}: suitable level of abstraction and detail 
+\item \textbf{Comprehensibility}: understood by stakeholders 
+\item \textbf{Verifiability}: possible to check fulfillment 
+\item \textbf{Feasibility}: possible to implement, value to justifiable cost 
+\item \textbf{Traceability}: can be referred to, can find its origin
+\item \textbf{Modifyability}: easy to change, good structure
+\item \textbf{Ranked}: includes evaluations of importance and stability
 \end{itemize}
 \end{frame}
 
