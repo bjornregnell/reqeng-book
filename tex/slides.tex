@@ -95,7 +95,7 @@
 \begin{document}
 \maketitle
 
-\begin{frame}[fragile]{Who is Björn Regnell?}
+\begin{frame}[fragile]{About Björn Regnell}
 \begin{minipage}[t][1.0\textheight]{0.78\textwidth}
 \vspace{0pt}
 \begin{itemize}
@@ -143,27 +143,55 @@
 \end{frame}
 
 \begin{frame}[fragile]{Activities in Requirements Engineering}
+The work you do withing Requirements Engineering is often described in terms of these four activities:
 \begin{itemize}
-\item \textbf{Elicitation}: learn, invent and agree.
-\item \textbf{Specification}: represent, communicate \& make persistent.
-\item \textbf{Validation}: check if requirements are good.
-\item \textbf{Selection}: prioritize, decide and plan.
+\item \textbf{Elicitation}: learn, invent, agree.
+\item \textbf{Specification}: represent, persist, communicate.
+\item \textbf{Validation}: check that representations are good enough.
+\item \textbf{Selection}: prioritize, decide, plan.
 \end{itemize}
 \vspace*{1em}
-Often conducted concurrently and iteratively.
+These activities are often conducted \textbf{concurrently} and \textbf{iteratively}, throughout the product life-cycle.
+\end{frame}
+
+\begin{frame}[fragile]{The Context of Requirements Engineering}
+%\begin{itemize}
+%\item 
+How to best do RE is \textbf{highly context-dependent}:
+\begin{itemize} 
+\item \textbf{Stakeholder configuration}: relation customer -- supplier
+\\\textit{Type of Customer}: business partner, public authority, private consumer on a market
+\\\textit{Type of Supplier}: consultancy, product integrator, subcontractor, open-source contributor in a community
+\item \textbf{The funding model}, risk-sharing customer -- supplier:
+\\not-for-profit/donation, internal use, share of sales, fixed license fee, service subscription, freemium, ad-based, ... 
+\item \textbf{Level of customization}:
+\\generic, customized, customer specific
+\item \textbf{Hardware integration}:
+\\pure software, hardware + software
+\item \textbf{Network integration}:
+\\stand-alone, connected, distributed
+\item \textbf{Delivery model}:
+\\one-off, eventually updated, continuous delivery
+\end{itemize}
+%\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Aspects of Requirements Modelling}
 \begin{itemize}
-\item Qualities of requirements models
-\item Requirements on functionality and quality
-\item Requirements at Different Levels
+\item Finding the right level quality of requirements
+\begin{itemize}
+\item What is good enough for now?
+\item When are we ''ready'' with this part of the model?
+\end{itemize}
+\item Representing both functionality and quality aspects
+\item Representing requirements at different levels
+\item ...
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Quality of Requirements Models}
-What is a good requirements model? good enough
-\\ \vspace*{1em}Examples of quality aspects fulfilled to some degree:
+\begin{frame}[fragile]{Good enough requirements representations}
+What is a good enough requirements model?
+\\ \vspace*{0.5em}Examples of quality aspects fulfilled to some degree:
 \begin{itemize}
 \item \textbf{Correctness}: reflect the expected, intended behavior
 \item \textbf{Unambiguity}: stakholders have similar interpretation
@@ -179,67 +207,106 @@ What is a good requirements model? good enough
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{xx}
+\begin{frame}[fragile]{Requirements on System Functionality}
 \begin{itemize}
-\item xx 
+\item \textbf{Data}: information stored by the system 
 \begin{itemize}
-\item xx 
+\item domain-specific data entities
+\item format of input and output data
+\item representation of (externally visible) system state
+\end{itemize}
+
+\item \textbf{Logic}: the functional relation between input and output 
+\begin{itemize}
+\item logical behavior, state transitions, computation
+\item dynamic relation between input and output
+\begin{itemize}
+  \item specifying desired output given:
+  \item expected and unexpected input
+  \item current system state
+  \item relevant usage situations
+\end{itemize}
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Requriements on System Quality}
+\begin{itemize}
+\item Goodness of implementation of intended functionality 
+\begin{itemize}
+  \item A level on a sliding scale.
+  \item What is good enough?
+  \item System-wide or specific to a certain feature?
+\end{itemize}
+\item Examples of quality aspects:
+\begin{itemize}
+\item \textbf{Accuracy}: Precisions of data.
+\item \textbf{Capacity}: Resources per time unit.
+\item \textbf{Performance}: Response time.
+\item \textbf{Reliability}: Number of bugs, failure rate.
+\item \textbf{Security}: Protect system from damage by malicious users. 
+\item \textbf{Safety}: Protect users from being damaged by the system.
+\item \textbf{Maintainability}: Easy to fix bugs and adapt the system.
+\item \textbf{Usability}: Subjective and objective experience of users:\\ easy learn, supports my tasks, easy to remember, easy to understand, attractive: ''I like it!'' 
 \end{itemize}
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{xx}
+\begin{frame}[fragile]{Requirements at Different Levels}
 \begin{itemize}
-\item xx 
+\item Levels of Abstraction: the Goal-Design scale 
+\item Levels of Detail: amount and richness of information 
+\item Levels of Aggregation: grouping and linking 
+\item Levels of Formality: automatic checks of syntax and semantics, (partial) proofs of correctness
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Levels of abstraction: The Goal-Design scale}
 \begin{itemize}
-\item xx 
+\item Goal-level: represents the intentions of stakeholders; why? 
+\item Domain-level: represents how users collaborate with the system to achieve their goals
+\item Product-level: represents the relation between input and expected response; what?
+\item Design-level:\\represents upfront decisions on system design, how?\\often based on existing systems and standards, often needs extra validation e.g. prototyping
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Automated support for RE}
+\begin{itemize}
+\item Databases
+\item Support for writing, drawing, recording
+\item Traceability 
+\item Search and summarize
+\item Adapt views to specific stakeholders
+\item AI for RE
+\begin{itemize}
+\item AI support to elicit, specify, validate, select 
+\item Meta-level RE:\\RE for AI for RE
 \end{itemize}
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{xx}
+\begin{frame}[fragile]{Methods of Representation}
+Examples of requirements representations:
 \begin{itemize}
-\item xx 
+\item Context diagram
+\item Goal models: stakeholders, goals+relations (helps, hurts)
+\item Data Models: E/R-diagrams, Data dictionaries
+\item Feature Models (in text or pictures):\\why, what: function+data, examples of how,\\expected quality,\\links to other features and model
+\item Dynamic Models: 
 \begin{itemize}
-\item xx 
+\item Scenario-based models:\\narratives, user stories, task models, use case models
+\item State-transition models: state diagrams, transition matrices
+\item Test Cases: acceptance tests, system tests, unit tests
+\item User interface models: mockups, GUI Designs
 \end{itemize}
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{xx}
-\begin{itemize}
-\item xx 
-\begin{itemize}
-\item xx 
-\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{xx}
-\begin{itemize}
-\item xx 
-\begin{itemize}
-\item xx 
-\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{xx}
-\begin{itemize}
-\item xx 
-\begin{itemize}
-\item xx 
-\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{xx}
-\begin{itemize}
-\item xx 
-\begin{itemize}
-\item xx 
-\end{itemize}
-\end{itemize}
+\begin{frame}[fragile]{Representing the state of a feature}
+Example of how to represent the state of a feature:
+\includegraphics[width=0.9\textwidth]{img/ladder}
+''Feature release ladder''
 \end{frame}
 
 
