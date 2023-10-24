@@ -210,7 +210,7 @@ What is a good enough requirements model?
 \item \textbf{Feasibility}: possible to implement, value to justifiable cost 
 \item \textbf{Traceability}: can be referred to, can find its origin
 \item \textbf{Modifyability}: easy to change, good structure
-\item \textbf{Ranked}: includes evaluations of importance and stability
+\item \textbf{Ranked}: includes assessment of importance and stability
 \end{itemize}
 \end{frame}
 
@@ -363,26 +363,119 @@ Example state model of decision steps in feature refinement:
 \end{frame}
 
 \begin{frame}[fragile]{Requirements Elicitation Methods}
-  TODO
+\begin{itemize}
+\item Stakeholder analysis
+\item Interviews
+\begin{itemize}
+  \item Unstructured interviews: open questions, open topics
+  \item Structured interviews: closed questions, focused topics
+  \item Semi-structured: combine both
+\end{itemize}
+\item Surveys
+\item Group activities
+\begin{itemize}
+  \item Brainstorming
+  \item Focus groups
+  \item Demonstrations
+\end{itemize}
+\item Usability testing
+\item Usage statistics
+\item Feedback from marketing and support
+\item User and developer communities
+\item Mining social media
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Requirements Validation Methods}
-  TODO
+\begin{itemize}
+\item Inspections
+\item Checklists
+\item Automated checks
+\item Usability testing
+\item Focus groups
+\item Prototyping
+\item Simulation
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Requirements Selection Methods}
-  TODO
+What is in and what is out (for now)?
+\begin{itemize}
+\item Prioritization: assessing value and cost, making trade-offs
+\item Road-mapping: long-term product strategy 
+\item Release planning: delivery commitments under constraints
+\item Being adaptable to changes in plans and strategies
+\item Technical debt assessment
+\end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Proposed topics for further studies}
-  TODO
+\begin{frame}[fragile]{Definition of Requirements Selection Quality}
+\footnotesize
+\textbf{If} we had perfect information about the all requirements \textbf{and} the ability to precisely predict the future \textbf{then} we could partition all requirements based on their quality (value versus cost) into:
+\begin{itemize}\footnotesize
+\item \textbf{Alfa}-requirements: should be \textit{selected} by perfect wisdom
+\item \textbf{Beta}-requirements: should be \textit{rejected} by perfect wisdom
+\end{itemize}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{img/alfa-beta-reqts}
+\end{center}
+{
+Product quality: \hspace{0.5em}{\Large $\frac{A}{A + C}$}\hfill
+Selection quality:\hspace{0.5em}{\Large $\frac{A + D}{A + B + C + D}$}
+}
 \end{frame}
 
-\begin{frame}[fragile]{Selected Starting-points for literature search}
-  Further reading: TODO Lauesen MDRE etc
+
+\begin{frame}[fragile]{Prioritization Methodology}
+
+\begin{itemize}
+\item Different aspects to rank
+\begin{itemize}
+  \item value, cost, risk, volatility 
+\end{itemize}
+\item Different scales with different 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{The QUPER model: prioritizing quality requirements}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{img/quper}
+\end{center}
+{\footnotesize ''Supporting Roadmapping of Quality Requirements'' 
+\\ B. Regnell, R. Berntsson Svensson, T. Olsson, \emph{IEEE} Software (2008)}
+\end{frame}
+  
+
+\begin{frame}[fragile]{Written report in Requirements Enigeering}
+\begin{itemize}
+\item You can choose to do your written report in the RE Module
+\item Select a topic of interest
+\item Make a literature search
+\item Discuss with peers
+\item Hand-in for feedback
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Literature: starting-points for literature search}
+\footnotesize
+\url{https://cs.lth.se/bjorn-regnell/publications/}\\
+\url{https://scholar.google.se/}\\
+\vfill
+Part of preparation:
+\begin{itemize}\footnotesize
+  \item ''Requirements engineering challenges in market-driven
+  software development -- An interview study with practitioners'' \\ L. Karlsson, Å. G. Dahlstedt, B. Regnell, J. Natt och Dag, A. Persson, \emph{Information and Software Technology} (2008) 
+\end{itemize}
+
+  Further reading: 
+\begin{itemize}\footnotesize
+  \item ''Market-Driven Requirements Engineering for Software Products'' \\ B. Regnell, S. Brinkkemper \\ \emph{Chapter 13 in the book ''Engineering and Managing Software Requirements'' Eds. Wholin \& Aurum},  ISBN 3 540 25043 3 (2005)
+  \item ''Supporting Roadmapping of Quality Requirements'' \\ B. Regnell, R. Berntsson Svensson, T. Olsson, \emph{IEEE} Software (2008) 
+  \item ''Software requirements -- styles and techniques'' \\ S. Lauesen, ISBN 0 201 74570 4  (2002) 
+\end{itemize}
+
 \end{frame}
 
 
-    
 \end{document}
 
