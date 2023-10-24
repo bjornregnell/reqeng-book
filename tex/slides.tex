@@ -95,6 +95,8 @@
 \begin{document}
 \maketitle
 
+%AI images generated from https://perchance.org/ai-text-to-image-generator
+
 \begin{frame}[fragile]{About Björn Regnell}
 \begin{minipage}[t][1.0\textheight]{0.78\textwidth}
 \vspace{0pt}
@@ -123,13 +125,21 @@
 \end{frame}
 
 \begin{frame}[fragile]{What is Requirements Engineering (RE)?}
+\begin{minipage}[t]{0.6\textwidth}
+\vspace{0pt}
 \begin{itemize}
 \item  Requirements Engineering (RE) is a sub-discipline of Software Engineering (SE) that is focused on the \textit{requirements} of software-intensive systems and their \textit{context}, which includes users and surrounding systems.
 \item When you work with anything related to the \textit{decision-making process} of software development and its \emph{underlying intentions} you are doing requirements engineering.
 \end{itemize}
+\end{minipage}%
+\begin{minipage}[t]{0.4\textwidth}
+\vspace{0pt}\hfill\includegraphics[width=0.8\textwidth]{img/robot1}
+\end{minipage}%
 \end{frame}
 
 \begin{frame}[fragile]{What is a requirement?}
+\begin{minipage}[t]{0.6\textwidth}
+\vspace{0pt}
 \begin{itemize}
 \item Something needed or wanted.
 \item A documented representation of \\something needed or wanted.
@@ -137,9 +147,16 @@
 \begin{itemize}
 \item ... must, wish, idea, design detail, rationale, ...
 \end{itemize}
-\item The most general meaning of ''requirement'':
-\item[] \emph{any} kind of information entity used in RE
+\item The most general meaning:\\
+\emph{any} kind of information entity used in RE
+\item You don't always get what you want and you often want things that you don't need
 \end{itemize}
+\end{minipage}%
+\begin{minipage}[t]{0.4\textwidth}
+  \vspace{0pt}
+  \hfill
+\includegraphics[width=0.8\textwidth]{img/light-bulb3}
+\end{minipage}%
 \end{frame}
 
 \begin{frame}[fragile]{Activities in Requirements Engineering}
@@ -185,6 +202,8 @@ How to best do RE is \textbf{highly context-dependent}:
 \end{frame}
 
 \begin{frame}[fragile]{Requirements Modelling}
+\begin{minipage}[t]{0.6\textwidth}
+\vspace{0pt}
 \begin{itemize}
 \item Finding the right level of quality of representations:
 \begin{itemize}
@@ -194,6 +213,11 @@ How to best do RE is \textbf{highly context-dependent}:
 \item Representing related functionality and quality
 \item Representing requirements at different levels
 \end{itemize}
+\end{minipage}%
+\begin{minipage}[t]{0.4\textwidth}
+\vspace{0pt}
+\hfill\includegraphics[width=0.8\textwidth]{img/network3.jpeg}
+\end{minipage}%
 \end{frame}
 
 \begin{frame}[fragile]{Good enough requirements representations}
@@ -215,6 +239,8 @@ What is a good enough requirements model?
 \end{frame}
 
 \begin{frame}[fragile]{Requirements on System Functionality}
+\begin{minipage}[t]{0.7\textwidth}
+\vspace{0pt}
 \begin{itemize}
 \item \textbf{Data}: information stored by the system 
 \begin{itemize}
@@ -222,20 +248,23 @@ What is a good enough requirements model?
 \item format of input and output data
 \item representation of (externally visible) system state
 \end{itemize}
-
-\item \textbf{Logic}: the functional relation between input and output 
+\item \textbf{Logic}: computing input from output 
 \begin{itemize}
-\item logical behavior, state transitions, computation
-\item dynamic relation between input and output
+\item logical behavior, state transitions
+\item specifying desired output given:
 \begin{itemize}
-  \item specifying desired output given:
   \item expected and unexpected input
   \item current system state
   \item relevant usage situations
 \end{itemize}
+\item create, read, update, delete
 \end{itemize}
-
 \end{itemize}
+\end{minipage}%
+\begin{minipage}[t]{0.3\textwidth}
+\vspace{0pt}
+\hfill\includegraphics[width=0.9\textwidth]{img/cogs}
+\end{minipage}%
 \end{frame}
 
 \begin{frame}[fragile]{Requriements on System Quality}
@@ -261,11 +290,13 @@ What is a good enough requirements model?
 \end{frame}
 
 \begin{frame}[fragile]{Requirements at Different Levels}
+\begin{minipage}[t]{0.7\textwidth}
+\vspace{0pt}
 \begin{itemize}
-\item Levels of Abstraction: the Goal-Design scale 
+\item Levels of Abstraction:\\the Goal-Design scale 
 \item Levels of Detail: amount and richness of information 
-\item Levels of Aggregation: grouping and linking 
-\item Levels of Formality: from unstructured to mathematical
+\item Levels of Aggregation:\\grouping and linking 
+\item Levels of Formality:\\from unstructured to mathematical
 \begin{itemize}
 \item Very informal: free-form representation, no explicit rules
 \item Very formal: syntax, semantics, inference, meta-language
@@ -273,6 +304,11 @@ What is a good enough requirements model?
 \item Formalization requires effort, knowledge, skills, ...
 \end{itemize}
 \end{itemize}
+\end{minipage}%
+\begin{minipage}[t]{0.35\textwidth}
+\vspace{0pt}
+\hfill\includegraphics[width=0.9\textwidth]{img/stairs1}
+\end{minipage}%
 \end{frame}
 
 \begin{frame}[fragile]{Levels of abstraction: The Goal-Design scale}
@@ -426,14 +462,39 @@ Selection quality:\hspace{0.5em}{\Large $\frac{A + D}{A + B + C + D}$}
 \end{frame}
 
 
-\begin{frame}[fragile]{Prioritization Methodology}
+
+\begin{frame}[fragile]{Requirements Prioritization: value versus cost}
+Cost-value diagramn with alfa- \& beta-requirements.
+\begin{center}
+\includegraphics[width=1.0\textwidth]{img/cost-value}
+\end{center}
+Uncertain estimates of value \& cost $\rightarrow$ sub-optimal decisions.
+\end{frame}
+
+\begin{frame}[fragile]{Requirements Prioritization}
 
 \begin{itemize}
-\item Different aspects to rank
+\item Examples of different aspects to rank on some scale
 \begin{itemize}
-  \item value, cost, risk, volatility 
+  \item value: financial benefit, urgency, strategic value, market share, brand fitness, release theme, ...
+  \item cost: staff effort, lead time, training, runtime costs, ... 
+  \item risk: technical risk, market risk, competence risk, ...
+  \item volatility: rate of change, uncertainties, ...
 \end{itemize}
-\item Different scales with different 
+\item Different types of scales with different power
+\begin{itemize}
+  \item categorization \{A, B\}: must, ambiguous, volatile
+  \item ordinal scale $A > B$: higher value, more expensive 
+  \item ratio scale $A = k \cdot B$: amount of money, hours, percentage
+\end{itemize}
+\item Different methods, can be combined
+\begin{itemize}
+  \item grouping, e.g. post-it notes on a white-board
+  \item select top N, e.g. N=5
+  \item grading of singular requirements, e.g. 1..5, high--medium--low 
+  \item ordering by pair-wise comparison (sorting)
+  \item \$100-test: distribute fictitious money to reflect priority
+\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -448,15 +509,16 @@ Selection quality:\hspace{0.5em}{\Large $\frac{A + D}{A + B + C + D}$}
 
 \begin{frame}[fragile]{Written report in Requirements Enigeering}
 \begin{itemize}
-\item You can choose to do your written report in the RE Module
 \item Select a topic of interest
-\item Make a literature search
+\item Literature search
+\item Read selected papers
 \item Discuss with peers
-\item Hand-in for feedback
+\item Write report
+\item Get feedback
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Literature: starting-points for literature search}
+\begin{frame}[fragile]{Literature: starting-points for literature search in RE}
 \footnotesize
 \url{https://cs.lth.se/bjorn-regnell/publications/}\\
 \url{https://scholar.google.se/}\\
