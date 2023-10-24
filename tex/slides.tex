@@ -151,7 +151,15 @@ The work you do withing Requirements Engineering is often described in terms of 
 \item \textbf{Selection}: prioritize, decide, plan.
 \end{itemize}
 \vspace*{1em}
-These activities are often conducted \textbf{concurrently} and \textbf{iteratively}, throughout the product life-cycle.
+\begin{minipage}[t]{0.6\textwidth}
+\vspace{0pt}
+These activities are often conducted \textbf{concurrently} and \textbf{iteratively}.
+\end{minipage}%
+\begin{minipage}[t]{0.4\textwidth}
+\vspace{0pt}
+\hfill\includegraphics[width=0.8\textwidth]{img/juggling-cropped}
+\end{minipage}%
+
 \end{frame}
 
 \begin{frame}[fragile]{The Context of Requirements Engineering}
@@ -257,7 +265,13 @@ What is a good enough requirements model?
 \item Levels of Abstraction: the Goal-Design scale 
 \item Levels of Detail: amount and richness of information 
 \item Levels of Aggregation: grouping and linking 
-\item Levels of Formality: automatic checks of syntax and semantics, (partial) proofs of correctness
+\item Levels of Formality: from unstructured to mathematical
+\begin{itemize}
+\item Very informal: free-form representation, no explicit rules
+\item Very formal: syntax, semantics, inference, meta-language
+\item Formality enables automatic checks, concise models, ...
+\item Formalization requires effort, knowledge, skills, ...
+\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -270,28 +284,41 @@ What is a good enough requirements model?
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Automated support for RE}
+\begin{frame}[fragile]{Levels of Formality: a difficult tradeoff}
+
 \begin{itemize}
-\item Databases
-\item Support for writing, drawing, recording
-\item Traceability 
-\item Search and summarize
-\item Adapt views to specific stakeholders
-\item AI for RE
+\item Formality in various aspects to a varying degree: 
 \begin{itemize}
-\item AI support to elicit, specify, validate, select 
-\item Meta-level RE:\\RE for AI for RE
+  \item Very informal: free-form representation, no explicit rules\\examples: slide presentation, interview recording
+  \item Very formal: all aspects of syntax, semantics, inference, meta-language are formalized\\example: state-machines, lambda calculus
+\end{itemize}
+\item Advantages of formalization:
+\begin{itemize}
+\item Reduced ambiguity
+\item More concise models
+\item Enables tooling: automatic checks, proof of soundness, ... 
+\end{itemize}
+\item Disadvantages of formalization:
+\begin{itemize}
+\item Harder to understand
+\item Requires effort, specialized knowledge and skills
+\item Limited in scope and expressive power
+\item Some stakeholders cannot contribute in validation 
 \end{itemize}
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Methods of Representation}
-Examples of requirements representations:
+\begin{frame}[fragile]{Requirements Specification Methods}
+Different kinds of representations:
+\begin{itemize}
+\item Text, photos, drawings, diagrams, movies, prototypes, ...
+\end{itemize}
+Examples of requirements models:
 \begin{itemize}
 \item Static models: What exists in the domain and product?
 \begin{itemize}
-\item System scope: context diagram, actors, interfaces
 \item Goal models: stakeholders, goals+relations (helps, hurts)
+\item System scope: context diagram, actors, interfaces
 \item Data models: E/R-diagrams, Data dictionaries
 \item Feature models (in text or pictures):\\why, what: functions+data, examples of how,\\expected quality,\\links to other features and models
 \end{itemize}
@@ -305,6 +332,29 @@ Examples of requirements representations:
 \end{itemize}
 \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]{Automated support for RE}
+Why tools?
+\begin{itemize}
+\item We want to boost our productivity.
+\item The amount of information grows very quickly.
+\item We need to adapt different views to specific stakeholders.
+\item We need support for searching and summarizing.
+\item Manual traceability management is very tedious!
+\end{itemize}
+Which tools?
+\begin{itemize}
+\item Generic tools for writing, drawing, databases, ...
+\item Specialized tools, e.g. DOORS, Jira, openproject.org, ...
+\item Artificial Intelligence for RE
+\begin{itemize}
+\item AI support to elicit, specify, validate, select 
+\item Meta-level RE:\\RE for: AI for RE
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+  
 
 \begin{frame}[fragile]{Representing the implementation status of a feature}
 Example state model of decision steps in feature refinement:
