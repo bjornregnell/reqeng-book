@@ -21,9 +21,9 @@
 \item Surveys
 \item Group activities
 \begin{itemize}
-  \item Brainstorming
-  \item Focus groups
-  \item Demonstrations
+  \item Brainstorming -- generate ideas, creativity games
+  \item Focus groups -- gather a group of stakeholders
+  \item Demonstrations -- work enactment in a usage context
 \end{itemize}
 \item Usability testing
 \item Usage statistics
@@ -31,6 +31,8 @@
 \item User and developer communities
 \item Mining social media
 \end{itemize}
+\small  Some methods are good for both elicitation and validation, e.g:\\
+focus groups, usability testing
 \end{frame}
   
 
@@ -59,42 +61,145 @@ Examples of requirements models:
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Requirements Validation Methods}
+\begin{frame}[fragile]{Context Diagram}
 \begin{itemize}
-\item Inspections
-\item Checklists
-\item Automated checks
-\item Usability testing
-\item Focus groups
-\item Prototyping
-\item Simulation
+\item A context diagram depicts the domain in terms of external entities (actors) that interact with the system via interfaces
+\item The system under development is a ''black box'', no internal structure is shown -- it is the context that is in focus
+\item Often only includes the inner domain (direct actors) and not the outer domain (indirect actors)
+\item Interfaces are named and linked to specifications of data requirements, protocols, GUI prototypes
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Specificy features by mixed levels of abstraction}
+You can use several parts of the Goal-Design scale when you specify a feature:
+  \begin{itemize}
+\item \textbf{Goal-level}: provide the rational of \emph{why} this feature is needed, link to goal model 
+\item \textbf{Domain-level}: describe a usage context and how the feature is used, both normal and exceptional usage, variants, domain-level events, etc.
+\item \textbf{Product-level}: describe the input-output relation, normal and exceptional input/output, product-level events, etc.
+\item \textbf{Design-level}: give examples and expectations but often best to explicitly state that they are \emph{only} examples; you don't want to constrain the solution space too hard
+\end{itemize}
+If you want to only specify some of these levels, it is often most valuable to select the \textbf{higher} rather than the lower levels, in terms of reducing the risk of implementing the wrong features.
+\end{frame}
+
+\begin{frame}[fragile]{Scenario-based requirements}
+\begin{itemize}
+  \item User stories
+  \item Task descriptions
+  \item Use cases
+  \item Narrative scenarios
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Specifying Quality Requirements}
+\begin{itemize}\small
+\item Which quality requirements should we specify? \\ {\footnotesize 
+accuracy, capacity, performance, reliability, security, safety, maintainability, usability, ... }
+\item Challenges:
+\begin{enumerate}\footnotesize
+\item can be system-wide or specific to a function
+\item can be fulfilled to a certain degree on a sliding scale
+\item a measurement scale can be difficult to define
+\item can be difficult to measure and select targets (is it feasible?)
+\item sometimes subjective in the view of a certain stakeholder
+\item quality aspects are often mutually dependent and overlapping,\\
+      example: usability depends on performance and reliability
+\item quality aspects may be conflicting, examples: \\ higher security may mean lower usability, \\ higher performance may mean lower maintainability
+\end{enumerate}
+\item Approaches:
+\begin{itemize}\footnotesize
+\item Define a \textbf{scale} and set a \textbf{target} in a context with a \textbf{margin}
+\item Prioritize which aspects are more \textbf{important} than others
+\item Leave undecided aspects \textbf{open} to the supplier/developer:
+\item[] \textbf{Open target}: Define a scale but leave value open (+ expectation)
+\item[] \textbf{Open metric}: Leave the scale open
+\item Quality aspects can often be turned into functionality,\\
+      example: a security goal lead to a login function
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Requirements Validation Methods}
+Things to check:
+\begin{itemize}\small
+\item The quality of your requirements models:\\correct, unambiguous, complete, consistent, concise, comprehensible, verifiable, feasible, traceable, modifiable...  
+\item Checking each representation in isolation
+\item Checks of consistency among representations
+\item Check rationale (goals, domain-level information, why?)
+\end{itemize}
+  
+Methods for checking requirements:
+\begin{itemize}\small
+\item Inspections -- humans inspect (read) models
+\item Checklists  -- common mistakes, important checks
+\item Automated checks -- tool support
+\item Prototyping -- proof-of-concept to validate feasibility
+\item Usability testing  -- find real or proxy users, use prototype
+\item Focus groups  -- gather a group of stakeholders
+\item Simulation -- event-based or continuous model, statistics
 \end{itemize}
 \end{frame}
   
+\begin{frame}[fragile]{Specifying Usability}
+Aspects of usability (user experience, UX):
+\begin{itemize}
+\item It is easy to learn how to use the system
+\item I can efficiently carry out my tasks
+\item I can easily remember how to use the system
+\item I can understand what I need to do and what happens (clear mental model)
+\item I like it! (subjective satisfaction, great user experience)
+\end{itemize}
+Some approaches to specification:
+\begin{itemize}
+\item Characterize max level of usability problems per time unit
+\item Characterize task efficiency, given user experience level 
+\item Require minimum results in user surveys on satisfaction 
+\item Design and prototype a UI and usability test it
+\item Requirements on the development process: ''you have to use prototyping and usability testing like so: ...''
+\item Require the the system comply with style guides and usability standards
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Specification by referring to standards}
+Sometimes it is suitable to specify requirements on functionality or quality by referring to standards relevant to your domain.
+\begin{itemize}
+\item Some advantages:
+\begin{itemize}
+\item [+] Less work:\\the knowledge is already elicited, specified and validated
+\item [+] Your specification becomes more concise
+\item [+] Accepted quality and functionality standards of the domain gives credibility
+\end{itemize}
+\item Some disadvantages:
+\begin{itemize}
+\item [-] False sense of security:\\ standards might be ambiguous, incomplete, ...
+\item [-] The standard may be ''over-kill'', difficult to understand
+\item [-] All or nothing if you want to claim compliance:\\can imply many more requirements that also needs to be implemented
+\end{itemize}
+\end{itemize}
+\end{frame}
 
 \begin{frame}[fragile]{Requirements Selection Methods}
-What is in and what is out (for now)?
 \begin{itemize}
-\item Prioritization: assessing value and cost, making trade-offs
+\item Software development is an on-going decision process that is enacted throughout the product lifecycle.
+\item What is in and what is out at this particular point in time?
+\item Methods:
+\begin{itemize}
+  \item Prioritization
+  \begin{itemize}
+\item assessing value and cost, making trade-offs
+\item volatility assessment
+\item risk assessment
+\item technical debt assessment
+\end{itemize}
 \item Road-mapping: long-term product strategy 
 \item Release planning: delivery commitments under constraints
 \item Being adaptable to changes in plans and strategies
-\item Technical debt assessment
+\end{itemize}
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}[fragile]{Requirements Validation Methods}
-\begin{itemize}
-\item Inspections
-\item Checklists
-\item Automated checks
-\item Usability testing
-\item Focus groups
-\item Prototyping
-\item Simulation
-\end{itemize}
-\end{frame}
 
 \begin{frame}[fragile]{Requirements Prioritization}
 
@@ -103,8 +208,9 @@ What is in and what is out (for now)?
 \begin{itemize}
   \item value: financial benefit, urgency, strategic value, market share, brand fitness, release theme, ...
   \item cost: staff effort, lead time, training, runtime costs, ... 
-  \item risk: technical risk, market risk, competence risk, ...
   \item volatility: rate of change, uncertainties, ...
+  \item risk: technical risk, market risk, competence risk, ...
+  \item ...
 \end{itemize}
 \item Different types of scales with different power
 \begin{itemize}
@@ -168,17 +274,28 @@ What is in and what is out (for now)?
   
 \end{frame}
 
-% \vfill
-% Part of preparation:
-% \begin{itemize}\footnotesize
-%   \item ''Requirements engineering challenges in market-driven
-%   software development -- An interview study with practitioners'' \\ L. Karlsson, Å. G. Dahlstedt, B. Regnell, J. Natt och Dag, A. Persson, \emph{Information and Software Technology} (2008) 
-% \end{itemize}
-
-\begin{frame}[fragile]{Recommended reading in RE}
+\begin{frame}[fragile]{Recommended conference: REFSQ2024 April 8--11}
 \begin{itemize}
+\item I \textbf{sincerely recommend} to visit the REFSQ conference:
+\item[] Requirements Engineering:\\Foundation for Software Quality
+\item[] 
+\item Mon 8 -- Thu 11 April 2024 Winterthur, Switzerland 
+\item \textbf{Industry track}: discuss with other RE practitioners
+\item[] Contact the industry track chairs if you want to speak or contribute in other ways -- perhaps you want to send a whole group from BorgWarner?
+\item \textbf{Research track}: cool new methods are investigated
+\item [] ''you heard it first at REFSQ''
+\item []
+\item   \url{https://2024.refsq.org/}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Recommended literature}
+\begin{itemize}\footnotesize%\fontsize{8}{10}\selectfont
 \item ''Supporting Roadmapping of Quality Requirements'' \\ B. Regnell, R. Berntsson Svensson, T. Olsson, \emph{IEEE} Software (2008) 
-\item ''Software requirements -- styles and techniques'' \\ S. Lauesen, ISBN 0 201 74570 4  (2002) 
+\item ''Requirements engineering challenges in market-driven software development -- An interview study with practitioners'' \\ L. Karlsson, Å. G. Dahlstedt, B. Regnell, J. Natt och Dag, A. Persson, \emph{Information and Software Technology} (2008) 
+\item ''Market-Driven Requirements Engineering for Software Products'' \\ B. Regnell, S. Brinkkemper \\ \emph{Chapter 13 in the book ''Engineering and Managing Software Requirements'' Eds. Wholin \& Aurum},  ISBN 3 540 25043 3 (2005)
+\item ''Software Requirements - Styles and Techniques'', Soren Lauesen, Addison--Wesley, ISBN 0-201-74570-4, 2002.
 \end{itemize}
 \end{frame}
 
