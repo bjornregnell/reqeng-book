@@ -62,12 +62,15 @@ Examples of requirements models:
 \end{frame}
 
 \begin{frame}[fragile]{Context Diagram}
+\vspace{1em}\hspace{6em}%
+\includegraphics[width=0.65\textwidth]{img/context-diagram-cash-register}
 \begin{itemize}
-\item A context diagram depicts the domain in terms of external entities (actors) that interact with the system via interfaces
-\item The system under development is a ''black box'', no internal structure is shown -- it is the context that is in focus
-\item Often only includes the inner domain (direct actors) and not the outer domain (indirect actors)
-\item Interfaces are named and linked to specifications of data requirements, protocols, GUI prototypes
+\item A context diagram depicts the domain in terms of \textbf{external} entities (actors) that interact with the system via interfaces.
+\item The system under development is a ''black box'', no internal structure is shown -- it is the context that is in focus.
+\item Often only includes the \textbf{inner} domain (direct actors) and not the \textbf{outer} domain (indirect actors).
+\item Interfaces are named and linked to specifications of data requirements, protocols, GUI prototypes.
 \end{itemize}
+
 \end{frame}
 
 \begin{frame}[fragile]{Specificy features by mixed levels of abstraction}
@@ -82,11 +85,20 @@ If you want to only specify some of these levels, it is often most valuable to s
 \end{frame}
 
 \begin{frame}[fragile]{Scenario-based requirements}
-\begin{itemize}
-  \item User stories
-  \item Task descriptions
-  \item Use cases
-  \item Narrative scenarios
+\begin{itemize}\small
+  \item \textbf{User stories}
+  \item [] Levels: goal, domain
+  \item [] short, informal, textual:\\{\footnotesize\it ''As a [user role] I want to [use feature], so that [goal is fulfilled].''} 
+  \item \textbf{Task descriptions}
+  \item [] Levels: (goal), domain, (product)
+  \item [] Describes how a user in a work environment collaborate with the system to achieve goal / complete tasks.\\Subtasks are unordered. 
+  \item \textbf{Use cases}
+  \item [] Levels: (goal), (domain), product, design
+  \item [] Textual description and sequence diagram
+  \item [] Describes the interaction between an actor and the system
+  \item [] Events are ordered (interaction design) 
+  \item \textbf{Narrative scenarios}
+  \item [] A rich, textual or pictorial description in the form of a short story (text, cartoon, video) that exemplify what imagined humans do, think and feel during a particular, concrete usage scene. 
 \end{itemize}
 \end{frame}
 
