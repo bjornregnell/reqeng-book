@@ -10,6 +10,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[scaled=0.95]{beramono}
+%\usepackage[scaled=0.85]{noto}
 \usepackage[scale=1.0]{tgheros}
 \usepackage{fancyvrb}
 \usepackage{xcolor}

@@ -35,6 +35,7 @@
 
 \usepackage{xcolor} % provides definecolor
 \definecolor{mylinkcolor}{rgb}{0,0.1,0.5}
+\definecolor{myslideheadcolor}{rgb}{0,0.0,0.6}
 
 % \definecolor{mygreen}{rgb}{0,0.4,0}
 % \definecolor{myemphcolor}{rgb}{0,0.4,0.1}
@@ -146,9 +147,11 @@
 \newenvironment{Slide}[1]{%
 % Code for box design goes here.
 \begin{mdframed}[backgroundcolor=blue!10]\relax
-  %\fontfamily{lmss}\selectfont  %qhv phv lmss cmss
-  \textbf{#1}
-}{%
+  \fontfamily{qhv}\fontsize{9}{11}\selectfont  %qhv phv lmss cmss
+  \textcolor{myslideheadcolor}{\textbf{#1}}
+  \begin{flushleft}
+  }{%
+\end{flushleft}
 \end{mdframed}
 }
 
@@ -199,6 +202,8 @@ Introduction to\\Software Requirements Engineering
 
 \chapter{Introduction}%
 \MarginPage{%
+\input{../tex/slides/01-what-is-RE.tex}
+
 \begin{Slide}{What is a requirement?}
   \begin{itemize}
     \item Something \textbf{needed} or \textbf{wanted}.
@@ -210,6 +215,7 @@ Introduction to\\Software Requirements Engineering
     \item You don't always get what you want and you often want things that you don't need...
   \end{itemize}
 \end{Slide}
+
 
 % \begin{figure}[H]
 %   \includegraphics[width=1.0\textwidth]{cog1}%
