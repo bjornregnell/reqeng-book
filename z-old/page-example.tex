@@ -1,17 +1,21 @@
-\documentclass[a4paper,11pt,oneside]{book}
+\documentclass[a4paper,10pt,oneside]{book}
 \usepackage[landscape]{geometry} % to change margins:
 \geometry{hmargin={4.5cm,4.5cm}}
 \geometry{vmargin={1.5cm,1.5cm}}
 \usepackage{marginnote} % allows the command: \marginnote{some text in marin}
 \usepackage{float} % control placement of figures etc. provides the H float modifier option
+% if you are inside a multicols environment you MUST use only H for a float to work
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
 %% FONT PACKAGES
-\usepackage[scaled=0.85]{beramono} % monospace
-\usepackage{tgtermes} % serif: clone of Times
-\usepackage{tgheros} % sans serif: clone of Helvetica
+%\usepackage[scaled=0.85]{beramono} % monospace
+\usepackage[sfdefault,scaled=0.85]{noto}
+
+%\usepackage[sfdefault,scaled=0.85]{FiraSans}
+%\usepackage{tgtermes} % serif: clone of Times
+%\usepackage{tgheros} % sans serif: clone of Helvetica
 
 % \usepackage{tgbonum} %serif font to TeX Gyre Bonum (clone of Bookman,*)
 % \usepackage{fouriernc} % serif: New Century Schoolbook
@@ -87,7 +91,11 @@
 \usepackage{hyphenat} % for controloing hyphenation
  \hyphenation{sekvens-algoritmer}
 
-\usepackage{multicol} \setlength{\columnsep}{15mm}  % for multocolumn parts
+\usepackage{multicol} 
+\setlength{\columnsep}{7.5mm}  % for multocolumn parts
+
+\usepackage{wrapfig}  %% allow use floating figures inside multicol  
+% https://www.overleaf.com/learn/latex/Multiple_columns
 
 \usepackage{listings}  % for typesetting code
 
@@ -128,8 +136,33 @@
 \tikzstyle{umlarrow}=[->, >=open triangle 90, thick]
 
 
-\usepackage{framed}  %  allows:   \begin{framed}\end{framed}
+%\usepackage{framed}  %  allows:   \begin{framed}\end{framed}
 %https://ctan.math.illinois.edu/macros/latex/contrib/framed/framed.pdf
+\usepackage[framemethod=TikZ]{mdframed} %  allows:   \begin{mdframed}[backgroundcolor=blue!20]\end{mdframed}
+
+% \usepackage[defaultsans,scaled=0.85]{droidsans}
+% \renewcommand*\familydefault{\sfdefault}
+
+\newenvironment{Slide}[1]{%
+% Code for box design goes here.
+\begin{mdframed}[backgroundcolor=blue!10]\relax
+  %\fontfamily{lmss}\selectfont  %qhv phv lmss cmss
+  \textbf{#1}
+}{%
+\end{mdframed}
+}
+
+
+\newcommand{\MarginPage}[1]{%
+\begin{tikzpicture}[remember picture, overlay, anchor = north] %% remember picture allows referring to nodes outside
+\node[align=left,yshift=0mm] at (0.53\paperwidth, 0.12\paperheight) { %  add draw, before align to get frame
+\begin{minipage}{90mm}
+#1
+\end{minipage}%
+};
+\end{tikzpicture}%
+}
+  
 
 
 \newcommand{\TODO}{\colorbox{red!70}{TODO!!!}~}  
@@ -154,72 +187,156 @@ Introduction to\\Software Requirements Engineering
 
 \setcounter{tocdepth}{2}
 
-\begin{multicols}{2}
+\begin{multicols*}{2}  % * means unbalanced columns allowed
 \footnotesize
 \tableofcontents
 \mainmatter
-\end{multicols}
+\end{multicols*}
 
-\newgeometry{hmargin={4.5cm,15.0cm},vmargin={1.5cm,1.5cm}}
+\newgeometry{hmargin={45mm,145mm},vmargin={15mm,15mm}}
 
 \pagenumbering{arabic}
 
-\chapter{Introduction}
-Requirements Engineering (RE) is a sub-discipline of Software Engineering (SE) that is focused on the \textit{requirements} of software-intensive systems and their \textit{context}, which includes users and surrounding systems.
-\begin{tikzpicture}[remember picture, overlay, shift=(current page.south west)]
-\node[draw,align=left,fill=blue!10, fill opacity=0.8] at (20.3cm,16cm) {%
-\begin{minipage}{8.5cm}
-\vspace{0.5em}
-\sffamily\footnotesize
-\subsubsection*{What is Requirements Engineering (RE)?}
-\begin{itemize}
-  \item Something \textbf{needed} or \textbf{wanted}.
-  \item A documented \textbf{representation} of \\something needed or wanted.
-  \item The word ''requirement'' can have different meanings:
+\chapter{Introduction}%
+\MarginPage{%
+\begin{Slide}{What is Requirements Engineering (RE)?}
   \begin{itemize}
-  \item must, wish, idea, specific design, rationale, ...
+    \item Something \textbf{needed} or \textbf{wanted}.
+    \item A documented \textbf{representation} of \\something needed or wanted.
+    \item The word ''requirement'' have different meanings:\\
+      must, wish, idea, specific design, rationale, ...
+    \item The most \textbf{general meaning}:\\
+    \emph{any} kind of \textbf{information entity} used in RE
+    \item You don't always get what you want and you often want things that you don't need...
   \end{itemize}
-  \item The most \textbf{general meaning}:\\
-  \emph{any} kind of \textbf{information entity} used in RE
-  \item You don't always get what you want and you often want things that you don't need...
-  \end{itemize}
-  \vspace{0.5em}
-\end{minipage}
-};
-\end{tikzpicture}%
+
+\end{Slide}
+
+% \begin{figure}[H]
+%   \includegraphics[width=1.0\textwidth]{cog1}%
+%   % \begin{minipage}{\linewidth}
+%   %   hello hello
+%   % \end{minipage}
+% \end{figure}
+
+}%
+Requirements Engineering (RE) is a sub-discipline of Software Engineering (SE) that is focused on the \textit{requirements} of software-intensive systems and their \textit{context}, which includes users and surrounding systems.%
+%
+% \begin{tikzpicture}[remember picture, overlay]
+% \node[draw,align=left,fill=blue!10, fill opacity=0.8] at (17,0) {%
+% \begin{minipage}{8.5cm}
+% \vspace{0.5em}
+% \sffamily\footnotesize
+% \subsubsection*{What is Requirements Engineering (RE)?}
+% \begin{itemize}
+%   \item Something \textbf{needed} or \textbf{wanted}.
+%   \item A documented \textbf{representation} of \\something needed or wanted.
+%   \item The word ''requirement'' can have different meanings:
+%   \begin{itemize}
+%   \item must, wish, idea, specific design, rationale, ...
+%   \end{itemize}
+%   \item The most \textbf{general meaning}:\\
+%   \emph{any} kind of \textbf{information entity} used in RE
+%   \item You don't always get what you want and you often want things that you don't need...
+%   \end{itemize}
+%   \vspace{0.5em}
+% \end{minipage}
+% };
+% \end{tikzpicture}%
+%
+% \begin{tikzpicture}[remember picture, overlay] %% remember picture allows referring to nodes outside
+%   \node[align=left] at (160mm,0mm) {%  add draw, before align to get frame
+%   \begin{minipage}{87mm}
+%     \begin{Slide}{What is Requirements Engineering (RE)?}
+%       \begin{itemize}
+%         \item Something \textbf{needed} or \textbf{wanted}.
+%         \item A documented \textbf{representation} of \\something needed or wanted.
+%         \item The word ''requirement'' have different meanings:\\
+%           must, wish, idea, specific design, rationale, ...
+%         \item The most \textbf{general meaning}:\\
+%         \emph{any} kind of \textbf{information entity} used in RE
+%         \item You don't always get what you want and you often want things that you don't need...
+%       \end{itemize}
+%       \end{Slide}
+%    \end{minipage}
+%   };
+%   \end{tikzpicture}%
+%
+
+
+% \begin{Slide}{What is Requirements Engineering (RE)?}
+% \begin{itemize}
+%   \item Something \textbf{needed} or \textbf{wanted}.
+%   \item A documented \textbf{representation} of \\something needed or wanted.
+%   \item The word ''requirement'' can have different meanings:
+%   \begin{itemize}
+%   \item must, wish, idea, specific design, rationale, ...
+%   \end{itemize}
+%   \item The most \textbf{general meaning}:\\
+%   \emph{any} kind of \textbf{information entity} used in RE
+%   \item You don't always get what you want and you often want things that you don't need...
+% \end{itemize}
+% \end{Slide}
+%
+% \begin{tikzpicture}[auto, thick]
+% \node[draw,align=left,fill=blue!10, fill opacity=0.8] at (20.3cm,16cm) {%
+% \begin{minipage}{8.5cm}
+% \vspace{0.5em}
+% \sffamily\footnotesize
+% \subsubsection*{What is Requirements Engineering (RE)?}
+% \begin{itemize}
+%   \item Something \textbf{needed} or \textbf{wanted}.
+%   \item A documented \textbf{representation} of \\something needed or wanted.
+%   \item The word ''requirement'' can have different meanings:
+%   \begin{itemize}
+%   \item must, wish, idea, specific design, rationale, ...
+%   \end{itemize}
+%   \item The most \textbf{general meaning}:\\
+%   \emph{any} kind of \textbf{information entity} used in RE
+%   \item You don't always get what you want and you often want things that you don't need...
+%   \end{itemize}
+%   \vspace{0.5em}
+% \end{minipage}
+% };
+% \end{tikzpicture}%
+%
+%
 The requirements engineering process involves activities such as eliciting, specifying, validating, and selecting requirements. 
 Requirements engineering is both a research discipline and an engineering practice, forming the foundation for our human ability to create useful software with high quality. When you work with anything related to the decision-making process of software development and its underlying intentions you are doing requirements engineering.
 
+
+
 The word ''requirement'' often means \textbf{something needed or wanted}. It can also refer to a \emph{documented representation} of something needed or wanted. 
 
-The term ''requirement'' is a bit tricky as it is overloaded with several meanings. It is sometimes used as a very abstract term denoting \textit{any} type of information entity relevant to the intentions behind system development.  Sometimes we means an optional wish or nice-to-have feature, sometimes we mean a mandatory feature without which the system would be pointless. Sometimes it refers to something explicitly decided and committed for delivery. Sometimes we mean the actual underlying need of a user that maybe still elusive and not explicitly stated, while we also may mean the carefully documented \textit{representation} of that underlying need. This documented representation may very well unintendedly differ from the underlying actual need, due to imperfections of our specification. 
+The term ''requirement'' is a bit tricky as it is overloaded with several meanings. It is sometimes used as a very abstract term denoting \textit{any} type of information entity relevant to the intentions behind system development.  Sometimes we mean an optional wish or nice-to-have feature, sometimes we mean a mandatory feature without which the system would be pointless. Sometimes it refers to something explicitly decided and committed for delivery. Sometimes we mean the actual underlying need of a user that maybe still elusive and not explicitly stated, while we also may mean the carefully documented \textit{representation} of that underlying need. This documented representation may very well unintendedly differ from the underlying actual need, due to imperfections of our specification. 
 Also, representations of requirements come in many different kinds and shapes at different levels of abstraction and detail, and hence, it is wise to be clear and specific about what kind of requirement we mean, to avoid that our usage of the term is misinterpreted. 
+
 
 The subsequent sections aims to provide a concise overview of the set of terms that you can use when you think and communicate about different kinds of requirements in different requirements engineering contexts. This terminology is the starting-point for learning more about requirements engineering and developing skills needed to contribute to the invention of tomorrows' high-quality software that fulfill the human intentions behind its development.
 
 \section{Activities in Requirements Engineering}
 
-\begin{tikzpicture}[remember picture, overlay, shift=(current page.south west)]
-  \node[draw,align=left,fill=blue!10, fill opacity=0.8] at (23.3cm,15.6cm) {
-    \begin{minipage}{9.5cm}
-      \vspace{0.5em}
-      \sffamily\small
-      \subsubsection*{What is Requirements Engineering (RE)?}
-      \begin{itemize}
-        \item Something \textbf{needed} or \textbf{wanted}.
-        \item A documented \textbf{representation} of \\something needed or wanted.
-        \item The word ''requirement'' can have different meanings:
-        \begin{itemize}
-        \item must, wish, idea, specific design, rationale, ...
-        \end{itemize}
-        \item The most \textbf{general meaning}:\\
-        \emph{any} kind of \textbf{information entity} used in RE
-        \item You don't always get what you want and you often want things that you don't need...
-        \end{itemize}
-        \vspace{0.5em}
-    \end{minipage}
-  };
-\end{tikzpicture}
+% \begin{tikzpicture}[remember picture, overlay, shift=(current page.south west)]
+%   \node[draw,align=left,fill=blue!10, fill opacity=0.8] at (23.3cm,15.6cm) {
+%     \begin{minipage}{9.5cm}
+%       \vspace{0.5em}
+%       \sffamily\small
+%       \subsubsection*{What is Requirements Engineering (RE)?}
+%       \begin{itemize}
+%         \item Something \textbf{needed} or \textbf{wanted}.
+%         \item A documented \textbf{representation} of \\something needed or wanted.
+%         \item The word ''requirement'' can have different meanings:
+%         \begin{itemize}
+%         \item must, wish, idea, specific design, rationale, ...
+%         \end{itemize}
+%         \item The most \textbf{general meaning}:\\
+%         \emph{any} kind of \textbf{information entity} used in RE
+%         \item You don't always get what you want and you often want things that you don't need...
+%         \end{itemize}
+%         \vspace{0.5em}
+%     \end{minipage}
+%   };
+% \end{tikzpicture}
 
 Working with requirements involves many different tasks and skills. The RE process is often characterized by these interrelated activities: 
 
@@ -845,6 +962,5 @@ Behavioral requirements are often called ''business logic'' or just ''business r
 Quality and functionality are often intertwined and quality often manifest itself into behavior logic and data that support the achievement of a system quality. As an example consider system security. In order to have high security we may want to implement a user login function implying that the system needs to store data about user identities and secret passwords. As quality and functionality often come hand-in-hand, it is often wise to specify these aspects together by letting feature models include both functional and quality aspects. However, many quality aspects are cross-cutting, with system-wide impact, so we also often need a high-level, verifiable model of quality at system level. 
 
 A further complication is that quality aspects often work against each other. For example, achieving high security often involved implementing features such as authentication and encryption, while these features can negatively impact the usability of the system.
-
 
 \end{document}
