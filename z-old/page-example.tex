@@ -66,7 +66,7 @@
 {\thechapter.~} % label
 {0.0ex} % sep
 {} % before-code
-[\vspace{-0.0em}\rule{\columnwidth}{1.5pt}\vspace{0.5em}]% after-code
+[\vspace{-0.0em}\rule{\columnwidth}{0.5pt}\vspace{0.5em}]% after-code
 
 \titlespacing*{\chapter}{0.0em}{0.0em}{0.0em}
 
@@ -155,7 +155,7 @@
 
 \newcommand{\MarginPage}[1]{%
 \begin{tikzpicture}[remember picture, overlay, anchor = north] %% remember picture allows referring to nodes outside
-\node[align=left,yshift=0mm] at (0.53\paperwidth, 0.12\paperheight) { %  add draw, before align to get frame
+\node[align=left,yshift=0mm,xshift=5mm] at (0.53\paperwidth, 0.12\paperheight) { %  add draw, before align to get frame
 \begin{minipage}{90mm}
 #1
 \end{minipage}%
@@ -199,7 +199,7 @@ Introduction to\\Software Requirements Engineering
 
 \chapter{Introduction}%
 \MarginPage{%
-\begin{Slide}{What is Requirements Engineering (RE)?}
+\begin{Slide}{What is a requirement?}
   \begin{itemize}
     \item Something \textbf{needed} or \textbf{wanted}.
     \item A documented \textbf{representation} of \\something needed or wanted.
@@ -209,7 +209,6 @@ Introduction to\\Software Requirements Engineering
     \emph{any} kind of \textbf{information entity} used in RE
     \item You don't always get what you want and you often want things that you don't need...
   \end{itemize}
-
 \end{Slide}
 
 % \begin{figure}[H]
