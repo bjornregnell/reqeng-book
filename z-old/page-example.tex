@@ -10,14 +10,24 @@
 \usepackage[T1]{fontenc}
 
 %% FONT PACKAGES
+%% https://www.overleaf.com/learn/latex/Font_typefaces
+%% https://tex.stackexchange.com/questions/59403/what-font-packages-are-installed-in-tex-live
+
+% Some good looking monospace fonts below: esp. noto is nice
+%  - add sfdefault after [ to have san serif as default normal font
 %\usepackage[scaled=0.85]{beramono} % monospace
-\usepackage[sfdefault,scaled=0.85]{noto}
+%\usepackage[scaled=0.85]{noto}
+\usepackage[scaled=0.85]{noto-mono}
+%\usepackage[scaled=0.85]{noto-sans}
+%\usepackage[sfdefault,scaled=0.85]{noto}
 
-%\usepackage[sfdefault,scaled=0.85]{FiraSans}
-%\usepackage{tgtermes} % serif: clone of Times
+\usepackage{lmodern} % if included before serif package, it goes for headings only
+\usepackage{tgtermes} % serif: clone of Times
 %\usepackage{tgheros} % sans serif: clone of Helvetica
+%\usepackage[scaled=0.85]{FiraSans}
+%\usepackage[sfdefault, scaled=0.85]{FiraSans}
 
-% \usepackage{tgbonum} %serif font to TeX Gyre Bonum (clone of Bookman,*)
+%\usepackage{tgbonum} %serif font to TeX Gyre Bonum (clone of Bookman,*)
 % \usepackage{fouriernc} % serif: New Century Schoolbook
 % \usepackage{tgschola} % serif: New Century Schoolbook
 % \usepackage{libertine} % serif: clone of Times
@@ -147,7 +157,7 @@
 \newenvironment{Slide}[1]{%
 % Code for box design goes here.
 \begin{mdframed}[backgroundcolor=blue!10]\relax
-  \fontfamily{qhv}\fontsize{9}{11}\selectfont  %qhv phv lmss cmss
+  \fontfamily{lmss}\fontsize{9}{11}\selectfont  %qhv phv lmss cmss
   \textcolor{myslideheadcolor}{\textbf{#1}}
   \begin{flushleft}
   }{%
@@ -202,7 +212,7 @@ Introduction to\\Software Requirements Engineering
 
 \chapter{Introduction}%
 \MarginPage{%
-\input{../tex/slides/01-what-is-RE.tex}
+\input{tex/slides/01-what-is-RE.tex}
 
 \begin{Slide}{What is a requirement?}
   \begin{itemize}
@@ -226,6 +236,9 @@ Introduction to\\Software Requirements Engineering
 
 }%
 Requirements Engineering (RE) is a sub-discipline of Software Engineering (SE) that is focused on the \textit{requirements} of software-intensive systems and their \textit{context}, which includes users and surrounding systems.%
+\begin{verbatim}
+  test of monospace font
+\end{verbatim}
 %
 % \begin{tikzpicture}[remember picture, overlay]
 % \node[draw,align=left,fill=blue!10, fill opacity=0.8] at (17,0) {%
