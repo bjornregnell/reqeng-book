@@ -1,0 +1,37 @@
+\documentclass{reqengbook}
+
+\title{
+\bf\sffamily\fontsize{25}{30}\selectfont
+Introduction to\\Software Requirements Engineering
+}
+
+\author{\sffamily\fontsize{20}{30}\selectfont Björn Regnell}
+
+\date{\vspace{2em}\sffamily Updated: \today}
+
+\begin{document}
+
+%\pagenumbering{roman}
+
+\begin{minipage}{0.5\textwidth}
+  \maketitle%
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+  \centering\vspace{2.2cm}
+  \includegraphics[width=1.1\textwidth]{../../img/phone-support.jpg}%
+\end{minipage}%
+\pagebreak
+
+
+\setcounter{tocdepth}{2}
+
+\begin{multicols*}{2}  % * means unbalanced columns allowed
+\footnotesize
+\tableofcontents
+\end{multicols*}
+
+\newgeometry{hmargin={45mm,145mm},vmargin={15mm,15mm}}
+
+\input{../chapters/01-intro.tex}
+
+\end{document}
