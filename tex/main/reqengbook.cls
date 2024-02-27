@@ -82,18 +82,18 @@
 {\thechapter.~} % label
 {0.0ex} % sep
 {} % before-code
-[\vspace{-0.0em}\rule{\columnwidth}{0.5pt}\vspace{0.5em}]% after-code
+[\vspace{-0.5em}\rule{\columnwidth}{0.5pt}\vspace{0.5em}]% after-code
 
-\titlespacing*{\chapter}{0.0em}{0.0em}{0.0em}
+\titlespacing*{\chapter}{0.0em}{-1.0em}{0.0em}
 
 
 \usepackage{titletoc}
 \setcounter{secnumdepth}{2} % of 2 then no numbers in table of contents on subsubsections
 
 
-\usepackage{fancyhdr}
-\fancyhf{} % clear existing header/footer entries
-\fancyhead[LE]{\nouppercase\leftmark}
+% \usepackage{fancyhdr}
+% \fancyhf{} % clear existing header/footer entries
+% \pagestyle{fancy}
 % \fancyfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
 \renewcommand{\chaptername}{Chapter~}
 
@@ -176,7 +176,7 @@
 
 \newcommand{\MarginPage}[1]{%
 \begin{tikzpicture}[remember picture, overlay, anchor = north] %% remember picture allows referring to nodes outside
-\node[align=left,yshift=0mm,xshift=5mm] at (0.53\paperwidth, 0.12\paperheight) { %  add draw, before align to get frame
+\node[align=left,yshift=-5mm,xshift=5mm] at (0.53\paperwidth, 0.12\pdfpageheight) { %  add draw, before align to get frame
 \begin{minipage}{90mm}
 #1
 \end{minipage}%
