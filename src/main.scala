@@ -196,7 +196,7 @@ val slideFiles = os.list(os.pwd/"slides")
 
 val outDir = os.pwd / "tex" / "generated"
 
-@main def run = 
+@main def build = 
   println(s"\n  Processing slide files: ${slideFiles.mkString("\n   ", "\n   ", "\n")}")
   for f <- slideFiles do
     println(s"processing: $f")
@@ -210,3 +210,11 @@ val outDir = os.pwd / "tex" / "generated"
       val output = chunk.toTex.mkString("\n")
       println(s"  writing: ${(outDir/texFileName).lastOpt.getOrElse("")}")
       os.write.over(outDir/texFileName, output)
+    end for
+
+    def latex(mainFile: String, wd: os.Path): os.CommandResult = 
+      os.proc("latexmk", "-silent", "-pdf", "-cd", "book.tex")
+        .call(cwd = wd)
+
+    println(latex("book.tex", os.pwd / "tex" / "main"))
+

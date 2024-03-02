@@ -31,7 +31,7 @@
 
 *some italic text*
 
-`some code`
+`some nice code`
 
 *some more italic text*
 
