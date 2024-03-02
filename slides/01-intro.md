@@ -1,14 +1,11 @@
----
-file: 01-def-req
-main: L1-intro 
----
+> file = 01-def-req
+> main = L1-intro 
 
 # What is a requirement?
 
 * Something **needed** or **wanted**.
 
 * A documented **representation** of\\something needed or wanted.
-
 * The word ''requirement'' have different meanings:\\
   must, wish, idea, specific design, rationale, ...
 
@@ -17,10 +14,7 @@ main: L1-intro
 
 * You don't always get what you want and you often want things that you don't need...
 
----
-file: 02-def-RE
-lecture: L1-intro
----
+> file = 02-def-RE
 
 # What is Requirements Engineering (RE)?
 
@@ -35,7 +29,12 @@ lecture: L1-intro
   * decision-making
   * knowledge-building
 
-asdas
+*some italic text*
+
+`some code`
+
+*some more italic text*
+
 
 % \begin{minipage}[t]{0.4\textwidth}
 % \vspace{0pt}\hfill\includegraphics[width=0.8\textwidth]{../img/phone}

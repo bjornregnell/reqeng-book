@@ -183,7 +183,8 @@
 };
 \end{tikzpicture}%
 }
-  
+
+\newcommand{\code}{\lstinline[basicstyle=\ttfamily]}
 
 
 \newcommand{\TODO}{\colorbox{red!70}{TODO!!!}~}  

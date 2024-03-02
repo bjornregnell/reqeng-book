@@ -1,12 +1,15 @@
+import os.write.append
 
 
 class MarkdownToTex(
   val bold: String = "textbf", 
   val italics: String = "textit",
+  val code: String = "code"
 ):
   val matchers = Seq(
     "\\*\\*(.+?)\\*\\*(?!\\*)".r -> s"\\\\$bold{$$1}",
     "\\*([^*><]+)\\*".r          -> s"\\\\$italics{$$1}", 
+    "\\`([^*><]+)\\`".r          -> s"\\\\$code{$$1}", 
   )
   def toTex(text: String): String =
     var result = text
@@ -16,90 +19,178 @@ object MarkdownToTex:
   given default: MarkdownToTex = MarkdownToTex()
 end MarkdownToTex
 
+val initSettings = Map(
+  "file" -> "unknown-file",
+  "main" -> "unknown-main",
+)
 
-case class Slide(settings: Map[String, String], body: Seq[String]):
-  def title: String = body.find(_.trim.startsWith("# ")).getOrElse("").stripPrefix("# ")
+inline val dbg = true
+inline def debug(inline s: String): Unit = 
+  inline if dbg then println(s" *** DEBUG $s")
 
-  def bodyNoHeadings: Seq[String] = body.filterNot(_.trim.startsWith("# "))
-  
-  def texBody(using md: MarkdownToTex): Seq[String] = 
-    bodyNoHeadings.map(line => md.toTex(line)).dropWhile(_.trim.isEmpty)
+val settingStart = ">"
+val settingDelim = "="
+val titleStart = "# "
+val fileStart = "> file"
+val bulletStart = "* "
 
-  def toTex(using md: MarkdownToTex): Seq[String] = 
-    s"\\begin{Slide}{$title}\n" +: texBody :+ "\\end{Slide}"
 
-end Slide
+extension (s: String) 
+  def nbrLeading(c: Char): Int =
+    var i = 0
+    while i < s.length && s(i) == c do i += 1
+    i
+  def isEmptyOrSpaceOnly: Boolean = s.stripLeading.length == 0
 
-def parseLinesOfSlides(lines: Iterator[String]): Seq[Slide] = 
-  val result = Seq.empty[Slide].toBuffer
-  if lines.isEmpty then Seq()
-  else 
-    val first = lines.next()
-    assert(first.trim == "---", s"first line is not settings preamble, should start with ---\n$first" )
-    val lineBuffer = Seq.empty[String].toBuffer
-    val settingsBuffer = Seq.empty[(String, String)].toBuffer
-    while lines.hasNext do 
-      var line = lines.next()
-      while lines.hasNext && line.trim != "---" do
-        val pair = line.trim.split(":").map(_.trim)
-        assert(pair.length == 2, "setting must be of the form 'setting:value'")
-        settingsBuffer.append(pair(0) -> pair(1))
-        line = lines.next()
-      end while
-      if lines.hasNext then line = lines.next() else ()
-      var indentLevel = Seq(-1)
-      var addedItemize = 0
-      while lines.hasNext && line.trim != "---" do // inside slide body
-        println(s"debug: $line")
-        if line.isBlank() then lineBuffer.append(line)
-        else // non-blank line
-          val leadingNbrSpaces = line.takeWhile(_ == ' ').length
-          if line.trim.startsWith("* ") then
-            println(s"debug bullet: leadingNbrSpaces = $leadingNbrSpaces")
-            if leadingNbrSpaces > indentLevel.last then 
-              lineBuffer.append("\\begin{itemize}")
-              addedItemize += 1
-              indentLevel :+= leadingNbrSpaces
-            else if leadingNbrSpaces < indentLevel.last then 
-              println(s"DEBUG: Appending ONLY ONE end{itemize}")
-              lineBuffer.append("\\end{itemize}") 
-              addedItemize -= 1
-              if indentLevel.length > 1 then indentLevel = indentLevel.drop(1)
-            end if
+case class Chunk(settings: Map[String, String], body: Seq[String]):
+  def parseTitle(pos: Int, result: collection.mutable.ArrayBuffer[String]): Int =
+    //debug(s"parseTitle, pos=$pos")
+    val title = body(pos).stripPrefix(titleStart)
+    result.append(s"\\begin{Slide}{$title}")
+    val next = parseTitleBody(pos + 1, result)
+    result.append(s"\\end{Slide}")
+    next
 
-            lineBuffer.append("\\item " + line.stripLeading.stripPrefix("* "))
-          else // no bullet at start of line 
-            if leadingNbrSpaces == 0 then 
-              while addedItemize > 0 do
-                println(s"DEBUG: Appending end{itemize}")
-                lineBuffer.append("\\end{itemize}") 
-                addedItemize -= 1
-                if indentLevel.length > 1 then indentLevel = indentLevel.drop(1)
-              end while
-            end if
-            lineBuffer.append(line)
-          end if
-        line = lines.next()
-        if  !lines.hasNext || line.trim == "---" then 
-          while addedItemize > 0 do
-            println(s"DEBUG: Appending end{itemize}")
-            lineBuffer.append("\\end{itemize}") 
-            addedItemize -= 1
-            if indentLevel.length > 1 then indentLevel = indentLevel.drop(1)
-          end while
-        end if
-        println(s"debug: lines.hasNext = ${lines.hasNext} indentLevel=$indentLevel")
-      result.append(Slide(settingsBuffer.toMap, lineBuffer.toSeq))
-      settingsBuffer.clear()
-      lineBuffer.clear()
+  def parseTitleBody(pos: Int, result: collection.mutable.ArrayBuffer[String]): Int =
+    //debug(s"parseTitleBody, pos=$pos")
+    var current = pos
+
+    def isNextTitleEnd(i: Int): Boolean =
+      if i + 1 < body.length then 
+        body(i + 1).startsWith(titleStart) || body(i + 1).startsWith(fileStart) 
+      else true 
+
+    while current < body.length && !isNextTitleEnd(current) do
+      val line = body(current) 
+      if line.stripLeading.startsWith(bulletStart) then 
+        current = parseItemize(current, result)
+      else
+        appendLine("", line, result)
+        current += 1 
     end while
-  end if
-  result.toSeq
-end parseLinesOfSlides
+    current
 
-val test = "basdklflökajsf **bold text 123, 25** asd,msndf jasdf  *ital text* askdjhkl *hej*"
+  def parseItemize(pos: Int, result: collection.mutable.ArrayBuffer[String]): Int = 
+    //debug(s"parseItemize: pos=$pos")
+    result.append(s"\\begin{itemize}")
+    val next = parseItems(pos, result)
+    result.append(s"\\end{itemize}")
+    next
 
-val bfit = new MarkdownToTex()
+  def eatEmptyLines(pos: Int, result: collection.mutable.ArrayBuffer[String]): Int =
+    //debug("called eatEmptyLines")
+    var current = pos 
+    while current < body.length && body(current).isEmptyOrSpaceOnly do 
+      //debug(s"eating empty line: ${body(current)}")
+      appendLine("", body(current), result)
+      current += 1
+    current
+
+  def parseItems(pos: Int, result: collection.mutable.ArrayBuffer[String]): Int =
+    var current = pos
+    var line = body(current)
+    
+    val indent = line.nbrLeading(' ')
+    //debug(s"parseItems current=$current indent=$indent line=$line")
+    
+    def appendItem(s: String): Unit =
+      appendLine("\\item ", s.stripLeading().stripPrefix(bulletStart), result)
+    
+    appendItem(line)
+    current += 1
+
+    var continue = true
+
+    while current < body.length && continue do
+      line = body(current)
+      if line.isEmptyOrSpaceOnly then
+        //debug("found empty line")
+        appendLine("", line, result)
+        current += 1
+      else if line.stripLeading().startsWith(bulletStart) then
+        //debug("found another bullet")
+        if indent == line.nbrLeading(' ') then
+          //debug(s"  bullet is on same indent level")
+          appendItem(line)
+          current += 1
+        else if line.nbrLeading(' ') > indent then 
+          //debug("found nested bullet list") 
+          current = parseItemize(current, result)
+        else 
+          //debug("found outer level bullet; ready with this level, don't continue ")
+          continue = false
+      else
+        //debug("found another line without bullet")
+        if line.nbrLeading(' ') > indent then
+          //debug(s"  line is on higher indent=${line.nbrLeading(' ')}")
+          appendLine("", line, result)
+          current += 1
+        else 
+          //debug("  line is on lover indent so end of items on this level")
+          continue = false
+    end while 
+    current
+  end parseItems 
+
+  def appendLine(init: String, line: String, result: collection.mutable.ArrayBuffer[String])
+    (using md: MarkdownToTex): Unit = 
+      val lineReplaced = init + md.toTex(line)
+      result.append(lineReplaced)
+      //debug(s"appendLine: init=$init lineReplaced=$lineReplaced")
+
+  def toTex: Seq[String] = 
+    //debug(s"toTex of Chunk with ${body.length} body lines")
+    var pos = 0
+    val result = collection.mutable.ArrayBuffer.empty[String]
+    while pos < body.length do
+      val line = body(pos)
+      if line.startsWith(titleStart) then
+        pos = parseTitle(pos, result)
+      else
+        appendLine("", line, result) 
+        pos += 1
+    end while
+    result.toSeq
+end Chunk
+
+
+type Lines = IndexedSeq[String]
+type LineBuffer = collection.mutable.ArrayBuffer[String]
+class ParseCtx:
+  val settings = collection.mutable.Map.empty[String, String].withDefault(initSettings)
+  val result = collection.mutable.ArrayBuffer.empty[Chunk]
+
+def parseSetting(setting: String)(using pc: ParseCtx): Unit = 
+  val pair = setting.split(settingDelim).map(_.trim).filter(_.nonEmpty)
+  require(pair.length == 2, s"malformed setting > $setting")
+  //debug(s"update setting: $setting")
+  pc.settings.update(pair(0), pair(1))
+
+def parseLines(lines: Lines, from: Int = 0): Seq[Chunk] = 
+  given pc: ParseCtx = ParseCtx()
+  var pos = from
+  var lineBuffer = collection.mutable.ArrayBuffer.empty[String]
+
+  def appendLineBuffer(using pc: ParseCtx): Unit = 
+    if lineBuffer.nonEmpty then 
+      pc.result.append(Chunk(pc.settings.toMap, lineBuffer.toSeq))
+      //debug(s"chunk flushed with settings: ${pc.settings.toMap} body: ${pc.result.last.body.length} lines")
+      lineBuffer.clear()
+
+  while pos < lines.length do
+    val current = lines(pos)
+    if current.startsWith(settingStart) then
+      val setting = current.stripPrefix(settingStart) 
+      if setting.stripLeading().startsWith("file") then appendLineBuffer
+      parseSetting(setting)
+    else 
+      lineBuffer.append(current)
+      //debug(s"appended: $current")
+    pos += 1
+  end while
+  appendLineBuffer
+  pc.result.toSeq
+end parseLines
 
 val slideFiles = os.list(os.pwd/"slides")
 
@@ -109,12 +200,13 @@ val outDir = os.pwd / "tex" / "generated"
   println(s"\n  Processing slide files: ${slideFiles.mkString("\n   ", "\n   ", "\n")}")
   for f <- slideFiles do
     println(s"processing: $f")
-    val lit = os.read(f).linesIterator 
-    val slides = parseLinesOfSlides(lit)
-    println(s"  number of Slides found: ${slides.length}")
+    val lines: Lines = os.read(f).linesIterator.to(collection.immutable.ArraySeq) 
+    val chunks: Seq[Chunk] = parseLines(lines)
+    println(s"  number of chunks found: ${chunks.length}")
     println(s"  *** deleting all existing -slide.tex in\n    $outDir")
     os.walk(outDir).foreach(f => f.lastOpt.foreach(s => if s.endsWith("-slide.tex") then os.remove(f)))
-    for slide <- slides do
-      val t = slide.settings("file") + "-slide.tex" 
-      println(s"  writing: ${(outDir/t).lastOpt.getOrElse("")}")
-      os.write.over(outDir/t, slide.toTex.mkString("\n"))
+    for chunk <- chunks do
+      val texFileName = chunk.settings("file") + "-slide.tex" 
+      val output = chunk.toTex.mkString("\n")
+      println(s"  writing: ${(outDir/texFileName).lastOpt.getOrElse("")}")
+      os.write.over(outDir/texFileName, output)
