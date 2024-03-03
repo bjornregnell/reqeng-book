@@ -9,6 +9,9 @@ object latex:
         |\\title{Introduction to Software\\\\Requirements Engineering}
         |
         |\\date{\\footnotesize Updated: \\today}
+        |
+        |%\\beamerdefaultoverlayspecification{<+->} %de-comment if you want pause after items
+        |
         |\\begin{document}
         |\\maketitle
         |""".stripMargin
