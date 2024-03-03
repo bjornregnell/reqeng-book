@@ -29,14 +29,14 @@
 * The RE process involves 
   * decision-making
   * knowledge-building
- 
+
 *some italic text*
 
 `some nice code`
 
 *some more italic text*
 
-```scala small
+```scala
 @main def hej = println("hej") 
 
 12345678901234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNO

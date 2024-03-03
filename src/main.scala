@@ -30,10 +30,12 @@ def time[A](msg: String, b: => A): A =
 
 def make(isLatexMk: Boolean): Unit =
   println(s"\n  Processing slide files: ${slideFiles.mkString("\n   ", "\n   ", "\n")}")
+  val allChunks = scala.collection.mutable.ArrayBuffer.empty[Seq[Chunk]]
   for f <- slideFiles do
     println(s"processing: $f")
     val lines: Lines = os.read(f).linesIterator.to(collection.immutable.ArraySeq) 
     val chunks: Seq[Chunk] = time("parseLines", parseLines(lines))
+    allChunks.append(chunks)
     println(s"  number of chunks found: ${chunks.length}")
     println(s"  *** deleting all existing -slide.tex in\n    $outDir")
     os.walk(outDir).foreach(f => f.lastOpt.foreach(s => if s.endsWith("-slide.tex") then os.remove(f)))
@@ -44,7 +46,19 @@ def make(isLatexMk: Boolean): Unit =
       println(s"  writing: $pathLastPart/${(outDir/texFileName).last}")
       os.write.over(outDir/texFileName, output)
     end for
+  end for
   
+  val flatChunks = allChunks.flatten.toSeq
+  val slideMains = flatChunks.map(_.settings("main")).distinct
+  println(s"  slide main files to generate: ${slideMains.mkString(", ")}")
+  for m <- slideMains do
+    val inputFiles = flatChunks.filter(_.settings("main") == m).map(_.settings("file"))
+    println(s"    generating $m of ${inputFiles.length} files: ${inputFiles.mkString(", ")}")
+    val body = inputFiles.map(f => s"\\input{$f-slide.tex}")
+    val doc = latex.slidePreamble +: body :+ latex.slideEnd
+    os.write.over(outDir/ s"$m.tex", doc.mkString("\n"))
+
+
   if isLatexMk then
     for f <- latexMainFiles do
       val fileName = f.lastOpt.get
@@ -66,7 +80,7 @@ def make(isLatexMk: Boolean): Unit =
             s" see ${Console.GREEN} $logName ${Console.RED} line nbr ${Console.RESET} ${errorStart + 1}")
 
 def printlnOnChangeHelp() = 
-  println("main.scala: Watching changes. Press Ctrl+C to exit, or press Enter to re-run.")
+  println("main.scala: Watching changes. Press Ctrl+C to exit, or press Enter twice to re-run.")
 
 def onChange(changed: Set[os.Path], isLatexMk: Boolean): Unit = 
   println(s"changed:\n  ${changed.mkString("\n  ")}")
