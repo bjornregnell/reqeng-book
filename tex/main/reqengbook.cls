@@ -20,14 +20,14 @@
 
 % Some good looking monospace fonts below: esp. noto is nice
 %  - add sfdefault after [ to have san serif as default normal font
-%\usepackage[scaled=0.85]{beramono} % monospace
+\usepackage{lmodern} % if included before serif package, it goes for headings only
+\usepackage{tgtermes} % serif: clone of Times
+\usepackage[scaled=0.85]{beramono} % monospace
+%\usepackage[scaled=0.85]{noto-mono}
 %\usepackage[scaled=0.85]{noto}
-\usepackage[scaled=0.85]{noto-mono}
 %\usepackage[scaled=0.85]{noto-sans}
 %\usepackage[sfdefault,scaled=0.85]{noto}
 
-\usepackage{lmodern} % if included before serif package, it goes for headings only
-\usepackage{tgtermes} % serif: clone of Times
 %\usepackage{tgheros} % sans serif: clone of Helvetica
 %\usepackage[scaled=0.85]{FiraSans}
 %\usepackage[sfdefault, scaled=0.85]{FiraSans}
@@ -52,12 +52,12 @@
 \definecolor{mylinkcolor}{rgb}{0,0.1,0.5}
 \definecolor{myslideheadcolor}{rgb}{0,0.0,0.6}
 
-% \definecolor{mygreen}{rgb}{0,0.4,0}
-% \definecolor{myemphcolor}{rgb}{0,0.4,0.1}
-% \definecolor{myalertcolor}{rgb}{0.4,0.1,0}
-% \definecolor{eclipsepurple}{rgb}{0.5,0,0.25}
-% \definecolor{eclipseblue}{rgb}{0.16,0,1.0}
-% \definecolor{eclipsegreen}{rgb}{0,0.5,0}
+\definecolor{mygreen}{rgb}{0,0.4,0}
+\definecolor{myemphcolor}{rgb}{0,0.4,0.1}
+\definecolor{myalertcolor}{rgb}{0.4,0.1,0}
+\definecolor{eclipsepurple}{rgb}{0.5,0,0.25}
+\definecolor{eclipseblue}{rgb}{0.16,0,1.0}
+\definecolor{eclipsegreen}{rgb}{0,0.5,0}
 
 \usepackage{enumitem}
 
@@ -163,7 +163,6 @@
 % \renewcommand*\familydefault{\sfdefault}
 
 \newenvironment{Slide}[1]{%
-% Code for box design goes here.
 \begin{mdframed}[backgroundcolor=blue!10]\relax
   \fontfamily{lmss}\fontsize{9}{11}\selectfont  %qhv phv lmss cmss
   \textcolor{myslideheadcolor}{\textbf{#1}}
@@ -184,7 +183,73 @@
 \end{tikzpicture}%
 }
 
+\newcommand{\TODO}{\colorbox{red!70}{TODO!!!}~}  
+
 \newcommand{\code}{\lstinline[basicstyle=\ttfamily]}
 
+\lstdefinelanguage{scala}{
+  morekeywords={abstract,case,catch,class,def,%
+    do,else,enum,export,extends,false,final,finally,%
+    for,given,if,implicit,import,lazy,match,%
+    new,null,object,override,package,%
+    private,protected,return,sealed,%
+    super,then,throw,trait,true,try,%
+    type,val,var,while,with,yield,%
+    as, derives, end, extension, infix, inline, opaque, open, transparent, using}, % soft keywords
+  otherkeywords={=>,<-,<:,>:,@,=>>,?=>},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[n]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]',
+  morestring=[b]"""
+}
 
-\newcommand{\TODO}{\colorbox{red!70}{TODO!!!}~}  
+\lstset{
+    language=scala,
+    tabsize=2,
+    basicstyle=\ttfamily\selectfont,
+    keywordstyle=\bfseries\color{eclipsepurple},
+    commentstyle=\color{mygreen},
+    numberstyle={\footnotesize},
+    numbers=none,
+    backgroundcolor=\color{gray!5},
+    frame=single,
+    rulecolor=\color{black!25},
+    %title={\footnotesize\lstname},
+    breaklines=false,
+    breakatwhitespace=false,
+    framextopmargin=2pt,
+    framexbottommargin=2pt,
+    showstringspaces=false,
+    columns=fullflexible,keepspaces
+}
+
+\lstset{literate=%
+{Å}{{\AA}}1
+{Ä}{{\"A}}1
+{Ö}{{\"O}}1
+{Ü}{{\"U}}1
+{ß}{{\ss}}1
+{ü}{{\"u}}1
+{å}{{\aa}}1
+{ä}{{\"a}}1
+{ö}{{\"o}}1
+{æ}{{\ae}}1
+{ø}{{\o}}1
+{Æ}{{\AE}}1
+{Ø}{{\O}}1
+{`}{{\`{}}}1
+{─}{{\textemdash}}1
+{└}{{|}}1
+{├}{{|}}1
+{│}{{|}}1
+{♠}{{$\spadesuit$}}1
+{♥}{{$\heartsuit$}}1
+{♣}{{$\clubsuit$}}1
+{♦}{{$\diamondsuit$}}1
+}
+
+\lstnewenvironment{Code}[1][]{%
+    \lstset{#1}%
+}{}

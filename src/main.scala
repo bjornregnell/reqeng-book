@@ -16,8 +16,8 @@ val watchedPaths = Seq(
 
 val scalaSource = Seq(os.pwd / "src") 
 
-def latexMake(mainFile: String, wd: os.Path): os.CommandResult = 
-  os.proc("latexmk", "-silent", "-pdf", "-cd", "book.tex")
+def latexMake(mainFile: String, wd: os.Path) = scala.util.Try:
+  os.proc("latexmk", "-silent", "-pdf", "-cd", mainFile)
     .call(cwd = wd)
 
 def time[A](msg: String, b: => A): A =
@@ -47,8 +47,23 @@ def make(isLatexMk: Boolean): Unit =
   
   if isLatexMk then
     for f <- latexMainFiles do
-      val result = latexMake(f.lastOpt.get, os.pwd / "tex" / "main")
-      println(result)
+      val fileName = f.lastOpt.get
+      latexMake(fileName, os.pwd / "tex" / "main") match
+        case util.Success(result) => println(result)
+
+        case util.Failure(error)  => 
+          val logName = fileName.stripSuffix(".tex") + ".log"
+          println(Console. RED + s"*** ERROR: $error" + Console.RESET)
+          val log = os.read(os.pwd / "tex" / "main" / logName).linesIterator.toSeq
+          val errorStart = log.indexWhere(_.contains("Error:"))
+          val nbrLines = log.drop(errorStart).indexWhere(_.contains("<return"))
+          println( // this is a hack to get relevant error lines with file and error
+            log.slice(errorStart - 7, errorStart + nbrLines)
+              .filter(s => s.trim.startsWith("(/") | s.trim.startsWith("!") | s.trim.endsWith(".tex"))
+              .mkString("\n")
+          )
+          println(Console. RED +  "----- END OF ERROR REPORT ---" + Console.RESET +
+            s" see ${Console.GREEN} $logName ${Console.RED} line nbr ${Console.RESET} ${errorStart + 1}")
 
 def printlnOnChangeHelp() = 
   println("main.scala: Watching changes. Press Ctrl+C to exit, or press Enter to re-run.")

@@ -21,11 +21,13 @@ val initSettings = Map(
   "main" -> "unknown-main",
 )
 
-val settingStart = ">"
-val settingDelim = "="
-val titleStart = "# "
-val fileStart = "> file"
-val bulletStart = "* "
+val settingStart   = ">"
+val settingDelim   = "="
+val titleStart     = "# "
+val fileStart      = "> file"
+val bulletStart    = "* "
+val codeFenceStart = "```"
+val codeFenceEnd   = "```"
 
 extension (s: String) 
   def nbrLeading(c: Char): Int =
@@ -47,19 +49,37 @@ case class Chunk(settings: Map[String, String], body: IndexedSeq[String]):
     //debug(s"parseTitleBody, pos=$pos")
     var current = pos
 
-    def isNextTitleEnd(i: Int): Boolean =
+    def isNextBodyEnd(i: Int): Boolean =
       if i + 1 < body.length then 
         body(i + 1).startsWith(titleStart) || body(i + 1).startsWith(fileStart) 
       else true 
 
-    while current < body.length && !isNextTitleEnd(current) do
+    while current < body.length && !isNextBodyEnd(current) do
       val line = body(current) 
       if line.stripLeading.startsWith(bulletStart) then 
         current = parseItemize(current, result)
+      else if line.startsWith(codeFenceStart) then 
+        current = parseCodeBlock(current, result)
       else
         appendLine("", line, result)
         current += 1 
     end while
+    current
+
+  def parseCodeBlock(pos: Int, result: collection.mutable.ArrayBuffer[String]): Int =
+    val config = body(pos).stripPrefix(codeFenceStart).split(" ")
+    val language: String = config.headOption.getOrElse("").trim
+    val size: String = config.drop(1).headOption.getOrElse("").trim
+    val style: String = 
+      if size.nonEmpty then s",basicstyle=\\$size\\ttfamily\\selectfont" else ""
+    var current = pos + 1
+    result.append(s"\\begin{Code}[language=$language$style]")
+    while current < body.length && !body(current).trim.startsWith(codeFenceEnd) do
+      result.append(body(current))
+      current += 1
+    end while
+    if current < body.length && body(current).trim.startsWith(codeFenceEnd) then current += 1
+    result.append(s"\\end{Code}")
     current
 
   def parseItemize(pos: Int, result: collection.mutable.ArrayBuffer[String]): Int = 
@@ -111,8 +131,8 @@ case class Chunk(settings: Map[String, String], body: IndexedSeq[String]):
         else 
           //debug("found outer level bullet; ready with this level, don't continue ")
           continue = false
-      else
-        //debug("found another line without bullet")
+      else 
+        //debug("found another line without bullet or code fences")
         if line.nbrLeading(' ') > indent then
           //debug(s"  line is on higher indent=${line.nbrLeading(' ')}")
           appendLine("", line, result)
@@ -160,7 +180,7 @@ def parseSetting(setting: String)(using pc: ParseCtx): Unit =
 def parseLines(lines: Lines, from: Int = 0): Seq[Chunk] = 
   given pc: ParseCtx = ParseCtx()
   var pos = from
-  var lineBuffer = collection.mutable.ArrayBuffer.empty[String]
+  val lineBuffer = collection.mutable.ArrayBuffer.empty[String]
 
   def appendLineBuffer(using pc: ParseCtx): Unit = 
     if lineBuffer.nonEmpty then 

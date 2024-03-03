@@ -36,12 +36,13 @@
 
 *some more italic text*
 
-```scala
-@main def hej = println("hej")
+```scala small
+@main def hej = println("hej") 
+
+12345678901234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNO
 
 //hellohello
-```
-
+``` 
 
 % \begin{minipage}[t]{0.4\textwidth}
 % \vspace{0pt}\hfill\includegraphics[width=0.8\textwidth]{../img/phone}
