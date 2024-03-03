@@ -29,12 +29,18 @@
 * The RE process involves 
   * decision-making
   * knowledge-building
-
+ 
 *some italic text*
 
 `some nice code`
 
 *some more italic text*
+
+```scala
+@main def hej = println("hej")
+
+//hellohello
+```
 
 
 % \begin{minipage}[t]{0.4\textwidth}

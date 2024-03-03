@@ -1,0 +1,1 @@
+scala-cli run src -w -- --watch --latexmk
