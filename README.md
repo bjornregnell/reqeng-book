@@ -32,12 +32,12 @@ On Ubuntu, install with this command (and take a fika break until it is ready):
 There are several scripts (see files ending with `.sh`) to build the book and lecture slides, adapted for different use cases explained below. You can look inside the the scripts to see what specific commands are used or you can just run them if you have bash:
 
 * Generate everything from source: 
-  `./build-once`
+  `./build/build-once`
 
 * Generate everything from source and run again if source files changes:
-  `./build-watch`
+  `./build/build-watch`
 
 * Clean all generated files if you then want to build from scratch:
-  `./clean.sh`
+  `.build/clean.sh`
 
 **TODO:** remove dependency on bash and use `scala-cli` and `.sc` scripts instead.
