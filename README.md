@@ -8,16 +8,10 @@
 
 * The licence is [CC-BY-SA](https://creativecommons.org/licenses/by-sa/4.0/deed.en), which means that you are free to share and adapt as long as you **give appropriate credit**, provide a **link** to the license, and **indicate if changes were made**. If you remix, transform, or build upon the material, you must distribute your contributions under the **same license** as the original.
 
+
 ## Contributions are welcome!
 
 I plan to invite reviewers/authors of special topics based on interesting academic papers. If you are interested in contributing as a reviewer or author please contact me at bjorn.regnell@cs.lth.se or open an [issue in this repo](https://github.com/bjornregnell/reqeng-book/issues) to start a discussion on your ideas on how this book can be improved.
-
-### Candidate papers
-
-The following papers are candidates for referencing, summarizing or inviting a popular science version. A ticked box means that some representation of the paper has been included, minimum as a reference.
-
-- [ ] "Identifying relevant Factors of Requirements Quality: an industrial Case Study" by Julian Frattini published at REFSQ'2024  https://arxiv.org/pdf/2402.00594.pdf
-
 
 
 ## How to build 
