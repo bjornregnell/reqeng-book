@@ -1,12 +1,12 @@
 object latex:
-  val slidePreamble = 
+  def slidePreamble(title: String) = 
     s"""|%!TEX encoding = UTF-8 Unicode
         |\\documentclass{simpleslides}
         |
         |\\author{Björn Regnell \\\\ \\vspace{1em}{\\small 
         |  \\url{https://cs.lth.se/bjorn-regnell}}}
         |
-        |\\title{Introduction to Software\\\\Requirements Engineering}
+        |\\title{Introduction to Software\\\\Requirements Engineering $title}
         |
         |\\date{\\footnotesize Updated: \\today}
         |

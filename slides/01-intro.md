@@ -1,5 +1,6 @@
 > file = 01-def-req
 > main = L1-intro 
+> title = Lecture 1: Introduction
 
 # What is a requirement?
 
@@ -27,27 +28,6 @@
   * the *intentions* of **stakeholders**
 
 * The RE process involves 
-  * decision-making
   * knowledge-building
-
-*some italic text*
-
-`some nice code`
-
-*some more italic text*
-
-```scala
-@main def hej = println("hej") 
-
-12345678901234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNO
-
-//hellohello
-``` 
-
-% \begin{minipage}[t]{0.4\textwidth}
-% \vspace{0pt}\hfill\includegraphics[width=0.8\textwidth]{../img/phone}
-% \end{minipage}%
-% \hspace{2em}\begin{minipage}[t]{0.5\textwidth}
-% \vspace{1em} 
-% Building shared knowledge \\ Making decisions \\ Communicating intent \\ Creating the future
-% \end{minipage}%
+  * consensus-building
+  * decision-making

@@ -20,6 +20,25 @@ def latexMake(mainFile: String, wd: os.Path) = scala.util.Try:
   os.proc("latexmk", "-silent", "-pdf", "-cd", mainFile)
     .call(cwd = wd)
 
+def latexMakeWithErrorManagement(mainFile: String, wd: os.Path): Unit =
+      latexMake(mainFile, wd) match
+        case util.Success(result) => println(result)
+
+        case util.Failure(error)  => 
+          val logName = mainFile.stripSuffix(".tex") + ".log"
+          println(Console. RED + s"*** ERROR: $error" + Console.RESET)
+          val log = os.read(wd / logName).linesIterator.toSeq
+          val errorStart = log.indexWhere(_.contains("Error:"))
+          val nbrLines = log.drop(errorStart).indexWhere(_.contains("<return"))
+          println( // this is a hack to get relevant error lines with file and error
+            log.slice(errorStart - 7, errorStart + nbrLines)
+              .filter(s => s.trim.startsWith("(/") | s.trim.startsWith("!") | s.trim.endsWith(".tex"))
+              .mkString("\n")
+          )
+          println(Console. RED +  "----- END OF ERROR REPORT ---" + Console.RESET +
+            s" see ${Console.GREEN} $logName ${Console.RED} line nbr ${Console.RESET} ${errorStart + 1}")
+
+
 def time[A](msg: String, b: => A): A =
   val t0 = System.nanoTime()
   val result = b
@@ -52,32 +71,22 @@ def make(isLatexMk: Boolean): Unit =
   val slideMains = flatChunks.map(_.settings("main")).distinct
   println(s"  slide main files to generate: ${slideMains.mkString(", ")}")
   for m <- slideMains do
-    val inputFiles = flatChunks.filter(_.settings("main") == m).map(_.settings("file"))
+    val chunksOfMain = flatChunks.filter(_.settings("main") == m)
+    val inputFiles = chunksOfMain.map(_.settings("file")).distinct
     println(s"    generating $m of ${inputFiles.length} files: ${inputFiles.mkString(", ")}")
     val body = inputFiles.map(f => s"\\input{$f-slide.tex}")
-    val doc = latex.slidePreamble +: body :+ latex.slideEnd
+    val title = 
+      chunksOfMain.lastOption.map(c => "\\\\\\vspace{1em}" + c.settings("title")).getOrElse("")
+    val doc = latex.slidePreamble(title) +: body :+ latex.slideEnd
     os.write.over(outDir/ s"$m.tex", doc.mkString("\n"))
+    if isLatexMk then 
+      latexMakeWithErrorManagement(s"$m.tex", outDir)
 
 
   if isLatexMk then
     for f <- latexMainFiles do
       val fileName = f.lastOpt.get
-      latexMake(fileName, os.pwd / "tex" / "main") match
-        case util.Success(result) => println(result)
-
-        case util.Failure(error)  => 
-          val logName = fileName.stripSuffix(".tex") + ".log"
-          println(Console. RED + s"*** ERROR: $error" + Console.RESET)
-          val log = os.read(os.pwd / "tex" / "main" / logName).linesIterator.toSeq
-          val errorStart = log.indexWhere(_.contains("Error:"))
-          val nbrLines = log.drop(errorStart).indexWhere(_.contains("<return"))
-          println( // this is a hack to get relevant error lines with file and error
-            log.slice(errorStart - 7, errorStart + nbrLines)
-              .filter(s => s.trim.startsWith("(/") | s.trim.startsWith("!") | s.trim.endsWith(".tex"))
-              .mkString("\n")
-          )
-          println(Console. RED +  "----- END OF ERROR REPORT ---" + Console.RESET +
-            s" see ${Console.GREEN} $logName ${Console.RED} line nbr ${Console.RESET} ${errorStart + 1}")
+      latexMakeWithErrorManagement(fileName, os.pwd / "tex" / "main")
 
 def printlnOnChangeHelp() = 
   println("main.scala: Watching changes. Press Ctrl+C to exit, or press Enter twice to re-run.")
