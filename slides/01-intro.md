@@ -19,8 +19,6 @@
 
 # What is Requirements Engineering (RE)?
 
-* Requirements Engineering (RE) is a sub-discipline of Software Engineering (SE) 
-
 * RE is focused on 
 
   * the *requirements* of software-intensive systems 
