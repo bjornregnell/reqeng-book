@@ -1,6 +1,6 @@
 # reqeng-book
 
-* This repo includes ongoing work on an open source textbook to support teaching & learning of [Requirements Engineering](https://en.wikipedia.org/wiki/Requirements_engineering) (RE), a sub-discipline of [Software Engineering](https://en.wikipedia.org/wiki/Software_engineering) (SE). 
+* This repo includes ongoing work on an open source textbook to support teaching & learning of [Requirements Engineering](https://en.wikipedia.org/wiki/Requirements_engineering) (RE), a sub-discipline of [Software Engineering](https://en.wikipedia.org/wiki/Software_engineering). 
 
 * The intended readers include engineering students at undergraduate and graduate level as well as practitioners in software industry, as well as teachers at university level.
 
@@ -28,7 +28,7 @@ On Ubuntu, install with this command (and take a fika break until it is ready):
   ```
   sudo apt install texlive-full hunspell hunspell-sv
   ```
-  
+
 * [scala-cli](https://scala-cli.virtuslab.org/install/) to generate .tex-files from a simplified and limited version of markdown, based on a Scala-program in the [`src`](https://github.com/bjornregnell/reqeng-book/tree/main/src) dir.
 
 * It is not strictly necessary, but it helps if you have [git](https://git-scm.com/download/win) and a `bash` terminal. For MS Windows users it is recommended to use [WSL with Ubuntu](https://learn.microsoft.com/en-us/windows/wsl/install), but you can also try [MingGW/MSYS2](https://en.wikipedia.org/wiki/Mingw-w64) that is included when you make a full installation of [git](https://git-scm.com/download/win).
