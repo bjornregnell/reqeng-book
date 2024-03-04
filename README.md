@@ -2,7 +2,7 @@
 
 * This repo hosts ongoing work on an open source textbook to support teaching & learning of [Requirements Engineering](https://en.wikipedia.org/wiki/Requirements_engineering) (RE), a sub-discipline of [Software Engineering](https://en.wikipedia.org/wiki/Software_engineering). 
 
-* The intended readers include engineering students at undergraduate and graduate level, as well as practitioners in software industry. It is also intended as a goto-resource for teachers of RE.
+* The intended readers include engineering **students** at undergraduate and graduate level, as well as **practitioners** in software industry. It is also intended as a goto-resource for **teachers** of RE.
 
 * The book is maintained by [Prof. Bjorn Regnell](https://cs.lth.se/bjorn-regnell/) who is the main author and editor of invited contributions. The copyright of each contribution stays with the contributor under the license of this repo. If you make a contribution you implicitly transfer the right to the maintainer to make *any* edits to your contribution and publishing any edits under the the license of this repo.
 
