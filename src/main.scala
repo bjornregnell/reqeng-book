@@ -4,7 +4,7 @@ inline def debug(inline s: String): Unit =
 
 val slideFiles = os.list(os.pwd/"slides")
 
-val outDir = os.pwd / "tex" / "generated"
+val outDir = os.pwd / "tex" / "lectures"
 
 val latexMainFiles = os.list(os.pwd / "tex" / "main").filter:
   _.lastOpt.map(_.endsWith(".tex")).getOrElse(false)
