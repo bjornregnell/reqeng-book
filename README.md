@@ -11,7 +11,7 @@
 
 ## Contributions are welcome!
 
-I plan to invite reviewers/authors of special topics based on interesting academic papers. If you are interested in contributing as a reviewer or author please contact me at bjorn.regnell@cs.lth.se or open an [issue in this repo](https://github.com/bjornregnell/reqeng-book/issues) to start a discussion on your ideas on how this book can be improved.
+The plan is to invite reviewers/authors of special topics, e.g. based on interesting academic publications. If you are interested in contributing as a reviewer or author please contact bjorn.regnell@cs.lth.se or open an [issue in this repo](https://github.com/bjornregnell/reqeng-book/issues) to start a discussion on your ideas on how this book can be improved.
 
 
 ## How to build 
