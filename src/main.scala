@@ -87,7 +87,7 @@ def make(isLatexMk: Boolean): Unit =
   for lect <- lectureMains do
     val chunksOfMain = flatChunks.filter(_.settings("main") == lect)
     val inputFiles = chunksOfMain.map(_.settings("file")).distinct
-    println(s"    generating $m of ${inputFiles.length} files: ${inputFiles.mkString(", ")}")
+    println(s"    generating $lect of ${inputFiles.length} files: ${inputFiles.mkString(", ")}")
     val body = inputFiles.map(f => s"\\input{$f-slide.tex}")
     val title = 
       chunksOfMain.lastOption.map(c => "\\\\\\vspace{1em}" + c.settings("title")).getOrElse("")
