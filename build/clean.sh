@@ -1,4 +1,4 @@
 scala-cli clean src
-pushd tex/main
+pushd book
 latexmk -c book.tex
 popd
