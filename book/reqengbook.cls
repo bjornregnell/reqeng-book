@@ -12,6 +12,7 @@
 % if you are inside a multicols environment you MUST use only H for a float to work
 
 \usepackage[utf8]{inputenc}
+\usepackage[swedish,main=english]{babel}
 \usepackage[T1]{fontenc}
 
 %% FONT PACKAGES
@@ -60,6 +61,9 @@
 \definecolor{eclipsegreen}{rgb}{0,0.5,0}
 
 \usepackage{enumitem}
+
+\usepackage[yyyymmdd]{datetime}
+\renewcommand{\dateseparator}{-}
 
 %\linespread{1.0} %% use 0.98 for tighter lines
 

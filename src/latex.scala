@@ -1,21 +1,35 @@
 object latex:
   val texEncoding = "%!TEX encoding = UTF-8 Unicode"
 
-  def slidePreamble(title: String, authors: String = "Björn Regnell et al.") = 
+  def slidePreamble(
+    lectureTitle: String, 
+    authors: String = "Björn Regnell", 
+    bookTitle: String = "Introduction to Software Requirements Engineering"
+  ) = 
     s"""|$texEncoding
         |\\documentclass{reqenglecture}
         |
-        |\\author{$authors\\\\ \\vspace{1em}{\\small 
-        |  \\url{https://cs.lth.se/bjorn-regnell}}}
+        |\\title{$bookTitle}
         |
-        |\\title{Introduction to Software\\\\Requirements Engineering $title}
+        |\\subtitle{$lectureTitle}
         |
-        |\\date{\\footnotesize Updated: \\today \\\\CC-BY-SA}
+        |\\author{$authors}
+        |
+        |\\date{\\vspace{1em}\\footnotesize Updated: \\today~
+        |\\\\ License: CC-BY-SA 
+        |\\\\ \\url{https://github.com/bjornregnell/reqeng-book} 
+        |}
         |
         |%\\beamerdefaultoverlayspecification{<+->} %de-comment if you want pause after items
         |
         |\\begin{document}
         |\\maketitle
+        |
+        |\\begin{frame}
+        |\\frametitle{$lectureTitle}
+        |\\framesubtitle{Outline}
+        |\\tableofcontents
+        |\\end{frame}
         |""".stripMargin
 
   val endDocument = "\\end{document}"

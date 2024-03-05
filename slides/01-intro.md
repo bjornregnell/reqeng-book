@@ -2,6 +2,8 @@
 > main = L1-intro 
 > title = Lecture 1: Introduction
 
+\section{Basic terminology}
+
 # What is a requirement?
 
 * Something **needed** or **wanted**.

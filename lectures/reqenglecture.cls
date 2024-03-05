@@ -3,11 +3,14 @@
 \ProvidesClass{simpleslides}[2023/10/14 Document class simpleslides based on beamer]
 %\LoadClass[handout]{beamer} %without pauses
 \LoadClass{beamer}
+
 \beamertemplatenavigationsymbolsempty
-\setbeamertemplate{footline}[frame number] 
+%\usetheme{Antibes}
+
+\setbeamertemplate{footline}[frame number]
 \setbeamercolor{page number in head/foot}{fg=gray} 
-\usepackage[swedish]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[swedish,main=english]{babel}
 \usepackage[T1]{fontenc}
 %\usepackage[scaled=0.85]{noto}
 \usepackage{lmodern} % if included before serif package, it goes for headings only
@@ -27,16 +30,18 @@
 \usepackage[yyyymmdd]{datetime}
 \renewcommand{\dateseparator}{-}
 
-\setbeamerfont{title}{size=\Large,family=\textrm,series=\bfseries}
+\setbeamerfont{title}{size=\small,series=\bfseries}
+\setbeamerfont{subtitle}{size=\Large}
 \setbeamerfont{frametitle}{size=\Large,series=\bfseries}
-\setbeamerfont{subtitle}{size=\fontsize{14pt}{14pt}}
-\setbeamerfont{author}{size=\fontsize{14pt}{14pt}}
-\setbeamerfont{date}{size=\fontsize{10pt}{10pt}}
+\setbeamerfont{author}{size=\large}
+\setbeamerfont{date}{size=\small}
 
 
-\setbeamertemplate{items}[circle]
-%\setbeamertemplate{items}[square]
-
+%\setbeamertemplate{items}[circle]
+\setbeamertemplate{items}[square]
+%\setbeamertemplate{itemize subitem}[circle]%{$\rightarrow$}
+%\setbeamertemplate{itemize subitem}[square]%{$\rightarrow$}
+\setbeamertemplate{itemize subitem}{--}
 \usepackage{listings}
 
 \newcommand{\TODO}{\colorbox{red!70}{TODO!!!}~}  

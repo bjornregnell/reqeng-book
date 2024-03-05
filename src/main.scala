@@ -17,6 +17,9 @@ val scalaSourceDir   = Seq(os.pwd / "src")
 
 val generatedSuffix  = "-generated"
 
+def inputSlide(fileStart: String): String = 
+  s"\\input{${slidesTargetDir.last}/$fileStart$generatedSuffix.tex}"
+
 def latexMainPaths() = os.list(lecturesTargetDir)
   .filter(p => p.endsWith(os.RelPath(".tex")) && p.last.startsWith("L"))
   .appended(bookDir / bookFileName)
@@ -24,7 +27,7 @@ def latexMainPaths() = os.list(lecturesTargetDir)
 def watchedPaths() = Seq(chaptersSourceDir, slideSourceDir) ++ latexMainPaths()
 
 def latexMake(mainFile: String, wd: os.Path) = scala.util.Try:
-  os.proc("latexmk", "-silent", "-pdfs", "-cd", mainFile)
+  os.proc("latexmk", "-silent", "-pdf", "-cd", mainFile)
     .call(cwd = wd)
 
 def latexMakeWithErrorManagement(mainFile: String, wd: os.Path): Unit =
@@ -88,10 +91,10 @@ def make(isLatexMk: Boolean): Unit =
     val chunksOfMain = flatChunks.filter(_.settings("main") == lect)
     val inputFiles = chunksOfMain.map(_.settings("file")).distinct
     println(s"    generating $lect of ${inputFiles.length} files: ${inputFiles.mkString(", ")}")
-    val body = inputFiles.map(f => s"\\input{$f-slide.tex}")
+    val latexInputs = inputFiles.map(inputSlide)
     val title = 
-      chunksOfMain.lastOption.map(c => "\\\\\\vspace{1em}" + c.settings("title")).getOrElse("")
-    val doc = latex.slidePreamble(title) +: body :+ latex.endDocument
+      chunksOfMain.lastOption.map(_.settings("title")).getOrElse("Untitled Lecture")
+    val doc = latex.slidePreamble(title) +: latexInputs :+ latex.endDocument
     val lectFileName = s"$lect$generatedSuffix.tex"
     os.write.over(lecturesTargetDir / lectFileName, doc.mkString("\n"))
     if isLatexMk then 
