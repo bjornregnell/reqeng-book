@@ -1,23 +1,30 @@
-inline val dbg = true
+inline val dbg = false
+
 inline def debug(inline s: String): Unit = 
   inline if dbg then println(s" *** DEBUG $s")
 
-val slideFiles = os.list(os.pwd/"slides")
+val slideSourceDir    = os.pwd / "slides"
+val slideSourceFiles  = os.list(slideSourceDir)
 
-val outDir = os.pwd / "tex" / "lectures"
+val chaptersSourceDir = os.pwd / "chapters"
+val lecturesTargetDir = os.pwd / "lectures"
+val slidesTargetDir   = lecturesTargetDir / "slides"
 
-val latexMainFiles = os.list(os.pwd / "tex" / "main").filter:
-  _.lastOpt.map(_.endsWith(".tex")).getOrElse(false)
+val bookDir           = os.pwd / "book"
+val bookFileName      = "reqeng-book.tex"
 
-val watchedPaths = Seq(
-  os.pwd / "tex" / "chapters", 
-  os.pwd / "slides",
-) ++ latexMainFiles
+val scalaSourceDir   = Seq(os.pwd / "src") 
 
-val scalaSource = Seq(os.pwd / "src") 
+val generatedSuffix  = "-generated"
+
+def latexMainPaths() = os.list(lecturesTargetDir)
+  .filter(p => p.endsWith(os.RelPath(".tex")) && p.last.startsWith("L"))
+  .appended(bookDir / bookFileName)
+
+def watchedPaths() = Seq(chaptersSourceDir, slideSourceDir) ++ latexMainPaths()
 
 def latexMake(mainFile: String, wd: os.Path) = scala.util.Try:
-  os.proc("latexmk", "-silent", "-pdf", "-cd", mainFile)
+  os.proc("latexmk", "-silent", "-pdfs", "-cd", mainFile)
     .call(cwd = wd)
 
 def latexMakeWithErrorManagement(mainFile: String, wd: os.Path): Unit =
@@ -38,55 +45,66 @@ def latexMakeWithErrorManagement(mainFile: String, wd: os.Path): Unit =
           println(Console. RED +  "----- END OF ERROR REPORT ---" + Console.RESET +
             s" see ${Console.GREEN} $logName ${Console.RED} line nbr ${Console.RESET} ${errorStart + 1}")
 
-
 def time[A](msg: String, b: => A): A =
   val t0 = System.nanoTime()
   val result = b
   val t1 = System.nanoTime() - t0
   println(s"$msg ${math.round(t1 * 100.0/1_000_000)/100.0} ms")
-  //println(s"$msg $t1 ns")
   result
 
+def deleteAllWithSuffix(path: os.Path, suffix: String): Unit = 
+    os.walk(slidesTargetDir).foreach(f => f.lastOpt.foreach(last => 
+      if last.endsWith(suffix) then os.remove(f)))
+
 def make(isLatexMk: Boolean): Unit =
-  println(s"\n  Processing slide files: ${slideFiles.mkString("\n   ", "\n   ", "\n")}")
+  println(s"\n  Processing slide files: ${slideSourceFiles.mkString("\n   ", "\n   ", "\n")}")
   val allChunks = scala.collection.mutable.ArrayBuffer.empty[Seq[Chunk]]
-  for f <- slideFiles do
+  for f <- slideSourceFiles do
     println(s"processing: $f")
     val lines: Lines = os.read(f).linesIterator.to(collection.immutable.ArraySeq) 
     val chunks: Seq[Chunk] = time("parseLines", parseLines(lines))
     allChunks.append(chunks)
+
+    val genSuf = s"$generatedSuffix.tex"
+
     println(s"  number of chunks found: ${chunks.length}")
-    println(s"  *** deleting all existing -slide.tex in\n    $outDir")
-    os.walk(outDir).foreach(f => f.lastOpt.foreach(s => if s.endsWith("-slide.tex") then os.remove(f)))
+    println(s"  *** deleting all existing $genSuf in\n    $slidesTargetDir")
+
+    deleteAllWithSuffix(slidesTargetDir, genSuf)
+
     for chunk <- chunks do
-      val texFileName = chunk.settings("file") + "-slide.tex" 
+      val texFileName = chunk.settings("file") + genSuf 
       val output = chunk.toTex.mkString("\n")
-      val pathLastPart = outDir.segments.toSeq.takeRight(2).mkString("/")
-      println(s"  writing: $pathLastPart/${(outDir/texFileName).last}")
-      os.write.over(outDir/texFileName, output)
+      val pathLastPart = slidesTargetDir.segments.toSeq.takeRight(2).mkString("/")
+      println(s"  writing: $pathLastPart/${(slidesTargetDir/texFileName).last}")
+      os.write.over(slidesTargetDir/texFileName, output)
     end for
   end for
   
   val flatChunks = allChunks.flatten.toSeq
-  val slideMains = flatChunks.map(_.settings("main")).distinct
-  println(s"  slide main files to generate: ${slideMains.mkString(", ")}")
-  for m <- slideMains do
-    val chunksOfMain = flatChunks.filter(_.settings("main") == m)
+  val lectureMains = flatChunks.map(_.settings("main")).distinct
+  println(s"  slide main files to generate: ${lectureMains.mkString(", ")}")
+  for lect <- lectureMains do
+    val chunksOfMain = flatChunks.filter(_.settings("main") == lect)
     val inputFiles = chunksOfMain.map(_.settings("file")).distinct
     println(s"    generating $m of ${inputFiles.length} files: ${inputFiles.mkString(", ")}")
     val body = inputFiles.map(f => s"\\input{$f-slide.tex}")
     val title = 
       chunksOfMain.lastOption.map(c => "\\\\\\vspace{1em}" + c.settings("title")).getOrElse("")
-    val doc = latex.slidePreamble(title) +: body :+ latex.slideEnd
-    os.write.over(outDir/ s"$m.tex", doc.mkString("\n"))
+    val doc = latex.slidePreamble(title) +: body :+ latex.endDocument
+    val lectFileName = s"$lect$generatedSuffix.tex"
+    os.write.over(lecturesTargetDir / lectFileName, doc.mkString("\n"))
     if isLatexMk then 
-      latexMakeWithErrorManagement(s"$m.tex", outDir)
-
+      latexMakeWithErrorManagement(lectFileName, lecturesTargetDir)
 
   if isLatexMk then
-    for f <- latexMainFiles do
-      val fileName = f.lastOpt.get
-      latexMakeWithErrorManagement(fileName, os.pwd / "tex" / "main")
+    val mains = latexMainPaths()
+    println(s"  running latexmk foreach $mains")
+    for f <- mains if f.lastOpt.nonEmpty do 
+      val workDir = os.root / f.segments.toSeq.dropRight(1)
+      val fileName = f.last
+      println(s"    spawning latexmk in $workDir $fileName")
+      latexMakeWithErrorManagement(fileName, workDir)
 
 def printlnOnChangeHelp() = 
   println("main.scala: Watching changes. Press Ctrl+C to exit, or press Enter twice to re-run.")
@@ -102,9 +120,9 @@ def onChange(changed: Set[os.Path], isLatexMk: Boolean): Unit =
   val isWatch   = args.contains("-w") || args.contains("--watch")
   if isWatch then 
     //os.watch.watch(Seq(os.pwd/"slides"), xs => println("changed: " + xs.mkString(",")))
-    println(s"Watching changes in:\n  " + watchedPaths.mkString("\n  "))
-    os.watch.watch(watchedPaths, xs => onChange(xs, isLatexMk))
-    os.watch.watch(scalaSource, xs => {
+    println(s"Watching changes in:\n  " + watchedPaths().mkString("\n  "))
+    os.watch.watch(watchedPaths(), xs => onChange(xs, isLatexMk))
+    os.watch.watch(scalaSourceDir, xs => {
       println("\nSources in src changed; exiting... Press Enter to re-start.")
       System.exit(0)
     })

@@ -1,5 +1,6 @@
-echo "-- scala-cli run src"
+echo "-- generate tex sources"
 scala-cli run src
-echo "-- generate pdf in book/"
-pushd book && latexmk -silent -pdf -cd book.tex
+
+echo "-- generate pdf"
+pushd book && latexmk -silent -pdf -cd reqeng-book.tex
 popd
