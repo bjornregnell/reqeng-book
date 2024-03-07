@@ -1,16 +1,24 @@
 %!TEX encoding = UTF-8 Unicode
 %!TEX root = ../book/reqeng-book.tex
 
-\chapter{Introduction}%
+
+\chapter{Context}%
 \MarginPage{%
-\input{../lectures/slides/01-def-req-generated.tex}
+\input{../lectures/slides/def-RE-generated.tex}
+\input{../lectures/slides/def-req-generated.tex}
+
+\SwedishTermsStart
+\SwedishTerm{requirements engineering}{kravhantering, kravteknik, kravanalys}
+\SwedishTerm{requirement}{krav, önskemål}
+\SwedishTerm{representation}{representation, avbildning}
+\SwedishTerm{stakeholder}{intressent, aktör, sakägare}
 }%
 Requirements Engineering (RE) is a sub-discipline of Software Engineering (SE) that is focused on the \textit{requirements} of software-intensive systems and their \textit{context}, which includes users and surrounding systems.
 
 The requirements engineering process involves activities such as eliciting, specifying, validating, and selecting requirements. 
 Requirements engineering is both a research discipline and an engineering practice, forming the foundation for our human ability to create useful software with high quality. When you work with anything related to the decision-making process of software development and its underlying intentions you are doing requirements engineering.
 
-The word ''requirement'' often means \textbf{something needed or wanted}. It can also refer to a \emph{documented representation} of something needed or wanted. 
+The word ''requirement'' often means \textbf{something needed or wanted}. It can also refer to a documented \emph{representation} of something needed or wanted. 
 
 The term ''requirement'' is a bit tricky as it is overloaded with several meanings. It is sometimes used as a very abstract term denoting \textit{any} type of information entity relevant to the intentions behind system development.  Sometimes we mean an optional wish or nice-to-have feature, sometimes we mean a mandatory feature without which the system would be pointless. Sometimes it refers to something explicitly decided and committed for delivery. Sometimes we mean the actual underlying need of a user that maybe still elusive and not explicitly stated, while we also may mean the carefully documented \textit{representation} of that underlying need. This documented representation may very well unintendedly differ from the underlying actual need, due to imperfections of our specification. 
 Also, representations of requirements come in many different kinds and shapes at different levels of abstraction and detail, and hence, it is wise to be clear and specific about what kind of requirement we mean, to avoid that our usage of the term is misinterpreted. 
@@ -19,8 +27,9 @@ The subsequent sections aims to provide a concise overview of the set of terms t
 
 \newpage
 \section{Activities in Requirements Engineering}%
-\MarginPage{\input{../lectures/slides/02-def-RE-generated.tex}}% 
-%
+\MarginPage{
+\input{../lectures/slides/def-RE-generated.tex}
+}% 
 Working with requirements involves many different tasks and skills. The RE process is often characterized by these interrelated activities: 
 
 \begin{itemize}
@@ -28,7 +37,7 @@ Working with requirements involves many different tasks and skills. The RE proce
   \item \textbf{Specification}: to represent, communicate and make persistent. It is not enough to just keep our knowledge about the evolving requirements in our heads. Requirements needs to be represented in a persistent way, so that we can retrieve and communicate them over time and space, as they evolve. The requirements models that are the results of requirements specification should be useful to all humans and tools involved in all dependent software engineering processes throughout the whole product life-cycle.
   \item \textbf{Validation}: to check that we have represented the right requirements in a good way. It is important to continuously validate that the current set of requirements are relevant and that their representation is of adequate quality. There is no such thing as a perfect and totally complete requirements specification, as that would require infinite resources and perfect knowledge about the future -- the major challenge is to tell when it is ''good enough'' for the involved stakeholders. With our requirements validation efforts we want to significantly reduce the risk of developing an unwanted system.
   \item \textbf{Selection}: to prioritize and decide what to include in the set of requirements that we make a commitment to implement, according to our product strategy and delivery plan, in relation to stakeholders' goals. Prioritization involves estimation using some measurement scale according to relevant selection criteria such as market value, development cost, requirements volatility, financial risk, etc. Delivery planning needs to take into account constraints on requirements implementation order, given that some requirements often depend on other requirements. 
-\end{itemize}
+\end{itemize} 
 
 These activities are often conducted concurrently and in an iterative maner. When you specify or validate, you often discover missing requirements. When you elicit, you need to write down what you find in order not to forget all the things you learn. When you try to prioritize and make delivery plans, you may realize that you need to elicit more knowledge about requirements dependencies. Etcetera. Do not expect to carry out the above activities one at a time from top to bottom -- your RE work will be similar to a juggler having many balls in the air at the same time. 
 

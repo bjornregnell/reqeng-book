@@ -1,14 +1,26 @@
 %https://sv.sharelatex.com/blog/2011/03/27/how-to-write-a-latex-class-file-and-design-your-own-cv.html
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{simpleslides}[2023/10/14 Document class simpleslides based on beamer]
+\ProvidesClass{reqenglecture}[2023/10/14 Document class simpleslides based on beamer]
 %\LoadClass[handout]{beamer} %without pauses
-\LoadClass{beamer}
+\LoadClass[aspectratio=43]{beamer}
+\setbeamersize{text margin left=12mm, text margin right=10mm}
 
 \beamertemplatenavigationsymbolsempty
+%https://tex.stackexchange.com/questions/432054/missing-frame-numbers-with-paloalto-theme
+%\setbeamertemplate{footline}[frame number]  % fix for ubuntu 18.04 see link above
 %\usetheme{Antibes}
 
-\setbeamertemplate{footline}[frame number]
-\setbeamercolor{page number in head/foot}{fg=gray} 
+%\setbeamercolor{page number in head/foot}{fg=gray} 
+%instead of above: place and color the framenumber manually
+\setbeamertemplate{footline}
+{%
+\begin{beamercolorbox}{section in head/foot}
+  %\vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+  \color{gray}{\vskip2pt\insertnavigation{0.2\paperwidth}%
+  \hfill~\insertframenumber~/~\inserttotalframenumber\hspace*{3mm}\vskip3mm}
+\end{beamercolorbox}%
+}
+
 \usepackage[utf8]{inputenc}
 \usepackage[swedish,main=english]{babel}
 \usepackage[T1]{fontenc}
@@ -42,7 +54,10 @@
 %\setbeamertemplate{itemize subitem}[circle]%{$\rightarrow$}
 %\setbeamertemplate{itemize subitem}[square]%{$\rightarrow$}
 \setbeamertemplate{itemize subitem}{--}
+
+
 \usepackage{listings}
+
 
 \newcommand{\TODO}{\colorbox{red!70}{TODO!!!}~}  
 
@@ -119,3 +134,6 @@
 \newenvironment{Slide}[2][]
   {\begin{frame}[fragile,environment=Slide,#1]{#2}}
   {\end{frame}}
+
+ %% slide-specific stuff
+\newcommand{\LectureOnly}[1]{#1}

@@ -11,6 +11,9 @@
 \usepackage{float} % control placement of figures etc. provides the H float modifier option
 % if you are inside a multicols environment you MUST use only H for a float to work
 
+% \RequirePackage{fix-cm}%https://ftpmirror1.infania.net/mirror/CTAN/macros/latex/base/fix-cm.pdf
+% \usepackage{type1cm}
+
 \usepackage[utf8]{inputenc}
 \usepackage[swedish,main=english]{babel}
 \usepackage[T1]{fontenc}
@@ -60,7 +63,11 @@
 \definecolor{eclipseblue}{rgb}{0.16,0,1.0}
 \definecolor{eclipsegreen}{rgb}{0,0.5,0}
 
-\usepackage{enumitem}
+%\usepackage{enumitem} SEMS TO CLASH WITH paralist
+%https://tex.stackexchange.com/questions/18411/what-are-the-differences-between-using-paralist-vs-enumitem
+
+\usepackage{paralist}
+\setdefaultleftmargin{2em}{1em}{1em}{1em}{.5em}{.5em}
 
 \usepackage[yyyymmdd]{datetime}
 \renewcommand{\dateseparator}{-}
@@ -179,15 +186,19 @@
 
 \newcommand{\MarginPage}[1]{%
 \begin{tikzpicture}[remember picture, overlay, anchor = north] %% remember picture allows referring to nodes outside
-\node[align=left,yshift=-5mm,xshift=5mm] at (0.53\paperwidth, 0.12\pdfpageheight) { %  add draw, before align to get frame
-\begin{minipage}{90mm}
+\node[align=left,yshift=-5mm,xshift=1.4mm] at (0.53\paperwidth, 0.12\pdfpageheight) { %  add draw, before align to get frame
+\begin{minipage}{100mm}
 #1
 \end{minipage}%
 };
 \end{tikzpicture}%
 }
+%% TODO: Make \MarginPage work using twopage document instead of onepage (see top of file)
+%% Perhaps below can be used to place the \MarginPage differently ???
+% \usepackage{etoolbox}%https://tex.stackexchange.com/questions/6143/if-then-else-for-odd-page-even-page
+% \newcommand{\TestOddEven}{\ifnumodd{\thepage}{THIS IS ODD \thepage}{THIS IS EVEN \thepage}} 
 
-\newcommand{\TODO}{\colorbox{red!70}{TODO!!!}~}  
+\newcommand{\TODO}{\colorbox{red!20}{TODO!!!}~}  
 
 \newcommand{\code}{\lstinline[basicstyle=\ttfamily]}
 
@@ -236,10 +247,7 @@
 {Ü}{{\"U}}1
 {ß}{{\ss}}1
 {ü}{{\"u}}1
-{å}{{\aa}}1
-{ä}{{\"a}}1
-{ö}{{\"o}}1
-{æ}{{\ae}}1
+{å}{{\aa}}1e
 {ø}{{\o}}1
 {Æ}{{\AE}}1
 {Ø}{{\O}}1
@@ -257,3 +265,12 @@
 \lstnewenvironment{Code}[1][]{%
     \lstset{#1}%
 }{}
+
+\usepackage{hanging} 
+% https://ftp.acc.umu.se/mirror/CTAN/macros/latex/contrib/hanging/hanging.pdf
+%https://tex.stackexchange.com/questions/509106/how-to-indent-and-hanging-indent
+\newcommand{\SwedishTermsStart}{\textbf{In Swedish}:\par}
+\newcommand{\SwedishTerm}[2]{\hangpara{1em}{1}{\textit{#1}~#2}\par}
+
+%% kill slide stuff
+\newcommand{\LectureOnly}[1]{}

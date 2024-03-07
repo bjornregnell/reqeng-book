@@ -26,27 +26,34 @@ def latexMainPaths() = os.list(lecturesTargetDir)
 
 def watchedPaths() = Seq(chaptersSourceDir, slideSourceDir) ++ latexMainPaths()
 
-def latexMake(mainFile: String, wd: os.Path) = scala.util.Try:
-  os.proc("latexmk", "-silent", "-pdf", "-cd", mainFile)
-    .call(cwd = wd)
+def call(wd: os.Path, pr: Seq[String]) = scala.util.Try:
+  println(s"Calling: $pr}\n in working dir: $wd")
+  os.proc(pr).call(cwd = wd)
+
+def latexMake(mainFile: String, wd: os.Path) = call(wd, Seq("latexmk", "-silent", "-pdf", "-cd", mainFile))
+
+def latexClean(mainFile: String, wd: os.Path) = call(wd, Seq("latexmk", "-c", mainFile))
 
 def latexMakeWithErrorManagement(mainFile: String, wd: os.Path): Unit =
+      println(latexClean(mainFile, wd))
       latexMake(mainFile, wd) match
         case util.Success(result) => println(result)
 
         case util.Failure(error)  => 
           val logName = mainFile.stripSuffix(".tex") + ".log"
           println(Console. RED + s"*** ERROR: $error" + Console.RESET)
-          val log = os.read(wd / logName).linesIterator.toSeq
-          val errorStart = log.indexWhere(_.contains("Error:"))
-          val nbrLines = log.drop(errorStart).indexWhere(_.contains("<return"))
-          println( // this is a hack to get relevant error lines with file and error
-            log.slice(errorStart - 7, errorStart + nbrLines)
-              .filter(s => s.trim.startsWith("(/") | s.trim.startsWith("!") | s.trim.endsWith(".tex"))
-              .mkString("\n")
-          )
-          println(Console. RED +  "----- END OF ERROR REPORT ---" + Console.RESET +
-            s" see ${Console.GREEN} $logName ${Console.RED} line nbr ${Console.RESET} ${errorStart + 1}")
+          val logOpt = util.Try(os.read(wd / logName).linesIterator.toSeq).toOption
+          if logOpt.isEmpty then println(s"log file not found: $wd/$logName")
+          for log <- logOpt do
+            val errorStart = log.indexWhere(_.contains("Error:"))
+            val nbrLines = log.drop(errorStart).indexWhere(_.contains("<return"))
+            println( // this is a hack to get relevant error lines with file and error
+              log.slice(errorStart - 7, errorStart + nbrLines)
+                .filter(s => s.trim.startsWith("(/") | s.trim.startsWith("!") | s.trim.endsWith(".tex"))
+                .mkString("\n")
+            )
+            println(Console. RED +  "----- END OF ERROR REPORT ---" + Console.RESET +
+              s" see ${Console.GREEN} $logName ${Console.RED} line nbr ${Console.RESET} ${errorStart + 1}")
 
 def time[A](msg: String, b: => A): A =
   val t0 = System.nanoTime()
@@ -56,8 +63,14 @@ def time[A](msg: String, b: => A): A =
   result
 
 def deleteAllWithSuffix(path: os.Path, suffix: String): Unit = 
-    os.walk(slidesTargetDir).foreach(f => f.lastOpt.foreach(last => 
-      if last.endsWith(suffix) then os.remove(f)))
+    println(s"  *** deleting all existing files ending with '$suffix' in\n    $path")
+    for 
+      f <- os.walk(path) 
+      last <- f.lastOpt
+    do 
+      if last.endsWith(suffix) then 
+        println(s"      deleting: $last")
+        os.remove(f)
 
 def make(isLatexMk: Boolean): Unit =
   println(s"\n  Processing slide files: ${slideSourceFiles.mkString("\n   ", "\n   ", "\n")}")
@@ -67,13 +80,13 @@ def make(isLatexMk: Boolean): Unit =
     val lines: Lines = os.read(f).linesIterator.to(collection.immutable.ArraySeq) 
     val chunks: Seq[Chunk] = time("parseLines", parseLines(lines))
     allChunks.append(chunks)
-
+    
     val genSuf = s"$generatedSuffix.tex"
 
     println(s"  number of chunks found: ${chunks.length}")
-    println(s"  *** deleting all existing $genSuf in\n    $slidesTargetDir")
 
     deleteAllWithSuffix(slidesTargetDir, genSuf)
+    deleteAllWithSuffix(lecturesTargetDir, genSuf)
 
     for chunk <- chunks do
       val texFileName = chunk.settings("file") + genSuf 
