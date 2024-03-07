@@ -1,5 +1,5 @@
-# DO NOT EDIT FILES IN THIS DIR
+# GENERATED FILES IN THIS DIR
 
-* Files in this dir are automatically generated.
+* Files in this dir ending with `-generated.tex` are automatically generated. 
 
-* If you edit files in this dir edits **will be lost** upon next build.
+* If you those files your edits **will be lost** upon next build.
