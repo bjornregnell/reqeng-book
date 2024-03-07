@@ -2,26 +2,27 @@
 > title = Lecture 1: Context
 > file = def-RE
 
-\LectureOnly{\section{Terminology}}
+\LectureOnly{\section{Basic terminology}}
 
 # What is Requirements Engineering (RE)?
 
-* RE is focused on 
-  * the **requirements** of software-intensive systems 
-  * the system **context**, including users and connected systems.
-  * the **intentions of stakeholders**
+* RE is focused on the
+  * **requirements** of software-intensive systems 
+  * **system context**, including users and connected systems
+  * **development context**, including stakeholders' intentions 
 
 * The RE process involves 
-  * knowledge-building
-  * consensus-building
-  * decision-making
-
+  * knowledge-building \hfill research
+  * consensus-building \hfill agree
+  * decision-making    \hfill choose
+  * innovation         \hfill generate ideas
+  * communication      \hfill be pedagogical
 
 > file = def-req
 
 # What is a requirement?
 
-* A common definition:
+* A simple definition:
   * Something **needed** or **wanted**.
   * A documented **representation** of\\something needed or wanted.
 
@@ -33,25 +34,43 @@
 * The most **general** meaning:\\
   *any* kind of **information entity** used in RE
 
+> file = activities
+
+# Main Activities
+
+* The 4 main activities of RE: 
+  * **Elicitation** \hfill learning
+  * **Specification** \hfill modelling
+  * **Validation**  \hfill checking
+  * **Selection**   \hfill deciding
+* Interdependent and intertwined
+* Conducted iteratively and concurrently
+
 > file = def-spec
 
 # What is a Requirements Specification?
 
-* A collection of requirements models with supporting information to help interpretation
+* A simple definition:  
+  * ''A document that describes what the system should do''
+    * what is what and what is how?
+    * how much about the context is needed?
+    * not always a document; database, issue tracker, prototype, ...
 
-* Expressed in a combination of suitable styles:
+* Requirements models + Help for the reader
+
+* Expressed using a combination of suitable media, such as:
   * natural language
-  * formal language (controlled syntax and semantics)
+  * formal language
   * diagrams
-  * tables
-  * pictures
-  * videos
   * prototypes
+  * test cases
+  * videos
   * ...
 
 * Similar to a shopping list:
   * You don't always get what you want.
   * You often want things that you don't need.
+
 
 > file = acronyms
 
@@ -59,7 +78,7 @@
 
   * RE   \hfill requirements engineering
   * SE   \hfill software engineering
-  * req \hfill requirement 
+  * req  \hfill requirement 
   * spec \hfill specification
   * SRS  \hfill software (or system) req spec
   * sys  \hfill system
@@ -70,7 +89,7 @@
 
 > file = re-as-constr
 
-\LectureOnly{\section{Purpose}}
+\LectureOnly{\section{The purpose of RE}}
 
 # Requirements as Solution Constraints
 
