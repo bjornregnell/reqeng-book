@@ -21,16 +21,17 @@
 
 # What is a requirement?
 
-* Something **needed** or **wanted**.
+* A common definition:
+  * Something **needed** or **wanted**.
+  * A documented **representation** of\\something needed or wanted.
 
-* A documented **representation** of\\something needed or wanted.
-* The word ''requirement'' has many different meanings:\\
-  must, wish, idea, specific design, rationale, ...
+* Are we representing what is **actually** needed or wanted? 
 
-* The most **general meaning**:\\
+* A ''requirement'' can in practice mean many different things:\\
+  must, wish, need, idea, rationale, function, quality, design, feature, decision, option, constraint, ...
+
+* The most **general** meaning:\\
   *any* kind of **information entity** used in RE
-
-* You don't always get what you want and you often want things that you don't need...
 
 > file = def-spec
 
