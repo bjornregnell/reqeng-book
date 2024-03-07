@@ -24,7 +24,7 @@
 * Something **needed** or **wanted**.
 
 * A documented **representation** of\\something needed or wanted.
-* The word ''requirement'' have different meanings:\\
+* The word ''requirement'' has many different meanings:\\
   must, wish, idea, specific design, rationale, ...
 
 * The most **general meaning**:\\
