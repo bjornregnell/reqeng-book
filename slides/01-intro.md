@@ -59,9 +59,9 @@
 
   * RE   \hfill requirements engineering
   * SE   \hfill software engineering
-  * reqt \hfill requirement 
+  * req \hfill requirement 
   * spec \hfill specification
-  * SRS  \hfill software (or system) reqt spec
+  * SRS  \hfill software (or system) req spec
   * sys  \hfill system
   * SW   \hfill software
   * dev  \hfill (software or system) development
@@ -83,7 +83,7 @@
 * The **general purpose** of RE:
   * to **constrain the solution space** so that software development is likely to produce a **good enough** solution
 
-* The reqt spec should be a good enough definition of what we mean with a ''good enough solution''
+* The req spec should be a good enough definition of what we mean with a ''good enough solution''
 
 * RE is the **foundation for software quality**.
 
