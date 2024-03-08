@@ -66,8 +66,9 @@
 %\usepackage{enumitem} SEMS TO CLASH WITH paralist
 %https://tex.stackexchange.com/questions/18411/what-are-the-differences-between-using-paralist-vs-enumitem
 
-\usepackage{paralist}
-\setdefaultleftmargin{2em}{1em}{1em}{1em}{.5em}{.5em}
+\usepackage{paralist} %https://ftpmirror1.infania.net/mirror/CTAN/macros/latex/contrib/paralist/paralist.pdf
+\setdefaultleftmargin{2em}{2em}{1em}{1em}{.5em}{.5em}
+\setdefaultitem{\textbullet}{--}{-}{-}
 
 \usepackage[yyyymmdd]{datetime}
 \renewcommand{\dateseparator}{-}
@@ -77,6 +78,7 @@
 \usepackage{lipsum} % to create dummy text with \lipsum
 
 \usepackage{amsmath,scalerel} %http://tex.stackexchange.com/questions/125523/is-there-a-bigcdot-symbol-in-latex
+\usepackage{marvosym} % icons https://ftp.acc.umu.se/mirror/CTAN/fonts/marvosym/doc/fonts/marvosym/marvodoc.pdf
 
 %\usepackage[linesnumbered,lined,boxed]{algorithm2e} % for writing pseudo-code
 

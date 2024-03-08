@@ -54,7 +54,10 @@
 %\setbeamertemplate{itemize subitem}[circle]%{$\rightarrow$}
 %\setbeamertemplate{itemize subitem}[square]%{$\rightarrow$}
 \setbeamertemplate{itemize subitem}{--}
+\setbeamertemplate{itemize subsubitem}{-}
 
+\usepackage{amsmath,scalerel} %http://tex.stackexchange.com/questions/125523/is-there-a-bigcdot-symbol-in-latex
+\usepackage{marvosym} % icons https://ftp.acc.umu.se/mirror/CTAN/fonts/marvosym/doc/fonts/marvosym/marvodoc.pdf
 
 \usepackage{listings}
 

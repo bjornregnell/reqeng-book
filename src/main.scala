@@ -35,7 +35,7 @@ def latexMake(mainFile: String, wd: os.Path) = call(wd, Seq("latexmk", "-silent"
 def latexClean(mainFile: String, wd: os.Path) = call(wd, Seq("latexmk", "-c", mainFile))
 
 def latexMakeWithErrorManagement(mainFile: String, wd: os.Path): Unit =
-      println(latexClean(mainFile, wd))
+      //println(latexClean(mainFile, wd))
       latexMake(mainFile, wd) match
         case util.Success(result) => println(result)
 
