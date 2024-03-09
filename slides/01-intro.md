@@ -1,5 +1,5 @@
 > main = L1-context 
-> title = Week 1: Introduction
+> title = Part 1: Introduction
 > file = def-RE
 
 \LectureOnly{\section{Terminology}}
