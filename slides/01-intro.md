@@ -1,5 +1,5 @@
 > main = L1-context 
-> title = Lecture 1: Introduction
+> title = Week 1: Introduction
 > file = def-RE
 
 \LectureOnly{\section{Terminology}}
@@ -239,3 +239,7 @@ RE challenges increase with scale!
 
 * Abstraction level: The goal-design scale
 * Levels of detail
+
+\LectureOnly{\section{Elicitation}}
+
+\LectureOnly{\section{Prioritization}}
