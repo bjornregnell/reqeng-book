@@ -103,8 +103,8 @@
   * SRS  \hfill software (or system) requirements specification
   * sys  \hfill system
   * SW   \hfill software
-  * dev  \hfill (software or system) development
-  * ops  \hfill (software or system) operations
+  * dev  \hfill development
+  * ops  \hfill operations
   * FR   \hfill quality requirements
   * QR   \hfill functional requirements
 
