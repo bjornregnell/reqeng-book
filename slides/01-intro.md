@@ -110,9 +110,9 @@
 
 
 
-\LectureOnly{\section{Purpose}}
-
 > file = req-dev
+
+\LectureOnly{\section{Purpose}}
 
 # RE in the Development Process
 
@@ -165,9 +165,10 @@
   * Happy stakeholders
   * When are we ready?
 
-\LectureOnly{\section{Context}}
 
 > file = dev-context
+
+\LectureOnly{\section{Context}}
 
 # Development Context
 
@@ -234,12 +235,26 @@ RE challenges increase with scale!
 * Outer domain
 * (If the product is depicted as an open box with system parts inside then it is an achitecture diagram and not a context diagram)
 
+> file = req-levels
 
 # Requirements at different levels
 
 * Abstraction level: The goal-design scale
 * Levels of detail
+* \TODO{}
+
+>file = elicit
 
 \LectureOnly{\section{Elicitation}}
 
+# Elicitation
+
+* \TODO{}
+
+> file = prio
+
 \LectureOnly{\section{Prioritization}}
+
+# Prioritization
+Hello
+* \TODO{}
