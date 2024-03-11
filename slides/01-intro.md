@@ -98,16 +98,17 @@
 
   * RE   \hfill requirements engineering
   * SE   \hfill software engineering
+  * SW   \hfill software
+  * HW   \hfill hardware
+  * FR   \hfill functional requirements
+  * QR   \hfill quality requirements
+  * SRS  \hfill software (or system) requirements specification
   * req  \hfill requirement 
   * spec \hfill specification
-  * SRS  \hfill software (or system) requirements specification
   * sys  \hfill system
-  * SW   \hfill software
   * dev  \hfill development
   * ops  \hfill operations
-  * FR   \hfill quality requirements
-  * QR   \hfill functional requirements
-
+  * org  \hfill organisation
 
 
 > file = req-dev
@@ -170,28 +171,33 @@
 
 \LectureOnly{\section{Context}}
 
-# Development Context
+# How to best do RE is highly context-dependent
 
-Almost everything related to RE depends the context!
+Aspects of the RE context to consider: 
+* **Stakeholder configuration**: relation customers -- supplier  
+  * Examples of customers (users) and suppliers (developers): \\
+    *public authority, private consumer, individual contributor, company (system integrator, subcontractor), community, company, company-internal department, ...*
+* **Business model**: risk-sharing, profit-sharing: \\
+  * internal budget, license fee, subscription, freemium, ad-based, donations, open-source community, non-profit, ... 
+* **Customization**: generic -- customer specific
+* **Platform**: Pure SW, SW + HW, Embedded, Cloud, ...
+* **Network integration**: off-grid, connected, distributed, concurrent massive multi-user online communication, ...
+* **Delivery model**: one-off, eventually updated, continuous integration and delivery
 
-* Stakeholder configuration: Relation Customer -- Supplier
+> file = dev-context-examples
 
-* Economy 
-  * Funding and resources
-  * Business model
+# Examples of common RE Contexts:
+* Public tender: a public authority invites suppliers to bid
+* B2B: both customer and supplier are companies
+* B2C: the supplier provides SW to a consumer market
+* In-house: one org develops system for internal use
+* Open-source library: organisations share SW investments 
 
-* Examples of different kinds of projects:
-  * B2B: both customer and supplier is a company
-  * B2C: the supplier provides a product to a consumer market
-  * Public tender: a public authority is inviting companies to bid
-  * In-house: a company develop a system for internal use
-  * Open-source project
 
-* Some questions to consider:
+* Questions to consider:
   * Who has the knowledge?
-  * Who has the decision power?
-  * Who gets the biggest value/profit?
-    * Short-term versus Long-term
+  * Who has the power?
+  * Who gets the biggest value/profit? short- vs long-term
   * Who takes the biggest risk?
 
 > file = scale
@@ -207,7 +213,10 @@ RE challenges increase with scale!
 * Very large-scale RE
 
 
+
 > file = the-domain
+
+\LectureOnly{\section{Domain}}
 
 # Product Context: The Domain
 
