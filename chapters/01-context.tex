@@ -1,9 +1,7 @@
 %!TEX encoding = UTF-8 Unicode
 %!TEX root = ../book/reqeng-book.tex
 
-\part{Introduction}
-
-\chapter{Purpose of RE}%
+\chapter{Context}%
 \MarginPage{%
 \input{../lectures/slides/def-RE-generated.tex}
 \input{../lectures/slides/def-req-generated.tex}
@@ -49,6 +47,12 @@ When we specify requirements we need to represent them in a useful way. We call 
 
 There are many aspects of requirements modelling and many different kinds of requirements. We need to model both functional and quality requirements, and model the requirements at different levels of abstraction and detail, while keeping in mind how the requirements models will be used by different stakeholders throughout a software product's whole life-cycle. Requirements are interrelated and can be part of a structure. Hence it is often useful to aggregate requirements into coherent bundles that each can be used as a single entity in requirements selection, while tracking its relations to other entities. Such interrelated requirements aggregates are often called \emph{features}. A set of features may be selected for implementation in a coming release based on priorities of stakeholders and available development resources. Therefore, we also need to represent priorities and resource constraints in our requirements models.
 
+\subsection{Goals}
+
+\TODO{Decide how much on Goals here or more details under Elicitation}???
+
+Helps or Hurts
+
 \subsection{Functional Requirements (FR)}
 Functional requirements deals with the expected logical behavior and the related data that is needed by the system to do what it should.
 \begin{itemize}
@@ -77,9 +81,9 @@ Quality and functionality are often intertwined and quality often manifest itsel
 A further complication is that quality aspects often work against each other. For example, achieving high security often involved implementing features such as authentication and encryption, while these features can negatively impact the usability of the system.
 
 
-\subsection{Quality Aspects of Requirements Models}
+\subsection{Specification Quality}
 
-What is a good requirements model? When is a requirements model ready? These are difficult questions that call for a definition of what we mean by a the quality of a requirements model. The quality of a requirements model is assessed during requirements validation and that activity seeks to answer if a requirements model is good enough or if we need to do more work in order to improve its quality.
+What is a good requirements specification? When is a requirements model ready? These are difficult questions that call for a definition of what we mean by a the quality of a requirements model. The quality of a requirements model is assessed during requirements validation and that activity seeks to answer if a requirements model is good enough or if we need to do more work in order to improve its quality.
 
 Here are some examples of typical quality aspects of requirements models that are assessed during validation:
 \begin{itemize}

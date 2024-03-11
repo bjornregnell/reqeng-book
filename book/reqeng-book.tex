@@ -26,13 +26,120 @@ Requirements Engineering for Software Developers
 
 \setcounter{tocdepth}{2}
 
-\begin{multicols*}{2}  % * means unbalanced columns allowed
-%\footnotesize
+\begin{multicols*}{3}  % * means unbalanced columns allowed
+\fontsize{8.5}{11}\selectfont
+
 \tableofcontents
 \end{multicols*}
 
 \newgeometry{hmargin={45mm,148.5mm},vmargin={15mm,15mm}}
 
-\input{reqeng-generated.tex}
+\part{Intentions}
+
+\input{../chapters/01-context.tex}
+\input{../chapters/02-elicit.tex}
+\input{../chapters/03-prio.tex}
+
+\part{Functionality}
+
+\chapter{Requirements Engineering Tools}
+
+\section{Natural Language}
+
+-- controlled domain-terminology 
+
+-- explicit or implicit reqs, 
+
+-- shall / should / must / optional MOSCOW EARS
+
+-- point to RM chapter on textual feature requirements
+
+\section{Generic tools}
+  word processors, presentation tools, drawing tools , issue trackers 
+
+  AI and Large language models 
+
+\section{RE-specific tools}
+  Features of RE Tools: Store, Collaborate, Document Model, Language, traceability, different views, RE-aware AI support, ...
+
+  Examples: Doors, RequisitePro, 
+
+\subsection{reqT}
+
+more details in appendix
+
+\input{../chapters/04-data.tex}
+\input{../chapters/05-logic.tex}
+
+
+\chapter{Prototyping}
+
+\section{Why prototype?}
+
+\section{Media}
+
+\subsection{Screens and mockups}
+
+
+\chapter{Delegated requirements}
+
+\section{Standards as requirements}
+
+\subsection{Regulatory requirements}
+
+GDPR 
+
+Point to chapter on AI-act in "Special Domains"
+
+\section{Prototypes as Requirements}
+
+\section{Test Cases as Requirements}
+
+\section{Development Process Requirements}
+
+
+\part{Quality}
+
+\chapter{Quality Requirements}
+
+\chapter{Requirements Validation}
+
+\chapter{Product Scoping}
+
+\section{Epics and Themes}
+
+bundles of features and use cases that deliver value
+
+\section{Release Planning} 
+
+\chapter{Product Verification}
+\section{System Testing}
+\section{Acceptance Testing}
+\section{Regression Testing}
+
+\part{Special Contexts}
+
+\chapter{Agile RE}
+
+\chapter{Open Source RE}
+
+\chapter{Continuous RE}
+
+\section{CI/CD}
+\section{DevOps}
+
+\chapter{RE for Artificial Intelligens}
+
+\chapter{RE for High-Assurance Systems}
+
+\chapter{RE in Hardware-Software Co-Design}
+
+\part{Appendicies}\appendix
+
+\chapter{Requirement Modelling with reqT}
+
+\chapter{Lab 1: Prioritization}
+
+\chapter{Lab 2: Release Planning}
 
 \end{document}
