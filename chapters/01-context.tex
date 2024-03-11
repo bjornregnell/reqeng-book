@@ -41,17 +41,26 @@ Working with requirements involves many different tasks and skills. The RE proce
 
 These activities are often conducted concurrently and in an iterative maner. When you specify or validate, you often discover missing requirements. When you elicit, you need to write down what you find in order not to forget all the things you learn. When you try to prioritize and make delivery plans, you may realize that you need to elicit more knowledge about requirements dependencies. Etcetera. Do not expect to carry out the above activities one at a time from top to bottom -- your RE work will be similar to a juggler having many balls in the air at the same time. 
 
-\section{Requirements Modelling}
+\section{Stakeholder Analysis}
+
+Related to both elicitation (stakeholder intentions) and specification (user roles and goals)
+
+\subsection{Stakeholder Configuration}
+
+\subsection{Goal Modelling}
+
+\TODO{Decide how much on Goals here or more details under Elicitation}???
+
+Helps or Hurts
+
+
+\section{Requirements Specification}
 
 When we specify requirements we need to represent them in a useful way. We call such representations \textit{requirements models}. A requirement model is a \emph{simplified} representation of future versions of a system under development including its surrounding world -- we cannot expect to model every aspect with all its details, and we cannot fully predict every facet of all future stakeholders' intentions. We have limited time and resources so we need to make good-enough models that can reasonably support decision-making, design, verification, implementation and deployment in a cost-efficient way.
 
 There are many aspects of requirements modelling and many different kinds of requirements. We need to model both functional and quality requirements, and model the requirements at different levels of abstraction and detail, while keeping in mind how the requirements models will be used by different stakeholders throughout a software product's whole life-cycle. Requirements are interrelated and can be part of a structure. Hence it is often useful to aggregate requirements into coherent bundles that each can be used as a single entity in requirements selection, while tracking its relations to other entities. Such interrelated requirements aggregates are often called \emph{features}. A set of features may be selected for implementation in a coming release based on priorities of stakeholders and available development resources. Therefore, we also need to represent priorities and resource constraints in our requirements models.
 
-\subsection{Goals}
 
-\TODO{Decide how much on Goals here or more details under Elicitation}???
-
-Helps or Hurts
 
 \subsection{Functional Requirements (FR)}
 Functional requirements deals with the expected logical behavior and the related data that is needed by the system to do what it should.
@@ -95,3 +104,31 @@ Here are some examples of typical quality aspects of requirements models that ar
   \item \textbf{Consistency}
   \item \textbf{Traceability}
 \end{itemize}
+
+\subsection{Specification Tools}
+
+\subsubsection{Natural Language}
+
+-- controlled domain-terminology 
+
+-- explicit or implicit reqs, 
+
+-- shall / should / must / optional MOSCOW EARS
+
+-- point to RM chapter on textual feature requirements
+
+\subsubsection{Generic tools}
+  word processors, presentation tools, drawing tools , issue trackers 
+
+  AI and Large language models 
+
+\subsubsection{RE-specific tools}
+  Features of RE Tools: Store, Collaborate, Document Model, Language, traceability, different views, RE-aware AI support, ...
+
+  Examples: Doors, RequisitePro, 
+
+\subsubsection{reqT}
+
+\section{Role of Requirements in Development}
+
+\subsection{Requirements Status Ladder}
