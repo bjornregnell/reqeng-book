@@ -154,7 +154,7 @@
 \usetikzlibrary{shapes.geometric, shapes.symbols, arrows, matrix, shapes, positioning, calc}
 %https://www.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html
 \usepackage{tkz-euclide}
-\usetkzobj{all}
+%\usetkzobj{all}
 %https://tex.stackexchange.com/questions/96459/automatically-draw-and-labels-angles-of-a-triangle-in-tikz
 % https://tex.stackexchange.com/questions/165877/latex-complains-that-tkzdrawarc-is-not-defined
 
