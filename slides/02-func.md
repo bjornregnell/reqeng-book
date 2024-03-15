@@ -1,4 +1,4 @@
-> main = P2-context 
+> main = P2-functionality 
 > title = Part 2: Modelling Functionality
 > file = def-FR
 
@@ -7,3 +7,10 @@
 # What is a Functional Requirement (FR)?
 
 * TODO
+
+> file = testbug
+
+# next slide
+
+* TODO
+  * blabla

@@ -84,9 +84,11 @@ def make(isLatexMk: Boolean): Unit =
     val genSuf = s"$generatedSuffix.tex"
 
     println(s"  number of chunks found: ${chunks.length}")
-
-    deleteAllWithSuffix(slidesTargetDir, genSuf)
-    deleteAllWithSuffix(lecturesTargetDir, genSuf)
+    
+    //TODO: fix bug that next file in slides does not delete all previous generated...
+    //probably each part needs to be in its on subdir?
+    //deleteAllWithSuffix(slidesTargetDir, genSuf)
+    //deleteAllWithSuffix(lecturesTargetDir, genSuf)
 
     for chunk <- chunks do
       val texFileName = chunk.settings("file") + genSuf 

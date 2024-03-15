@@ -1,13 +1,13 @@
-> main = L1-context 
-> title = Part 1: Introduction
+> main = P1-context 
+> title = Part 1: Context
 > file = def-RE
 
-\LectureOnly{\section{Terminology}}
+\LectureOnly{\section{Introduction}}
 
 # What is Requirements Engineering (RE)?
 
 * RE is focused on the
-  * **requirements** of software-intensive systems 
+  * **features** of software-intensive systems 
   * **system context**, including users and connected systems
   * **development context**, including stakeholders' intentions 
 
@@ -36,19 +36,91 @@
 
 > file = activities
 
-# Main Activities of RE
+# Core Activities of RE
 
 %{\vspace{1em}\resizebox{!}{3em}{\hspace{0.5em}{\bf ?}\hspace{0.5em}\WritingHand\hspace{0.5em}\Checkedbox\hspace{0.5em}\LeftScissors}\vspace{0.5em}}
 
-* The 4 main activities of RE: 
+* The 4 core activities of RE are: 
   * **Elicitation** \hfill learning
   * **Specification** \hfill representing
   * **Validation**  \hfill checking
   * **Selection**   \hfill deciding
-* These activities are
-  * **Interdependent** \hfill output of one is input to other activities
-  * **Concurrent** \hfill one activity you often trigger another
-  * **Continuous** \hfill in the product life-cycle as software evolves
+* In practice, these activities are often
+  * **Interdependent** \hfill output of one is input to others
+  * **Concurrent** \hfill one activity triggers others
+  * **Continuous** \hfill throughout the product's life as it evolves
+
+> file = good-RE
+
+# What is good RE?
+
+* \TODO{Should the decision quality model go here or in the Product Scoping chapter?}
+  * Cost-effective
+  * Happy stakeholders
+  * When are we ready?
+
+> file = req-dev
+
+# RE in the Development Process
+
+* RE interprets stakeholders intentions into validated req specs
+* RE provides input to, and learns from down-stream activities
+  * System Design
+    * Quality reqs determine architectural decisions
+  * System Implementation
+    * Functional reqs (data and logic) are realized in code  
+  * System Verification 
+    * The req spec define correct output in test cases
+  * System Operation
+    * User feedback is input to requirements evolution
+* As requirements evolve you must manage impact of changes
+* Traceability: 
+  * Links among artifacts to support change management
+  * Forwards: from requirements to down-stream activities
+  * Backwards: from requirements to stakeholders
+
+> file = re-as-constr
+
+# Requirements as Solution Constraints
+
+* U: the **universe** of all possible software systems
+
+* S: the **solution space**, a subset of U including\\all systems that **fulfill the spec**
+
+* S contains both ''**good**'' and ''**bad**'' systems
+
+* The **general purpose** of RE:
+  * to **constrain the solution space** so that software development is likely to produce a **good enough** solution
+
+* The req spec should be a good enough definition of what we mean with a ''good enough solution''
+
+* RE is the **foundation for software quality**.
+
+
+
+> file = acronyms
+
+# Common Acronyms
+\footnotesize
+  * RE   \hfill requirements engineering
+  * SE   \hfill software engineering
+  * SW   \hfill software
+  * HW   \hfill hardware
+  * FR   \hfill functional requirements
+  * QR   \hfill quality requirements
+  * SRS  \hfill software (or system) requirements specification
+  * req  \hfill requirement 
+  * spec \hfill specification
+  * constr \hfill constraint
+  * sys  \hfill system
+  * dev  \hfill development
+  * ops  \hfill operations
+  * org  \hfill organisation
+
+
+
+
+\LectureOnly{\section{Specification}}
 
 > file = def-spec
 
@@ -92,79 +164,14 @@
   * Quality is supported by functions: 
     * a login function supports system security
 
-> file = acronyms
-
-# Common Acronyms
-
-  * RE   \hfill requirements engineering
-  * SE   \hfill software engineering
-  * SW   \hfill software
-  * HW   \hfill hardware
-  * FR   \hfill functional requirements
-  * QR   \hfill quality requirements
-  * SRS  \hfill software (or system) requirements specification
-  * req  \hfill requirement 
-  * spec \hfill specification
-  * sys  \hfill system
-  * dev  \hfill development
-  * ops  \hfill operations
-  * org  \hfill organisation
-
-
-> file = req-dev
-
-\LectureOnly{\section{Purpose}}
-
-# RE in the Development Process
-
-* RE interprets stakeholders intentions into validated req specs
-* RE provides input to, and learns from down-stream activities
-  * System Design
-    * Quality reqs determine architectural decisions
-  * System Implementation
-    * Functional reqs (data and logic) are realized in code  
-  * System Verification 
-    * The req spec define correct output in test cases
-  * System Operation
-    * User feedback is input to requirements evolution
-* As requirements evolve you must manage impact of changes
-* Traceability: 
-  * Links among artifacts to support change management
-  * Forwards: from requirements to down-stream activities
-  * Backwards: from requirements to stakeholders
-
-> file = re-as-constr
-
-# Requirements as Solution Constraints
-
-* U: the **universe** of all possible software systems
-
-* S: the **solution space**, a subset of U including\\all systems that **fulfill the spec**
-
-* S contains both ''**good**'' and ''**bad**'' systems
-
-* The **general purpose** of RE:
-  * to **constrain the solution space** so that software development is likely to produce a **good enough** solution
-
-* The req spec should be a good enough definition of what we mean with a ''good enough solution''
-
-* RE is the **foundation for software quality**.
 
 > file = good-req-spec
 
-# What is good Req Spec?
+# What is good spec?
 
-  * \TODO{}
+  * \TODO{Quality Factors}
     * Correct \hfill represents the actual needs of stakeholders
 
-> file = good-RE
-
-# What is good RE?
-
-* \TODO{}
-  * Cost-effective
-  * Happy stakeholders
-  * When are we ready?
 
 
 > file = dev-context
