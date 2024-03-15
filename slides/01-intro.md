@@ -1,15 +1,22 @@
 > main = P1-context 
-> title = Part 1: Context
+> title = Part 1: Domain Knowledge
 > file = def-RE
 
 \LectureOnly{\section{Introduction}}
 
 # What is Requirements Engineering (RE)?
 
+
+\begin{minipage}[t]{0.65\textwidth}
 * RE is focused on the
-  * **features** of software-intensive systems 
+  * **features** of software systems 
   * **system context**, including users and connected systems
   * **development context**, including stakeholders' intentions 
+\end{minipage}%
+\begin{minipage}[t]{0.35\textwidth}
+\vspace{-1em}\hfill\includegraphics[width=0.8\textwidth]{../img/phone-support}
+\end{minipage}%
+
 
 * The RE process involves 
   * knowledge-building \hfill research
@@ -18,18 +25,24 @@
   * innovation         \hfill generate ideas
   * communication      \hfill be pedagogical
 
+
 > file = def-req
 
 # What is a requirement?
 
+\begin{minipage}[t]{0.65\textwidth}
 * A simple definition:
   * Something **needed** or **wanted**.
   * A documented **representation** of\\something needed or wanted.
+\end{minipage}%
+\begin{minipage}[t]{0.35\textwidth}
+\vspace{-1em}\hfill\includegraphics[width=0.5\textwidth]{../img/light-bulb}
+\end{minipage}%
 
 * Are we representing what is **actually** needed or wanted? 
 
-* A ''requirement'' can in practice mean many different things:\\
-  must, wish, need, idea, rationale, function, quality, design, feature, decision, option, constraint, ...
+* *'Requirement'* can in practice mean many different things:\\
+  must, option, idea, innovation, intent, rationale, function, quality, design, feature, decision, constraint, ...
 
 * The most **general** meaning:\\
   *any* kind of **information entity** used in RE
@@ -179,16 +192,35 @@ From *why* to *how*:
 * Goal-level: why? intentions of stakeholders and users
 * Domain-level: what users do? how users' tasks are supported by the system to achieve goal
 * Product-level: what the system does? system behavior in terms of input-logic-output
-* Design-level: how? required and justified design choices
+* Design-level: how? up-front design choices; are they really required and justified?  
+
+Which level is best? It depends.
+* Too much 'how' may over-constrain the solution space giving too little freedom for developers to find the best solution.  
+* Without 'why' the risk is high of an unsuccessful solution.
 
 > file = req-levels-of-formality
 # Levels of Formality
 From unstructured to mathematical:
 * Very informal: free-form representation, no explicit rules
 * Very formal: syntax, semantics, inference, meta-language
+* Pragmatic middle-ground: restricted natural language + diagrams with explanations
 * Pro: Formality enables automatic checks, concise models, ...
 * Con: Formalization requires effort, knowledge, skills, ...
 
+> file = req-explicit-vs-implicit
+# Explicit or implicit requirements?
+
+* An explicit requirement: 
+  * has a unique id, such as a mnemonic (short name) or number
+  * often has status, priority, or similar 
+  * often has an explicit ''shall''-statement
+  * often has links to other related explicit reqs
+* Implicit requirements:
+  * Parts of a spec but without unique id, status, ''shall'' 
+  * Diagrams, general text: are they actual requirements or just help for the reader?
+* Advice: 
+  * Make at least the most important requirements explicit.
+  * Combine diagrams with explanatory text; make explicit statements of what is a requirement or not in the diagram. 
 
 
 
@@ -213,29 +245,42 @@ Aspects of the RE context to consider:
     *public authority, private consumer, individual contributor, company (system integrator, subcontractor), community, company, company-internal department, ...*
 * **Business model**: risk-sharing, profit-sharing: \\
   * internal budget, license fee, subscription, freemium, ad-based, donations, open-source community, non-profit, ... 
-* **Customization**: generic -- customer specific
-* **Platform**: Pure SW, SW + HW, Embedded, Cloud, ...
-* **Network integration**: off-grid, connected, distributed, concurrent massive multi-user online communication, ...
 * **Delivery model**: one-off, eventually updated, continuous integration and delivery
 
-> file = dev-context-examples
+* Questions regarding customer--supplier relation:
+  * Who has the knowledge?
+  * Who has the power?
+  * Who gets the biggest value/profit? short- vs long-term
+  * Who takes the biggest risk?
 
+
+> file = product-type
+# Type of product
+* Level of customization
+  * generic
+  * customer specific
+* Hardware integration:
+  * HW+SW 
+  * Pure SW
+* Network integration
+  * off-grid
+  * connected
+  * distributed
+  * concurrent massive multi-user online communication, ...
+
+> file = dev-context-examples
 # Examples of common RE Contexts:
 * Public tender: a public authority invites suppliers to bid
 * B2B: both customer and supplier are companies
 * B2C: the supplier provides SW to a consumer market
 * In-house: one org develops system for internal use
 * Open-source library: organisations share SW investments 
+* Embedded system
+* Webb app: backend-frontend
+* High-assurance systems: security and safety is critical
 
-
-* Questions to consider:
-  * Who has the knowledge?
-  * Who has the power?
-  * Who gets the biggest value/profit? short- vs long-term
-  * Who takes the biggest risk?
 
 > file = scale
-
 # Scale
 
 RE challenges increase with scale!
@@ -248,24 +293,7 @@ RE challenges increase with scale!
 
 
 
-> file = the-domain
-
-\LectureOnly{\section{Domain}}
-
-# Product Context: The Domain
-
-* Type of product
-  * HW+SW or Pure SW
-  * Webb app: backend-frontend
-  * Embedded system
-  * High-assurance system: security and safety is critical
-* The inner domain
-  * \TODO{}
-* The outer domain
-  * \TODO{}
-
 > file = def-context-diagram
-
 # Context Diagram
 
 * \TODO{}
