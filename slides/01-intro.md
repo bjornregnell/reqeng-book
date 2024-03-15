@@ -97,11 +97,9 @@
 * RE is the **foundation for software quality**.
 
 
-
 > file = acronyms
 
 # Common Acronyms
-\footnotesize
   * RE   \hfill requirements engineering
   * SE   \hfill software engineering
   * SW   \hfill software
@@ -120,9 +118,10 @@
 
 
 
+> file = def-spec
+
 \LectureOnly{\section{Specification}}
 
-> file = def-spec
 
 # What is a Requirements Specification?
 
@@ -147,22 +146,50 @@
   * You often want things that you don't need.
 
 > file = req-types
-
 # Different kinds of requirements
 
-* Requirements are often labeled as:
+* (Parts of) Requirements are often labeled as:
   * **Functional Requirements** (FR), including:
-    * Requirements on **Logic**
     * Requirements on **Data**
+    * Requirements on **Logic**
   * **Quality Requirements** (QR)
     * Accuracy, Capacity, Performance, Reliability, Usability, Safety, Security, ...
-* In practice FR and QR are often combined and related:
+* In practice FR and QR are often **combined** and **related**:
   * Functions have quality:
     * a function can be unreliable due to bugs 
   * Logic and data is related: 
     * functions have input, state, output
   * Quality is supported by functions: 
     * a login function supports system security
+
+
+> file = req-levels
+# Requirements at different levels
+
+* Levels of Abstraction: the Goal-Design scale 
+* Levels of Detail: amount and richness of information 
+* Levels of Aggregation: grouping and linking 
+* Levels of Formality: from unstructured to mathematical
+
+
+> file = req-goal-design-scale
+# Abstraction on the Goal-Design-scale
+
+From *why* to *how*:
+* Goal-level: why? intentions of stakeholders and users
+* Domain-level: what users do? how users' tasks are supported by the system to achieve goal
+* Product-level: what the system does? system behavior in terms of input-logic-output
+* Design-level: how? required and justified design choices
+
+> file = req-levels-of-formality
+# Levels of Formality
+From unstructured to mathematical:
+* Very informal: free-form representation, no explicit rules
+* Very formal: syntax, semantics, inference, meta-language
+* Pro: Formality enables automatic checks, concise models, ...
+* Con: Formalization requires effort, knowledge, skills, ...
+
+
 
 
 > file = good-req-spec
@@ -251,13 +278,6 @@ RE challenges increase with scale!
 * Outer domain
 * (If the product is depicted as an open box with system parts inside then it is an achitecture diagram and not a context diagram)
 
-> file = req-levels
-
-# Requirements at different levels
-
-* Abstraction level: The goal-design scale
-* Levels of detail
-* \TODO{}
 
 >file = elicit
 

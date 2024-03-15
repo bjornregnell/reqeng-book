@@ -27,7 +27,8 @@ Also, representations of requirements come in many different kinds and shapes at
 
 The subsequent sections aims to provide a concise overview of the set of terms that you can use when you think and communicate about different kinds of requirements in different requirements engineering contexts. This terminology is the starting-point for learning more about requirements engineering and developing skills needed to contribute to the invention of tomorrows' high-quality software that fulfill the human intentions behind its development.
 
-\section{Core Activities of RE}%
+\section{What is RE?}%
+\subsection{Core Activities of RE}%
 \MarginPage{
 \input{../lectures/slides/activities-generated.tex}
 }% 
@@ -43,7 +44,7 @@ Working with requirements involves many different tasks and skills. The RE proce
 
 These activities are often conducted concurrently and in an iterative maner. When you specify or validate, you often discover missing requirements. When you elicit, you need to write down what you find in order not to forget all the things you learn. When you try to prioritize and make delivery plans, you may realize that you need to elicit more knowledge about requirements dependencies. Etcetera. Do not expect to carry out the above activities one at a time from top to bottom -- your RE work will be similar to a juggler having many balls in the air at the same time. 
 
-\section{What is good RE?}
+\subsection{What is good RE?}
 
 \begin{itemize}
   \item Cost-effective
@@ -88,8 +89,15 @@ Here are some examples of typical \textbf{quality factors} of requirements speci
 
 
 
+\subsection{Different kinds of requirements}
 
-\subsection{Functional Requirements (FR)}
+\begin{itemize}
+  \item Explicit vs implicit requirements.
+  \item The parts of information in entities may be combined/bundled/separated into the same or split across different in many ways. These kinds of requirements are actualy information aspects that can be part of the same requirement. One req can include both functions and quality. One req can include both data and logic. Etc. Combine abstration levels, levels of detail, levels of aggregation, different degrees of formality etc.
+\end{itemize}
+
+
+\subsubsection{Functional Requirements (FR)}
 Functional requirements deals with the expected logical behavior and the related data that is needed by the system to do what it should.
 \begin{itemize}
   \item \textbf{Data}: information stored by the system, including domain-specific data entities and the format of input and output data. Data requirements often involves a data base or some other form of persistent storage of domain-specific data. Data requirements are related to user interface design, as users expect to see relevant data when they interact with the system to should help them accomplish their tasks. Data requirements usually includes some abstract representation of the internal system state, at-least those parts of the system state that are externally observable.
@@ -98,7 +106,7 @@ Functional requirements deals with the expected logical behavior and the related
 
 Behavioral requirements are often called ''business logic'' or just ''business requriements''. Data requirements on domain-related information are often less complex and easier to elicit, specify and validate, compared to requirements that deal with intricate business logic in a multi-faceted usage context. Here we use the term ''functional requirements'' to cover both requirements on data and logical behavior, but sometimes data requirements are treated as a its own kind of requirements, in separation of (other) functional requirements. 
 
-\subsection{Quality Requirements (QR)}
+\subsubsection{Quality Requirements (QR)}
 
 Aka NFR.
 
@@ -116,6 +124,22 @@ Quality and functionality are often intertwined and quality often manifest itsel
 
 A further complication is that quality aspects often work against each other. For example, achieving high security often involved implementing features such as authentication and encryption, while these features can negatively impact the usability of the system.
 
+\subsubsection{Requirements at different levels}
+
+\begin{itemize}
+  \item Levels of Abstraction: the Goal-Design scale
+  \item Levels of Detail: amount and richness of information
+  \item Levels of Aggregation: grouping and linking
+  \item Levels of Formality: from unstructured to mathematical
+  • Very informal: free-form
+  representation, no explicit rules
+  • Very formal: syntax, semantics,
+  inference, meta-language
+  • Formality enables automatic checks,
+  concise models, ...
+  • Formalization requires effort,
+  knowledge, skills, ...
+\end{itemize}
 
 
 \subsection{Specification Tools}
@@ -140,7 +164,9 @@ A further complication is that quality aspects often work against each other. Fo
 
   Examples: Doors, RequisitePro, reqT
 
+\subsection{Requirements Language}
 
+The reqT meta-model
 
 
 
