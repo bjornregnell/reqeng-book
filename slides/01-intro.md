@@ -169,7 +169,7 @@
     * Accuracy, Capacity, Performance, Reliability, Usability, Safety, Security, ...
 * In practice FR and QR are often **combined** and **related**:
   * Functions have quality:
-    * a function can be unreliable due to bugs 
+    * a function can be unreliable and unsafe due to bugs 
   * Logic and data is related: 
     * functions have input, state, output
   * Quality is supported by functions: 
