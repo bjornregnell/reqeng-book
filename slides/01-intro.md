@@ -67,10 +67,14 @@
 
 # What is good RE?
 
-* \TODO{Should the decision quality model go here or in the Product Scoping chapter?}
-  * Cost-effective
-  * Happy stakeholders
-  * When are we ready?
+* Feasible and helpful foundation for software development
+* Cost-effective process with high artifact quality
+* Happy stakeholders
+* Good system 
+  * commercially successful
+  * beneficial to its users
+  * ethical, helpful to society
+* When are we ready? What is good enough?
 
 > file = req-dev
 
@@ -179,24 +183,29 @@
 > file = req-levels
 # Requirements at different levels
 
-* Levels of Abstraction: the Goal-Design scale 
-* Levels of Detail: amount and richness of information 
-* Levels of Aggregation: grouping and linking 
-* Levels of Formality: from unstructured to mathematical
+* Level of **design abstraction**: \hfill from 'why' to 'how' 
+* Level of **detail**: \hfill amount and richness of information 
+* Level of **aggregation**: \hfill grouping, hierarchical decomposition 
+* Level of **formality**: \hfill from unstructured to mathematical
 
 
 > file = req-goal-design-scale
 # Abstraction on the Goal-Design-scale
 
-From *why* to *how*:
-* Goal-level: why? intentions of stakeholders and users
-* Domain-level: what users do? how users' tasks are supported by the system to achieve goal
-* Product-level: what the system does? system behavior in terms of input-logic-output
-* Design-level: how? up-front design choices; are they really required and justified?  
+*why* $\rightarrow$ *what* $\rightarrow$  *how*:
+* **Goal-level**: why? 
+ * intentions of stakeholders and users
+* **Domain-level**: what do users do with the system?
+  * focus on how users' tasks are supported by the system
+* **Product-level**: what does the system do?
+  * focus on system behavior in terms of input-logic-state-output
+* **Design-level**: how? 
+  * up-front design choices
+  * are they really required and justified?  
 
-Which level is best? It depends.
+Which level is best? It depends. They can be combined.
 * Too much 'how' may over-constrain the solution space giving too little freedom for developers to find the best solution.  
-* Without 'why' the risk is high of an unsuccessful solution.
+* Without 'why' the risk of an unsuccessful solution is high.
 
 > file = req-levels-of-formality
 # Levels of Formality
@@ -226,10 +235,19 @@ From unstructured to mathematical:
 
 > file = good-req-spec
 
-# What is good spec?
-
-  * \TODO{Quality Factors}
-    * Correct \hfill represents the actual needs of stakeholders
+# What is a good enough requirements specification?
+Example of **quality factors**:\\can only be achievable to some degree; can be conflicting
+* **Correctness**: represents the stakeholders' intentions
+* **Unambiguity**: stakholders have similar interpretation
+* **Completeness**: most of important relevant aspects included
+* **Consistency**: no contradictions among requirements
+* **Conciseness**: suitable level of abstraction and detail 
+* **Comprehensibility**: understood by stakeholders 
+* **Verifiability**: possible to check fulfillment 
+* **Feasibility**: possible to implement, value to justifiable cost 
+* **Traceability**: reqs can be referred to, can find origin of reqs
+* **Modifiability**: easy to change, good structure
+* **Ranked**: includes assessment of importance and stability
 
 
 
@@ -280,32 +298,51 @@ Aspects of the RE context to consider:
 * High-assurance systems: security and safety is critical
 
 
+> file = cost-of-RE-defects
+# Cost of RE defects
+The cost of RE defects increase exponentially with time.
+
 > file = scale
-# Scale
+# Scale of RE
+* The RE effort increases exponentially with size! 
+  * Number of requirements: $N$
+  * Number of pairwise relations: $R = N(N -1)/2 \approx N^2$
+* Orders of magnitude:
+  * **Small-scale RE**: \hfill $N \approx 10^1$, $R \approx 10^2 = 100$
+    * requires small effort, all pairwise relations can be considered 
+  * **Medium-scale RE**: \hfill $N \approx 10^2$, $R \approx 10^4 = 10~000$ 
+    * feasible but requires large effort, consider subset of relations
+  * **Large-scale RE**: \hfill $N \approx 10^3$, $R \approx 10^6 = 1~000~000$
+    *  unfeasible unless requirements are bundled into groups with high cohesion within groups and low coupling across groups
+  * **Very large-scale RE**: \hfill $N \approx 10^4$, $R \approx 10^8 = 100~000~000$
+    * unfeasible even if requirements are bundled into groups as the groups become either too many or too large
+    * feasible only if the system can be split into subsystems with independent RE 
 
-RE challenges increase with scale!
-
-\TODO{}
-* Small-scale RE
-* Medium-scale RE
-* Large-scale RE
-* Very large-scale RE
 
 
 
 > file = def-context-diagram
 # Context Diagram
 
-* \TODO{}
-* Depict the scope of the product
-* The product in the center as a closed box
-* Entities interating with the product
-  * Other Connected Systems
-  * Actors (user roles) interacting directly with the system
-* Inner domain
-* Outer domain
-* (If the product is depicted as an open box with system parts inside then it is an achitecture diagram and not a context diagram)
+* A diagram describing the environment of a product
+* The named product in the center as a **closed** box
+* Entities interacting with the product are connected by arrowed lines to show data flow direction
+  * User roles (actors), shown as straw man icons
+  * Other connected systems, shown as named closed boxes
+* **Inner domain**: *direct* interaction with product
+* **Outer domain**: *indirect* interaction with product
+* If product is shown as an open box with system parts inside then it is an architecture diagram, *not* a context diagram
+* Accompanying explaining text, including explicit requirements: ''the system shall have interface X''
 
+
+> file = def-context-diagram-example
+# Context Diagram Example
+\begin{minipage}[t]{1.0\textwidth}
+\vspace{-1em}\includegraphics[width=0.9\textwidth]{../img/context-diagram-example}
+\end{minipage}%
+\vspace{1em}
+\texttt{*~Interface~CRA}:\\ 
+  \texttt{~~*~Spec:~The system shall ...~data entities ...}
 
 >file = elicit
 
