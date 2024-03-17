@@ -219,17 +219,17 @@ From unstructured to mathematical:
 > file = req-explicit-vs-implicit
 # Explicit or implicit requirements?
 
-* An explicit requirement: 
+* **Explicit** requirement: 
   * has a unique id, such as a mnemonic (short name) or number
   * often has status, priority, or similar 
   * often has an explicit ''shall''-statement
-  * often has links to other related explicit reqs
-* Implicit requirements:
-  * Parts of a spec but without unique id, status, ''shall'' 
-  * Diagrams, general text: are they actual requirements or just help for the reader?
+  * often has links to other related spec parts with id
+* **Implicit** requirement:
+  * part of spec but no id, no status, no ''shall'' 
+  * is text/diagram a requirement or just help for the reader?
 * Advice: 
-  * Make at least the most important requirements explicit.
-  * Combine diagrams with explanatory text; make explicit statements of what is a requirement or not in the diagram. 
+  * Make most important requirements explicit.
+  * Link diagrams to explanatory text with explicit requirements. 
 
 
 
