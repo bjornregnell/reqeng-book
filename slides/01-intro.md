@@ -194,16 +194,16 @@
 
 *why* $\rightarrow$ *what* $\rightarrow$  *how*:
 * **Goal-level**: why? 
- * intentions of stakeholders and users
+ * focus on intentions of stakeholders and users
 * **Domain-level**: what do users do with the system?
-  * focus on how users' tasks are supported by the system
+  * focus on usage context of a feature, normal and exceptional usage, domain events
 * **Product-level**: what does the system do?
-  * focus on system behavior in terms of input-logic-state-output
+  * focus on system behavior, input-logic-state-output, normal and exceptional input/output, product events
 * **Design-level**: how? 
-  * up-front design choices
-  * are they really required and justified?  
+  * up-front design choices, implementation details
+  * really required/justified? often better as example only, not req
 
-Which level is best? It depends. They can be combined.
+Which level is best? It depends. They are often combined.
 * Too much 'how' may over-constrain the solution space giving too little freedom for developers to find the best solution.  
 * Without 'why' the risk of an unsuccessful solution is high.
 
@@ -215,6 +215,24 @@ From unstructured to mathematical:
 * Pragmatic middle-ground: restricted natural language + diagrams with explanations
 * Pro: Formality enables automatic checks, concise models, ...
 * Con: Formalization requires effort, knowledge, skills, ...
+
+> file = req-formality-tradeoff
+# Level of formality? -- a difficult tradeoff
+* Formality in various aspects to a varying degree:
+  * Very informal: free-form representation, no explicit rules 
+    * examples: slide presentation, textual narrative
+  * Very formal: formal syntax, operational semantics, inference
+    * examples: state machine, regular expression, predicate calculus
+* Advantages of formalization:
+  * Reduced ambiguity
+  * More concise models
+  * Enables tooling: automatic checks, proof of soundness, ...
+* Disadvantages of formalization:
+  * Harder to understand
+  * Requires effort, specialized knowledge and skills
+  * Limited in scope and expressive power
+  * Some stakeholders cannot contribute in validation
+
 
 > file = req-explicit-vs-implicit
 # Explicit or implicit requirements?
@@ -249,12 +267,20 @@ Example of **quality factors**:\\can only be achievable to some degree; can be c
 * **Modifiability**: easy to change, good structure
 * **Ranked**: includes assessment of importance and stability
 
-
+> file = cost-of-RE-defects
+# Cost of RE defects
+\begin{minipage}[t]{1.0\textwidth}
+\vspace{-1.0em}\includegraphics[width=0.8\textwidth]{../img/cost-of-re-defect}
+\end{minipage}
+\vspace{-1em}
+* The cost of req defects increase with time.
+* A req defect that costs $x$ to fix in req validation may cost $100x$ or even $1000x$ in production. 
+* Why may cost of req defects increase exponentially? 
+  * Number of dependent artifacts multiply over time
+  * If the foundation changes, many things need to be updated
 
 > file = dev-context
-
 \LectureOnly{\section{Context}}
-
 # How to best do RE is highly context-dependent
 
 Aspects of the RE context to consider: 
@@ -266,10 +292,10 @@ Aspects of the RE context to consider:
 * **Delivery model**: one-off, eventually updated, continuous integration and delivery
 
 * Questions regarding customer--supplier relation:
-  * Who has the knowledge?
-  * Who has the power?
-  * Who gets the biggest value/profit? short- vs long-term
-  * Who takes the biggest risk?
+  * Who has the knowlogshould
+  * Who has the poeshould
+  * Who gets the biggest value/profit? short- vs longoeshould
+  * Who takes the bogshouldt risk?
 
 
 > file = product-type
@@ -298,10 +324,6 @@ Aspects of the RE context to consider:
 * High-assurance systems: security and safety is critical
 
 
-> file = cost-of-RE-defects
-# Cost of RE defects
-The cost of RE defects increase exponentially with time.
-
 > file = scale
 # Scale of RE
 * The RE effort increases exponentially with size! 
@@ -324,14 +346,17 @@ The cost of RE defects increase exponentially with time.
 > file = def-context-diagram
 # Context Diagram
 
-* A diagram describing the environment of a product
+* A diagram describing the environment of the product
 * The named product in the center as a **closed** box
+  * no internal structure is shown -- the focus is on context
+  * open box with system parts inside is an *architecture* diagram
+
 * Entities interacting with the product are connected by arrowed lines to show data flow direction
   * User roles (actors), shown as straw man icons
   * Other connected systems, shown as named closed boxes
 * **Inner domain**: *direct* interaction with product
 * **Outer domain**: *indirect* interaction with product
-* If product is shown as an open box with system parts inside then it is an architecture diagram, *not* a context diagram
+  * often *not* included in the context diagram
 * Accompanying explaining text, including explicit requirements: ''the system shall have interface X''
 
 
@@ -344,18 +369,241 @@ The cost of RE defects increase exponentially with time.
 \texttt{*~Interface~CRA}:\\ 
   \texttt{~~*~Spec:~The system shall ...~data entities ...}
 
->file = elicit
 
+>file = elicit-def
 \LectureOnly{\section{Elicitation}}
+# What is requirements elicitation?
+* Engaging with stakeholders
+* Building domain knowledge
+* Discovering and inventing requirements
+* Exploring contextual usage
+* Starting-points: 
+  * Stakeholder Analysis
+  * Context Diagram
+  * Product Scoping
 
-# Elicitation
+>file = elicit-challenges
+# Why is elicitation so hard?
+Elicitation challenges: Stakeholders often...
+* cannot abstract 
+  * difficult to explain what they do and why
+  * difficult to express what they (really) need
+  * ask for specific solutions
+* lack imagination 
+  * of new ways of working
+  * of consequences of new solutions
+* complicate the picture
+  * have conflicting demands
+  * actively resist change
+  * have luxury demands, ''gold plating''
+  * have new demands once others are met
 
-* \TODO{}
+>file = elicit-methods
+# Elicitation Methods
+%* Stakeholder analysis part of context
+* Overview of elicitation methods: 
+  * Surveys
+  * Interviews
+  * Case-studies, examples:  demos, usability tests
+  * Creativity methods, example: brainstorming, focus groups
+    %* Brainstorming – generate ideas, creativity games
+    %* Focus groups – gather a group of stakeholders
+  * Operation Data Analysis: example: telemetry
+    %* Usage statistics, telemetry
+    %* User experiments, A/B-testing
+    %* Feedback from marketing and support
+    %* User and developer communities
+    %* Mining social media
+  * Business Intelligence: observing competitors 
 
-> file = prio
+* Elicitation methods support specification, validation and selection, example: focus groups support selection, usability testing support validation
 
+>file = elicit-surveys
+# Surveys
+* Good for asking many persons to get an overview of distribution of views
+* \TODO topics to consider
+  * Population definition and sampling
+  * Response rate
+  * Closed and open questions
+  * Lickert Scale
+  * statistics, correlation, etc.
+
+
+>file = elicit-interviews
+# Interviews
+* Unstructured interviews: open questions, open topics
+* Structured interviews: closed questions, focused topics
+* Semi-structured: combine both
+
+
+>file = elicit-case-studies
+# Case Studies with Stakeholders
+* Demonstrations by stakeholders
+  * task enactment in a specific usage context
+* Observation of stakeholders 
+  * sometimes it is easier to show than tell
+* Prototyping (has its own chapter) 
+* Usability testing (has its own chapter)
+* Pilot product deployment
+  * limited but real usage of system in production
+  * sometimes deployment is higher risk than development
+
+>file = elicit-operation
+# Operation Data Analysis
+Observe system in production before subsequent evolution
+* Usage statistics, telemetry
+* Online user experiments, A/B-testing
+* Feedback from marketing
+* Feedback from support
+* Engage with user communities
+* Mining social media
+
+>file = elicit-creativity-methods
+# Creativity Methods
+Group activities that support innovation.
+* Purposes: 
+  * trigger change and give competitive advantage
+  * facilitate stakeholders in idea generation and assessment
+  * get feedback on novelty and market opportunities
+* Example methods:
+  * Brainstorming: free-form idea generation without assessment
+  * Focus-groups: structured brainstorming with assessment
+  * Creativity Workshops: explore, combine, transform
+
+
+>file = elicit-creativity-workshop
+# Creativity Workshops
+Workshops based on applied creativity theory including:
+* Exploratory phase: opening up the space of ideas
+* Combinatorial phase: combining ideas to generate new ones
+* Transformational phase: 
+  * change problem space so something that is impossible now becomes possible
+* Analogical reasoning: 
+  * transfer knowledge from analogical domain
+* Storyboarding: 
+  * integrate ideas related to selected use cases
+
+
+> file = prio-selection
 \LectureOnly{\section{Prioritization}}
+# Requirements Selection
+* Requirements Selection provide input to downstream activities, answering the question: 
+ * What features are currently in and out of scope?
+* Requirements selection includes:
+  * **Prioritization** 
+    * ranking of requirements based on aspects such as benefit, cost, risk
+  * **Product Scoping** (own chapter)
+    * Defining the scope and theme of each release
+    * Release Planning: deciding the feature set included in each release, while taking into account resource constraints and priorities
 
-# Prioritization
-Hello
-* \TODO{}
+
+> file = prio-why
+# Why Prioritize?
+* To focus on the most important issues
+* To find high and low priority requirements
+* To implement requirements in a good order
+* To save time and money
+
+> file = prio-steps
+# Prioritization steps
+* Select prioritization aspects (e.g. benefit, cost, risk)
+* Select prioritization objects (e.g., features)
+  * Try to define features at a high-enough level that can be selected or de-selected independently (if possible)
+* Structure and groups objects
+* Do the actual prioritization
+  * Decide priorities for each aspect, for each object
+* Visualize, discuss, iterate...
+
+> file = prio-challenges
+# Why is prioritization hard?
+Prioritization challenges:
+* Finding a good abstraction level
+* Combinatorial explosion
+* Inter-dependencies
+* Not easy to predict the future
+* Power and politics
+
+> file = prio-aspects
+# Prioritization Aspects
+Examples of prioritzation aspects:
+* Importance (e.g. financial benefit, urgency, strategic value, market share...)
+* Penalty (e.g. bad-will if requirement not included)
+* Cost (e.g., staff effort)
+* Time (e.g., lead time)
+* Risk (e.g., technical risk, business risk)
+* Volatility (e.g. scope instability, probability of change)
+* Other things to consider: 
+  * competitors, brand fitness, competence, release theme
+* Combine and optimize aspects, e.g.:
+  * cost vs. benefit, cost vs. risk, importance vs. volatility
+  * maximizing benefit while minimizing cost
+
+> file = prio-when
+# When to prioritize?
+* Before spending large RE effort on a specific feature
+* At decision points, e.g.,
+  * Start of feature design
+  * Start of feature implementation
+  * Release Planning
+* When big changes occur
+* Regularly with *lagom* intervals
+
+
+> file = prio-who
+# Who should prioritize?
+Find the right competence for the right aspect
+* **Developers** know about e.g., 
+  * development effort and engineering risk
+* **Support** organization knows about e.g., 
+  * customer value if included and cost penalty if excluded
+* **Marketing** organization knows e.g., 
+  * competitors' products, market opportunities, cost of sales
+* etc...
+
+> file = prio-scales
+# Prioritization Scales
+* For each aspect you need to decide on a metric
+* A metric is expressed/estimated using a value on a **scale**
+* Different types of scales with different power:
+  * categorical scale $\{A, B, C\}$ 
+    * example: \{must, ambiguous, volatile\}
+  * ordinal scale $A > B$
+    * examples: higher value, more expensive
+  * ratio scale $A = k \cdot B$
+    * examples: amount of money, hours, percentage
+
+> file = prio-methods
+# Prioritization Methods
+Different methods, can be combined
+* Grouping, categorical scale  
+  * example: use post-it notes on a white-board to group interdependent features
+* Top-$N$, e.g. $N = 5$, categorical combined with ordinal
+  * example: select 5 most beneficial features from the viewpoint of a specific stakeholder
+* Grading on an ordinal scale
+  * examples: grading 1...5, high--medium--low
+* Ordering by pair-wise comparison (sorting, ordinal scale)
+  * use insertion sort to arrange in order of highest to lowest risk
+* 100-dollar-test, ratio-scale
+  * distribute fictitious money to reflect prioritization aspect
+
+> file = prio-method-combo
+# Prioritization Methods Combined
+Example of how prioritization techniques can be combined:
+* Start with a high-level grouping of features that are highly interdependent to reduce the number of prioritization objects
+* Sort all features of small groups in benefit order
+* Use Top-5 for groups with large number of features
+* For selected groups that are most important for the coming release:
+  do a ratio-scale prioritization with the 100-dollar-test
+
+> file = prio-constr
+# Prioritization as Constraint Solving
+
+* \TODO{Part of lab}
+* \TODO{discuss circular inconsistency in pair-wise comparison}
+
+
+
+
+
+
+

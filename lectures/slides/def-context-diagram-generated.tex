@@ -1,8 +1,13 @@
 \begin{Slide}{Context Diagram}
 
 \begin{itemize}
-\item A diagram describing the environment of a product
+\item A diagram describing the environment of the product
 \item The named product in the center as a \textbf{closed} box
+\begin{itemize}
+\item no internal structure is shown -- the focus is on context
+\item open box with system parts inside is an \textit{architecture} diagram
+
+\end{itemize}
 \item Entities interacting with the product are connected by arrowed lines to show data flow direction
 \begin{itemize}
 \item User roles (actors), shown as straw man icons
@@ -10,7 +15,9 @@
 \end{itemize}
 \item \textbf{Inner domain}: \textit{direct} interaction with product
 \item \textbf{Outer domain}: \textit{indirect} interaction with product
-\item If product is shown as an open box with system parts inside then it is an architecture diagram, \textit{not} a context diagram
+\begin{itemize}
+\item often \textit{not} included in the context diagram
+\end{itemize}
 \item Accompanying explaining text, including explicit requirements: ''the system shall have interface X''
 
 
