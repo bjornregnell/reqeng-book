@@ -335,7 +335,7 @@ Aspects of the RE context to consider:
   * Who has the power
   * Who gets the biggest value/profit? short- vs long-term
   * Who takes the biggest risk?
-
+ 
 
 > file = product-type
 # Type of product
