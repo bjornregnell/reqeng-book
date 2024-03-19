@@ -113,6 +113,23 @@
 
 * RE is the **foundation for software quality**.
 
+> file = re-selection-quality
+# Requirements Selection Quality
+
+Requirements Selection means deciding which features to release.
+* What is a good selection decision?
+
+* **If** we had perfect information about all requirements **and** the ability to precisely predict the future **then** we could partition all requirements based on their quality (value versus cost):
+  * \textbf{Alfa}-requirements: should be \textit{selected} with perfect wisdom
+  * \textbf{Beta}-requirements: should be \textit{rejected} with perfect wisdom
+\begin{center}
+\includegraphics[width=0.6\textwidth]{../img/alfa-beta-reqts}
+\end{center}
+{
+Product quality: \hspace{0.5em}{\Large $\frac{A}{A + C}$}\hfill
+Selection quality:\hspace{0.5em}{\Large $\frac{A + D}{A + B + C + D}$}
+}
+
 
 > file = acronyms
 
@@ -233,6 +250,28 @@ From unstructured to mathematical:
   * Limited in scope and expressive power
   * Some stakeholders cannot contribute in validation
 
+> file = re-tool-support
+# Automated support for RE
+
+* Why tools?
+  * We want to boost our productivity.
+  * The amount of information grows very quickly.
+  * We need to adapt different views to specific stakeholders.
+  * We need support for searching and summarizing.
+  * Manual traceability management is very tedious!
+  * Natural language Processing (NLP) 
+  * Large Language Models (LLM)
+*  Which tools?
+  * Generic tools for writing, drawing, databases, ...
+  * Specialized tools, e.g. DOORS, Jira, openproject.org, ...
+  * Artificial Intelligence for RE
+  * AI support to elicit, specify, validate, select
+
+* Meta-level RE: RE for Tools for RE
+
+* Educational prototype `reqT`: Lab tool for learning RE
+  * \url{https://github.com/reqT/}
+  * Structured Natural Language, tree-like data structure
 
 > file = req-explicit-vs-implicit
 # Explicit or implicit requirements?
@@ -594,6 +633,15 @@ Example of how prioritization techniques can be combined:
 * Use Top-5 for groups with large number of features
 * For selected groups that are most important for the coming release:
   do a ratio-scale prioritization with the 100-dollar-test
+
+> file = prio-cost-benefit-diagram
+# Cost-Benefit Diagram
+
+Cost-value diagram with Alfa- and Beta-requirements.
+\begin{center}
+\includegraphics[width=0.8\textwidth]{../img/cost-benefit-prio}
+\end{center}
+Uncertain estimates of benefit and cost $\rightarrow$ sub-optimal decisions.
 
 > file = prio-constr
 # Prioritization as Constraint Solving
