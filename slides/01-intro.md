@@ -331,10 +331,10 @@ Aspects of the RE context to consider:
 * **Delivery model**: one-off, eventually updated, continuous integration and delivery
 
 * Questions regarding customer--supplier relation:
-  * Who has the knowlogshould
-  * Who has the poeshould
-  * Who gets the biggest value/profit? short- vs longoeshould
-  * Who takes the bogshouldt risk?
+  * Who has the knowledge
+  * Who has the power
+  * Who gets the biggest value/profit? short- vs long-term
+  * Who takes the biggest risk?
 
 
 > file = product-type
