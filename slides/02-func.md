@@ -24,7 +24,7 @@ A requirements model...
 
 > file = intro-mod-aspects
 
-# Different modelling aspects 
+# Different modeling aspects 
 
 
 * Functional aspect:
@@ -41,13 +41,13 @@ A requirements model...
 
 > file = intro-which-model
 
-# Which modelling technique is best? 
+# Which modeling technique is best? 
 
-* A modelling technique may be more or less suitable for  representing a certain aspect.
+* A modeling technique may be more or less suitable for  representing a certain aspect.
 
 * A well-balanced combination of techniques can capture a larger set of aspects in a better way than a single model.
 
-* What modelling technique is best depends on...
+* What modeling technique is best depends on...
   * abstraction level
   * project type
   * stakeholders
@@ -56,7 +56,7 @@ A requirements model...
   * ...
 
 * Model interpretation often requires specific knowledge: 
-  * Choose modelling technique based on stakeholders' ability to understand and validate!
+  * Choose modeling technique based on stakeholders' ability to understand and validate!
 
 * How do you know that your chosen mix of models fit together and does not contradict each other?
   * Make sure to check model inter-consistency in validation!
@@ -64,7 +64,7 @@ A requirements model...
 > file = intro-data-mod
 \LectureOnly{\section{Data}}
 # Data Modeling 
-* Functional modelling techniques with focus on **data**:
+* Functional modeling techniques with focus on **data**:
   * **Data dictionaries**: 
     * a list of data types with textual description of each field and relations to other data types
   * **Data windows**: 
@@ -92,7 +92,7 @@ A requirements model...
 > file = intro-logi
 \LectureOnly{\section{Logic}}
 # Business Logic Modeling
-* Functional modelling techniques with focus on **logic**:
+* Functional modeling techniques with focus on **logic**:
   * sadfadsf
 
 > file = work-split

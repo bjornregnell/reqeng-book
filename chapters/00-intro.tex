@@ -27,7 +27,7 @@ Also, representations of requirements come in many different kinds and shapes at
 
 The subsequent sections aims to provide a concise overview of the set of terms that you can use when you think and communicate about different kinds of requirements in different requirements engineering contexts. This terminology is the starting-point for learning more about requirements engineering and developing skills needed to contribute to the invention of tomorrows' high-quality software that fulfill the human intentions behind its development.
 
-\section{What is RE?}%
+\section{What is Requirements Engineering (RE)?}%
 \subsection{Core activities of RE}%
 \MarginPage{
 \input{../lectures/slides/activities-generated.tex}
@@ -52,8 +52,8 @@ These activities are often conducted concurrently and in an iterative maner. Whe
   \item When are we ready?
 \end{itemize}
 
-\subsection{Role of requirements in the development process}
-The role of requirements in development: how are requirements specifications used?
+\subsection{Requirements in development}
+How are requirements specifications used in the development process?
 
 \TODO Make a picture of the development process without assuming too much: perhaps cog wheels for each process and subprocess: Development(RE, design, code, test, integrate, deploy) and Operation 
 
@@ -94,7 +94,7 @@ The role of requirements in development: how are requirements specifications use
 
 When we specify requirements we need to represent them in a useful way. We call such representations \textit{requirements models}. A requirement model is a \emph{simplified} representation of future versions of a system under development including its surrounding world -- we cannot expect to model every aspect with all its details, and we cannot fully predict every facet of all future stakeholders' intentions. We have limited time and resources so we need to make good-enough models that can reasonably support decision-making, design, verification, implementation and deployment in a cost-efficient way.
 
-There are many aspects of requirements modelling and many different kinds of requirements. We need to model both functional and quality requirements, and model the requirements at different levels of abstraction and detail, while keeping in mind how the requirements models will be used by different stakeholders throughout a software product's whole life-cycle. Requirements are interrelated and can be part of a structure. Hence it is often useful to aggregate requirements into coherent bundles that each can be used as a single entity in requirements selection, while tracking its relations to other entities. Such interrelated requirements aggregates are often called \emph{features}. A set of features may be selected for implementation in a coming release based on priorities of stakeholders and available development resources. Therefore, we also need to represent priorities and resource constraints in our requirements models.
+There are many aspects of requirements modeling and many different kinds of requirements. We need to model both functional and quality requirements, and model the requirements at different levels of abstraction and detail, while keeping in mind how the requirements models will be used by different stakeholders throughout a software product's whole life-cycle. Requirements are interrelated and can be part of a structure. Hence it is often useful to aggregate requirements into coherent bundles that each can be used as a single entity in requirements selection, while tracking its relations to other entities. Such interrelated requirements aggregates are often called \emph{features}. A set of features may be selected for implementation in a coming release based on priorities of stakeholders and available development resources. Therefore, we also need to represent priorities and resource constraints in our requirements models.
 
 
 \subsection{What is a good req spec?}
@@ -126,7 +126,7 @@ Here are some examples of typical \textbf{quality factors} of requirements speci
 Functional requirements deals with the expected logical behavior and the related data that is needed by the system to do what it should.
 \begin{itemize}
   \item \textbf{Data}: information stored by the system, including domain-specific data entities and the format of input and output data. Data requirements often involves a data base or some other form of persistent storage of domain-specific data. Data requirements are related to user interface design, as users expect to see relevant data when they interact with the system to should help them accomplish their tasks. Data requirements usually includes some abstract representation of the internal system state, at-least those parts of the system state that are externally observable.
-  \item \textbf{Logic}: the functional relation between input and output. The modelling of requirements on the logical behavior of a system involves the analysis of what is the desired output of a specific computation given some expected input in a specific usage context, and also what happens if unexpected input is given. We want to specify logic at a higher abstraction level than the actual implementation in source code, while capturing the underlying intent of the requested functionality. 
+  \item \textbf{Logic}: the functional relation between input and output. The modeling of requirements on the logical behavior of a system involves the analysis of what is the desired output of a specific computation given some expected input in a specific usage context, and also what happens if unexpected input is given. We want to specify logic at a higher abstraction level than the actual implementation in source code, while capturing the underlying intent of the requested functionality. 
 \end{itemize}
 
 Behavioral requirements are often called ''business logic'' or just ''business requriements''. Data requirements on domain-related information are often less complex and easier to elicit, specify and validate, compared to requirements that deal with intricate business logic in a multi-faceted usage context. Here we use the term ''functional requirements'' to cover both requirements on data and logical behavior, but sometimes data requirements are treated as a its own kind of requirements, in separation of (other) functional requirements. 
