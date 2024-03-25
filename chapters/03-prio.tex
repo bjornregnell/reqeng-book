@@ -2,28 +2,29 @@
 %!TEX root = ../book/reqeng-book.tex
 
 \chapter{Prioritization}%
-blabla
+Relate to estimitation, prediction, KPI, metrics.
+
+\TODO{should GQM be outlined here or under quality metrics; make ref to QR chapter}
 
 \section{Why prioritize?}%
 
-\section{The prioritization process}
+\section{Prioritization activities}
+the prioritization process: who does what when 
 
-\subsection{Activities}
-who does what when 
+\section{Prioritization challenges}
+\begin{itemize}
+  \item Finding a good abstraction level
+  \item  Combinatorial explosion
+  \item  Inter-dependencies
+  \item   Not easy to predict the future
+  \item  Power and politics
+\end{itemize}
 
-\subsection{Challenges}
 
-Finding a good abstraction level
+\section{Priority metrics}
+\subsection{What aspects to prioritize?}
 
-Combinatorial explosion
-
-Inter-dependencies
-
-Not easy to predict the future
-
-Power and politics
-
-\subsection{Aspects}
+\TODO{Decide if use ''aspect'' or ''criteria''}
 
 Example aspects:
 
@@ -35,7 +36,8 @@ Example aspects:
 
 --  Time (e.g., lead time)
 
---  Risk (e.g., technical risk, business risk)
+--  Risk (e.g., technical risk, business risk) Risk = damage * probability
+
 
 --  Volatility (e.g. scope instability, probability of change)
 
@@ -45,11 +47,13 @@ Example aspects:
 
 -- Optimize: minimize or maximize some combinations, e.g., cost vs. benefit
 
-\section{Scales}
+\subsection{Priority scales}
 
-\section{Methods}
+\section{Prioritization methods}
 
-\textbullet Grouping, Numerical assignment (grading)
+\subsection{Categorizing}
+
+Grouping, Numerical assignment (grading)
 
 -- Can be done using any scale (categorical, ordinal, ratio)
 
@@ -57,20 +61,27 @@ Example aspects:
 not challenged against each other; may be misinterpreted as ratio scale (even if
 ”4” not necessarily is "twice as much" as ”2” when using an ordinal scale).
 
-\textbullet 100-dollar-test
+\subsection{Ordering}
 
--- Ratio scale, quick and easy, risk of shrewd tactics (listigt taktikspel)
-
-\textbullet Ranking (sorting)
+Ranking, sorting
 
 -- Ordinal scale, pairwise comparison, easy and rather quick
 
-\textbullet Top-ten (or Top-n)
+
+\subsection{Ratio-scale estimation}
+  
+\subsubsection{100-dollar-test}
+
+-- Ratio scale, quick and easy, risk of shrewd tactics (listigt taktikspel)
+
+
+\subsubsection{Top-ten (or Top-n)}
 
 -- Ordinal scale if the top list is ranked / Categorical grouping if not ranked; very
 quick and simple, gives a rough estimate on a limited set of req
 
-\textbullet (Analytical Hierarchy Process (AHP))
+\subsubsection{Analytical Hierarchy Process (AHP)}
 
 -- Ratio scale, pairwise comparison, tool is needed, redundancy gives measure of
 consistency 
+

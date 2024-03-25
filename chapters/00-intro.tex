@@ -52,8 +52,33 @@ These activities are often conducted concurrently and in an iterative maner. Whe
   \item When are we ready?
 \end{itemize}
 
-\subsection{Use of requirements in development}
+\subsection{Role of requirements in the development process}
 The role of requirements in development: how are requirements specifications used?
+
+\TODO Make a picture of the development process without assuming too much: perhaps cog wheels for each process and subprocess: Development(RE, design, code, test, integrate, deploy) and Operation 
+
+\subsubsection{Requirements and product design}
+
+\begin{itemize}
+  \item Architecture: QR important basis for design choices
+  \item Interaction design: based on contextual usage and ysability requirements
+\end{itemize}
+
+
+\subsubsection{Requirements and product verification}
+
+\begin{itemize}
+  \item Static and Dynamic testing (inspections and testing)
+  \item Interface-based and structural testing (black box -- white box)
+  \item Testing at different levels: unit -- system
+  \item Regression testing: when evolving; verify that new or changed features do not brake existing features
+  \item Acceptance testing: before delivery; verify fulfillment of user needs
+\end{itemize}
+
+
+\subsubsection{Requirements and product scoping}
+
+
 
 \subsection{Requirements as constraints}
 
@@ -142,6 +167,16 @@ A further complication is that quality aspects often work against each other. Fo
 \end{itemize}
 
 
+\subsection{Feature requirements}%
+
+Textual features combining data and logic. Releasable unit of FR+QR.
+
+The most common type of requirement.
+
+Flexible and expressive but ambiguous.
+
+Boosted by LLM:s
+
 \subsection{Specification tools}
 
 \subsubsection{Natural Language}
@@ -164,7 +199,7 @@ A further complication is that quality aspects often work against each other. Fo
 
   Examples: Doors, RequisitePro, reqT
 
-\subsection{Requirements language}
+\subsubsection{A requirements metalanguage}
 
 The reqT meta-model cheat-sheet
 
