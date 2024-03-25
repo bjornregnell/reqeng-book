@@ -27,7 +27,7 @@ A requirements model...
 # Different modeling aspects 
 
 
-* Functional aspect:
+* Functional aspects:
   * Data aspects:
     * What is stored and processed by the system?
     * What is the format of input and output data?
@@ -60,6 +60,49 @@ A requirements model...
 
 * How do you know that your chosen mix of models fit together and does not contradict each other?
   * Make sure to check model inter-consistency in validation!
+
+> file = abstraction-iceberg
+# Abstraction and level of detail
+
+\begin{minipage}[t]{0.4\textwidth}
+\vspace{-1.0em}\includegraphics[width=1.0\textwidth]{../img/iceberg4}
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+* The iceberg metaphor: 
+  * A req spec is only the tip of a massive iceberg of information
+* Abstraction means simplification
+  * focusing on what's important 
+  * reduction of less relevant details
+* Different parts of the req space need different levels of detail
+\end{minipage}%
+
+
+> file = mix-of-details
+# Mixed levels of detail over time
+
+\begin{minipage}[t]{1.0\textwidth}
+\vspace{-1.0em}\includegraphics[width=1.0\textwidth]{../img/details-time}
+\end{minipage}
+
+
+* \TODO explain image
+
+
+> file = ontology
+# Ontology
+* Ontology is the philosophical study of being:
+  * What types of entities exist?
+  * How are entities grouped into categories? 
+  * How are entities related to one another?
+* Example of ontological concepts
+  * Particulars and universals
+  * Abstract and concrete
+  * Identity and persistence over time
+  * Modality: what is possible, actual, necessary?
+  * Properties and relations
+* Further reading: 
+  * \url{https://en.wikipedia.org/wiki/Ontology}
+  * \url{https://en.wikipedia.org/wiki/Ontology_engineering}
 
 > file = intro-data-mod
 \LectureOnly{\section{Data}}
@@ -105,6 +148,7 @@ A requirements model...
   * users' work and system behaviour is separated  
   * the work split is explicitly specified in req spec
  
+
 > file = contextual-usage
 \LectureOnly{\section{Usage}}
 # Contextual usage modeling
