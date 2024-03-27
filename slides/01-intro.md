@@ -648,10 +648,3 @@ Uncertain estimates of benefit and cost $\rightarrow$ sub-optimal decisions.
 
 * \TODO{Part of lab}
 * \TODO{discuss circular inconsistency in pair-wise comparison}
-
-
-
-
-
-
-

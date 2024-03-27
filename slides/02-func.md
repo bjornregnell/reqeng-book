@@ -69,23 +69,33 @@ A requirements model...
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 * The iceberg metaphor: 
-  * A req spec is only the tip of a massive iceberg of information
-* Abstraction means simplification
-  * focusing on what's important 
-  * reduction of less relevant details
-* Different parts of the req space need different levels of detail
+  * Initial requirements are only the tip of a requirements ''iceberg''.
+  * Most requirements are still hidden under the surface.
+* Abstraction means simplification:
+  * focusing on what's important,
+  * reduction of less relevant details.
+* Different parts of the req space need different levels of detail.
+* Which parts of the under-surface iceberg should be unravel first?
 \end{minipage}%
 
 
 > file = mix-of-details
 # Mixed levels of detail over time
 
+* The picture below illustrates elaboration of reqs over time:
+  * Time on x-axis. Different reqs on y-axis. 
+  * Lighter color means more elaboration.
+
 \begin{minipage}[t]{1.0\textwidth}
 \vspace{-1.0em}\includegraphics[width=1.0\textwidth]{../img/details-time}
 \end{minipage}
 
 
-* \TODO explain image
+* It is not cost-effective to spend the same amount of effort on all requirements.
+
+* Some requirements need more effort than others in elicitation, specification, validation and selection.
+
+
 
 
 > file = ontology
@@ -109,19 +119,32 @@ A requirements model...
 # Data Modeling 
 * Functional modeling techniques with focus on **data**:
   * **Data dictionaries**: 
-    * a list of data types with textual description of each field and relations to other data types
+    * a list of data entities (classes) with textual descriptions of data attributes (fields) and relations among entities.
   * **Data windows**: 
-    * examples of instances of data types shown in a usage context
-    * often shown as a screen mockup
-    * often *not* intended for interface design; instead the focus is on specification and validation of stored and processed data 
+    * examples of data values (instances) shown in a usage context
+    * often sketched as a screen mockup
+    * *not* intended as interface design -- instead the focus is on modeling of stored and processed data 
   * **Data diagrams**: 
-    * boxes and arrows with data types, their fields and relations  
-    * Entity-Relationship-diagrams
-    * Class diagrams
+    * boxes and arrows with data entities (classes), attributes (fields) and relations
+    * E/R-diagrams: focus on entities and their relations 
+    * UML Class diagrams: also inheritance, aggregation, methods
 
 > file = data-dictionaries
-# Data dictionaries
-* \TODO example
+# Data dictionary example
+Parts of a data dictionary for a music streaming app:
+```
+* Class: User
+  * Spec: A human user that listens to music.
+  * Field: UserID
+  * Field: Password
+  * Field: Name
+* Class: Artist 
+  * Spec: ...
+* Class: Track
+  * Spec: ...
+* Class: Album
+  * Spec: ...
+```
 
 > file = data-windows
 # Data windows
