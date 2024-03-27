@@ -176,10 +176,8 @@ Parts of a data dictionary for a music streaming app:
 \LectureOnly{\section{Usage}}
 # Contextual usage modeling
 
-* Persona:
-  * An fictitious but representative user of a specific user group, with concrete personality and desires.
 * Story:
-  * A description of what a user persona wants in order to achieve a goal. Short for user story.
+  * A description of what a user wants in order to achieve a goal. Short for user story.
 * Task: 
   * A piece of work by users, potentially supported by a system. Short for user task.
 * Use case
