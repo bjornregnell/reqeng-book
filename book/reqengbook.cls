@@ -26,7 +26,7 @@
 %  - add sfdefault after [ to have san serif as default normal font
 \usepackage{lmodern} % if included before serif package, it goes for headings only
 \usepackage{tgtermes} % serif: clone of Times
-\usepackage[scaled=0.85]{beramono} % monospace
+%\usepackage[scaled=0.85]{beramono} % monospace
 %\usepackage[scaled=0.85]{noto-mono}
 %\usepackage[scaled=0.85]{noto}
 %\usepackage[scaled=0.85]{noto-sans}
@@ -131,7 +131,7 @@
 
 \usepackage{listings}  % for typesetting code
 
-\usepackage{upquote} %http://tex.stackexchange.com/questions/145416/how-to-have-straight-single-quotes-in-lstlistings
+%\usepackage{upquote} %http://tex.stackexchange.com/questions/145416/how-to-have-straight-single-quotes-in-lstlistings
 
 \usepackage{xspace} %http://www.math.tamu.edu/~harold.boas/courses/math696/why-macros.html
 
@@ -175,13 +175,22 @@
 % \usepackage[defaultsans,scaled=0.85]{droidsans}
 % \renewcommand*\familydefault{\sfdefault}
 
+%\usepackage{setspace} // to use \begin{spacing}{0.8}  etc
+
 \newenvironment{Slide}[1]{%
-\begin{mdframed}[backgroundcolor=blue!10]\relax
-  \fontfamily{lmss}\fontsize{9}{11}\selectfont  %qhv phv lmss cmss
+\begin{mdframed}[backgroundcolor=blue!8,innertopmargin=1em,innerbottommargin=1em,]\relax
+  \renewcommand{\labelitemi}{\color{myslideheadcolor}{$\bullet$}}
+  \renewcommand{\labelitemii}{\color{myslideheadcolor}{$\circ$}}
+  \renewcommand{\labelitemiii}{\color{myslideheadcolor}{$\cdot$}}
+  \fontfamily{lmss}%qhv phv lmss cmss
+  \fontsize{9}{11}\selectfont  
   \textcolor{myslideheadcolor}{\textbf{#1}}
+  %\setlength{\parskip}{0.0em}
+  %\setlength{\itemsep}{-0.5em}
+  %\setlist{nosep} %this is from enumitem package but clashes with paralist
   \begin{flushleft}
   }{%
-\end{flushleft}
+\end{flushleft}%
 \end{mdframed}
 }
 
@@ -222,19 +231,41 @@
   morestring=[b]"""
 }
 
+\definecolor{entityColor}{RGB}{0,100,200}%{0,100,200}%{160,0,30}%
+\definecolor{attributeColor}{RGB}{0,100,50}%{0,100,50}
+\definecolor{relationColor}{RGB}{125,0,25}%{160,0,30}%{0,100,200}%
+
+\lstdefinelanguage{reqt}{
+  %belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  %showstringspaces=false,
+  showspaces=false,
+  %breakatwhitespace=true,
+  basicstyle=\fontfamily{qtm}\selectfont\footnotesize,
+  emph={Barrier,Breakpoint,Class,Component,Configuration,Data,Design,Domain,Epic,Event,Feature,Field,Function,Goal,Idea,Image,Interface,Issue,Label,Member,Module,Product,Prototype,Quality,Relationship,Release,Req,Resource,Risk,Screen,Section,Stakeholder,State,Story,System,Target,Task,Term,Test,UseCase,User,Variant,VariationPoint},
+  emphstyle=\ttfamily\bfseries\color{entityColor},
+  emph={[2]binds,deprecates,excludes,has,helps,hurts,impacts,implements,inherits,interacts,precedes,relates,requires,verifies},
+  emphstyle={[2]\ttfamily\itshape\color{relationColor}},
+  emph={[3]Benefit,Capacity,Comment,Constraints,Cost,Damage,Deprecated,Example,Expectation,Failure,Frequency,Gist,Input,Location,Max,Min,Order,Output,Prio,Probability,Profit,Spec,Text,Title,Value,Why},
+  emphstyle={[3]\ttfamily\color{attributeColor}},  
+  %morekeywords={},
+  %otherkeywords={*},
+  %keywordstyle=\bfseries\ttfamily\selectfont,%\color{blue},
+}
+
+
 \lstset{
-    language=scala,
     tabsize=2,
     basicstyle=\ttfamily\selectfont,
-    keywordstyle=\bfseries\color{eclipsepurple},
+    keywordstyle=\bfseries,%\color{blue},
     commentstyle=\color{mygreen},
     numberstyle={\footnotesize},
     numbers=none,
-    backgroundcolor=\color{gray!5},
+    backgroundcolor=\color{gray!10},
     frame=single,
-    rulecolor=\color{black!25},
+    rulecolor=\color{black!50},
     %title={\footnotesize\lstname},
-    breaklines=false,
+    breaklines=true,
     breakatwhitespace=false,
     framextopmargin=2pt,
     framexbottommargin=2pt,
@@ -243,25 +274,25 @@
 }
 
 \lstset{literate=%
-{Å}{{\AA}}1
-{Ä}{{\"A}}1
-{Ö}{{\"O}}1
-{Ü}{{\"U}}1
-{ß}{{\ss}}1
-{ü}{{\"u}}1
-{å}{{\aa}}1e
-{ø}{{\o}}1
-{Æ}{{\AE}}1
-{Ø}{{\O}}1
-{`}{{\`{}}}1
-{─}{{\textemdash}}1
-{└}{{|}}1
-{├}{{|}}1
-{│}{{|}}1
-{♠}{{$\spadesuit$}}1
-{♥}{{$\heartsuit$}}1
-{♣}{{$\clubsuit$}}1
-{♦}{{$\diamondsuit$}}1
+  {Å}{{\AA}}1
+  {Ä}{{\"A}}1
+  {Ö}{{\"O}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {å}{{\aa}}1
+  {ø}{{\o}}1
+  {Æ}{{\AE}}1
+  {Ø}{{\O}}1
+  {`}{{\`{}}}1
+  {─}{{\textemdash}}1
+  {└}{{|}}1
+  {├}{{|}}1
+  {│}{{|}}1
+  {♠}{{$\spadesuit$}}1
+  {♥}{{$\heartsuit$}}1
+  {♣}{{$\clubsuit$}}1
+  {♦}{{$\diamondsuit$}}1
 }
 
 \lstnewenvironment{Code}[1][]{%

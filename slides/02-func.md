@@ -24,9 +24,9 @@ A requirements model...
 
 > file = intro-mod-aspects
 
-# Different modeling aspects 
+# Different aspects of requirements to model 
 
-
+\begin{minipage}[t]{0.6\textwidth}
 * Functional aspects:
   * Data aspects:
     * What is stored and processed by the system?
@@ -35,9 +35,14 @@ A requirements model...
   * Business Logic aspects: 
     * How should the system behave in different usage contexts?
     * What output should be produced, given input and state?  
+\end{minipage}%
+\begin{minipage}[t]{0.4\textwidth}
+\vspace{0.0em}\hfill\includegraphics[width=0.82\textwidth]{../img/cog1}
+\end{minipage}%
 
-* Quality aspects
-  * How good are the functions from the view of stakeholders?
+* Quality aspects: 
+  * What is a 'good' function from stakeholders' viewpoints?
+  * More on quality modeling in Part III.
 
 > file = intro-which-model
 
@@ -90,12 +95,9 @@ A requirements model...
 \vspace{-1.0em}\includegraphics[width=1.0\textwidth]{../img/details-time}
 \end{minipage}
 
-
 * It is not cost-effective to spend the same amount of effort on all requirements.
 
 * Some requirements need more effort than others in elicitation, specification, validation and selection.
-
-
 
 
 > file = ontology
@@ -118,11 +120,11 @@ A requirements model...
 \LectureOnly{\section{Data}}
 # Data Modeling 
 * Functional modeling techniques with focus on **data**:
-  * **Data dictionaries**: 
+  * **Data dictionary**:  
     * a list of data entities (classes) with textual descriptions of data attributes (fields) and relations among entities.
-  * **Data windows**: 
-    * examples of data values (instances) shown in a usage context
-    * often sketched as a screen mockup
+    * \url{https://en.wikipedia.org/wiki/Data_dictionary}
+  * **Data views**: (a.k.a ''virtual windows'')
+    * examples of data values (instances) shown in a specific usage context sketched as a mockup screen
     * *not* intended as interface design -- instead the focus is on modeling of stored and processed data 
   * **Data diagrams**: 
     * boxes and arrows with data entities (classes), attributes (fields) and relations
@@ -132,23 +134,36 @@ A requirements model...
 > file = data-dictionaries
 # Data dictionary example
 Parts of a data dictionary for a music streaming app:
+```reqt
+* Class: listener has
+  * Spec: A user that listens to music.
+  * Field: id has
+    * Spec: A unique identifier of listener. Must not contain whitespace.
+    * Example: abc.edf123
+  * Field: password has
+    * Spec: ...
+* Class: artist has
+  * Spec: ...
+* Class: track has
+  * Spec: ...
+* Class: album has
+  * Spec: ...
 ```
-* Class: User
-  * Spec: A human user that listens to music.
-  * Field: UserID
-  * Field: Password
-  * Field: Name
-* Class: Artist 
-  * Spec: ...
-* Class: Track
-  * Spec: ...
-* Class: Album
-  * Spec: ...
-```
+Each data entity (class) together with attributes (fields) are specified in natural language.
 
-> file = data-windows
-# Data windows
-* \TODO example
+> file = data-views
+# Data Views
+\begin{minipage}[t]{0.55\textwidth}
+* Example data shown in a mockup screen.
+* Good for data model validation with stakeholders.
+  * Are examples relevant?
+  * Any missing data?
+* Also called ''virtual window''.
+* Not a user interface design.
+\end{minipage}%
+\begin{minipage}[t]{0.45\textwidth}
+\vspace{-1.0em}\hfill\includegraphics[width=0.8\textwidth]{../img/virtual-window}
+\end{minipage}
 
 > file = data-diagrams
 # Data diagrams

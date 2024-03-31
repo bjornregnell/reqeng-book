@@ -26,7 +26,7 @@
 \usepackage[T1]{fontenc}
 %\usepackage[scaled=0.85]{noto}
 \usepackage{lmodern} % if included before serif package, it goes for headings only
-\usepackage[scaled=0.85]{beramono}
+%\usepackage[scaled=0.85]{beramono}
 %\usepackage[scale=1.0]{tgheros}
 
 \usepackage{fancyvrb}
@@ -48,19 +48,22 @@
 \setbeamerfont{author}{size=\large}
 \setbeamerfont{date}{size=\small}
 
-
-%\setbeamertemplate{items}[circle]
-\setbeamertemplate{items}[square]
+\usepackage{amsmath,scalerel} %http://tex.stackexchange.com/questions/125523/is-there-a-bigcdot-symbol-in-latex
+\setbeamertemplate{items}[circle]
+%\setbeamertemplate{items}[square]
 %\setbeamertemplate{itemize subitem}[circle]%{$\rightarrow$}
 %\setbeamertemplate{itemize subitem}[square]%{$\rightarrow$}
-\setbeamertemplate{itemize subitem}{--}
-\setbeamertemplate{itemize subsubitem}{-}
+%\setbeamertemplate{itemize subitem}{$\circ$}%{--}
+\setbeamertemplate{itemize subitem}{$\scalerel*{\cdot}{\bigodot}$}%{--}
+%\setbeamertemplate{itemize subsubitem}{$\cdot$}%{-}%
+%\setbeamertemplate{itemize subsubitem}{$\scalerel*{\cdot}{\bigodot}$}%{-}%
+\setbeamertemplate{itemize subsubitem}{$\circ$}%{-}%
 
-\usepackage{amsmath,scalerel} %http://tex.stackexchange.com/questions/125523/is-there-a-bigcdot-symbol-in-latex
 \usepackage{marvosym} % icons https://ftp.acc.umu.se/mirror/CTAN/fonts/marvosym/doc/fonts/marvosym/marvodoc.pdf
 
 \usepackage{listings}
 
+\usepackage[normalem]{ulem}  % for strikethrough: \sout{Hello World}
 
 \newcommand{\TODO}{\colorbox{red!70}{TODO!!!}~}  
 
@@ -85,19 +88,41 @@
   morestring=[b]"""
 }
 
+\definecolor{entityColor}{RGB}{0,100,200}%{0,100,200}%{160,0,30}%
+\definecolor{attributeColor}{RGB}{0,100,50}%{0,100,50}
+\definecolor{relationColor}{RGB}{125,0,25}%{160,0,30}%{0,100,200}%
+
+\lstdefinelanguage{reqt}{
+  %belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  %showstringspaces=false,
+  showspaces=false,
+  %breakatwhitespace=true,
+  basicstyle=\fontfamily{qtm}\selectfont\footnotesize,
+  emph={Barrier,Breakpoint,Class,Component,Configuration,Data,Design,Domain,Epic,Event,Feature,Field,Function,Goal,Idea,Image,Interface,Issue,Label,Member,Module,Product,Prototype,Quality,Relationship,Release,Req,Resource,Risk,Screen,Section,Stakeholder,State,Story,System,Target,Task,Term,Test,UseCase,User,Variant,VariationPoint},
+  emphstyle=\ttfamily\bfseries\color{entityColor},
+  emph={[2]binds,deprecates,excludes,has,helps,hurts,impacts,implements,inherits,interacts,precedes,relates,requires,verifies},
+  emphstyle={[2]\ttfamily\itshape\color{relationColor}},
+  emph={[3]Benefit,Capacity,Comment,Constraints,Cost,Damage,Deprecated,Example,Expectation,Failure,Frequency,Gist,Input,Location,Max,Min,Order,Output,Prio,Probability,Profit,Spec,Text,Title,Value,Why},
+  emphstyle={[3]\ttfamily\color{attributeColor}},  
+  %morekeywords={},
+  %otherkeywords={*},
+  %keywordstyle=\bfseries\ttfamily\selectfont,%\color{blue},
+}
+
 \lstset{
-    language=scala,
+    %language=,
     tabsize=2,
-    basicstyle=\ttfamily,
-    keywordstyle=\bfseries\color{eclipsepurple},
+    basicstyle=\fontsize{9}{11}\selectfont\ttfamily,
+    keywordstyle=\bfseries,%\color{blue},
     commentstyle=\color{mygreen},
     numberstyle={\footnotesize},
     numbers=none,
-    %backgroundcolor=\color{gray!15},
-    frame=none, %single,
-    rulecolor=\color{black!25},
+    backgroundcolor=\color{gray!10},
+    frame=single, %none
+    rulecolor=\color{black!50},
     %title={\footnotesize\lstname},
-    breaklines=false,
+    breaklines=true,
     breakatwhitespace=false,
     framextopmargin=2pt,
     framexbottommargin=2pt,
