@@ -116,7 +116,7 @@ A requirements model...
   * \url{https://en.wikipedia.org/wiki/Ontology}
   * \url{https://en.wikipedia.org/wiki/Ontology_engineering}
 
-> file = intro-data-mod
+> file = data-modeling
 \LectureOnly{\section{Data}}
 # Data Modeling 
 * Functional modeling techniques with focus on **data**:

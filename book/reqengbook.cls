@@ -176,12 +176,14 @@
 % \renewcommand*\familydefault{\sfdefault}
 
 %\usepackage{setspace} // to use \begin{spacing}{0.8}  etc
+\usepackage{amsmath,scalerel} %http://tex.stackexchange.com/questions/125523/is-there-a-bigcdot-symbol-in-latex
 
 \newenvironment{Slide}[1]{%
 \begin{mdframed}[backgroundcolor=blue!8,innertopmargin=1em,innerbottommargin=1em,]\relax
   \renewcommand{\labelitemi}{\color{myslideheadcolor}{$\bullet$}}
-  \renewcommand{\labelitemii}{\color{myslideheadcolor}{$\circ$}}
-  \renewcommand{\labelitemiii}{\color{myslideheadcolor}{$\cdot$}}
+  \renewcommand{\labelitemii}{\color{myslideheadcolor}{$\scalerel*{\cdot}{\bigodot}$}}
+  \renewcommand{\labelitemiii}{\color{myslideheadcolor}{$\circ$}}
+  %\renewcommand{\labelitemiii}{\color{myslideheadcolor}{$\cdot$}}
   \fontfamily{lmss}%qhv phv lmss cmss
   \fontsize{9}{11}\selectfont  
   \textcolor{myslideheadcolor}{\textbf{#1}}
