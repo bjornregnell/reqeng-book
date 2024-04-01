@@ -70,7 +70,7 @@ A requirements model...
 # Abstraction and level of detail
 
 \begin{minipage}[t]{0.4\textwidth}
-\vspace{-1.0em}\includegraphics[width=1.0\textwidth]{../img/iceberg4}
+\vspace{-0.5em}\includegraphics[width=0.9\textwidth]{../img/iceberg4}
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 * The iceberg metaphor: 
@@ -205,9 +205,9 @@ Each data entity (class) together with attributes (fields) are specified in stru
   * Narrative: rich, detailed story of personas' experiences
   * ...
 * System behavior modelling:
-  * State machines: event cause transition to next state
+  * State machines: events trigger transitions between states
   * Interaction diagrams: user--system interaction sequences
-  * Data-flow diagrams: input/output data to/from functions
+  * Data-flow diagrams: flow of input/output to/from functions
   *  ...
 
 > file = work-split
@@ -224,19 +224,30 @@ Each data entity (class) together with attributes (fields) are specified in stru
 > file = contextual-usage
 \LectureOnly{\section{Usage}}
 # Contextual usage modeling
-
-* Story:
-  * A description of what a user wants in order to achieve a goal. Short for user story.
-* Task: 
-  * A piece of work by users, potentially supported by a system. Short for user task.
-* Use case
-  * A goal-fulfilling interaction between users and a product in a specific usage context.
+Also called **scenario-based requirements** 
+{\footnotesize\url{https://en.wikipedia.org/wiki/Scenario_(computing)}}
+* User story:
+  * Short description of what a user role wants to do with the system in order to achieve a goal.
+  * {\footnotesize\url{https://en.wikipedia.org/wiki/User_story}}
+* Use cases and tasks: 
+  * *Domain-focus:* often called (user) **task**\\
+    A piece of work by users, potentially supported by a system.
+  * *Product-focus:* often called **use case**\\
+    A goal-fulfilling interaction between users and the product.
+  * {\footnotesize\url{https://en.wikipedia.org/wiki/Use_case}}
 * Narrative:
   * A detailed story from a user's perspective including thoughts and emotions when using the system for a specific purpose.
 
+
+
 > file = user-stories
 # User Stories
-* \TODO example
+* Short description of what a user role wants to do with the system in order to achieve a goal. 
+* Some proposed templates:
+  * \fontsize{9}{11}\selectfont\code{As a <role> I can <capability>, so that <receive benefit>.}
+  * \fontsize{9}{11}\selectfont\code{In order to <receive benefit> as a <role>, I can <desire>.}
+  * \fontsize{9}{11}\selectfont\code{As <who> <when> <where>, I want <what> because <why>.}
+
 
 > file = use-cases
 # Use Cases and Tasks
@@ -251,27 +262,48 @@ Each data entity (class) together with attributes (fields) are specified in stru
 \LectureOnly{\section{Behavior}}
 # System behavior modeling
 
-* State Machines
+* State diagrams
+  * Events trigger transitions between states
+  * A model of many possible event sequences
+  * {\footnotesize\url{https://en.wikipedia.org/wiki/State_diagram}}
 
 * Interaction Diagrams
+  * Messages between the system and its surroundings
+  * A model of one specific interaction scenario
+  * {\footnotesize\url{https://en.wikipedia.org/wiki/Message_sequence_chart}}
+  * {\footnotesize\url{https://en.wikipedia.org/wiki/Sequence_diagram}}
 
 * Data Flow Diagrams
-
+  * Flow of input/output to/from functions
+  * A model of how functions are connected with data stores
+  * {\footnotesize\url{https://en.wikipedia.org/wiki/Data-flow_diagram}}
 
 > file = state-machines
-# State Machines
-* ...
+# State diagram example
+\begin{minipage}[t]{0.65\textwidth}
+\vspace{0.4em}\includegraphics[width=1.0\textwidth]{../img/state-diagram}
+\vspace{-0.4em}
+\end{minipage}
+
+{\vspace*{1em}\fontsize{5}{5}\fontfamily{qtm}\itshape\selectfont From: S. Lauesen ''Software Requirements'' \textcopyright~Addison-Wesley 2002}
 
 > file = interaction-diagrams
 # Interaction Diagrams
-* ...
+
+* Time progresses downwards 
+* One timeline for each user, product, other systems
+* Events/messages are drawn as arrows between timelines
+* Example UML Sequence diagram:
+\hfill\begin{minipage}[t]{0.8\textwidth}
+\vspace{0.4em}\includegraphics[width=1.0\textwidth]{../img/uml-sequence-diagram}
+{\vspace*{1em}\fontsize{5}{5}\fontfamily{qtm}\itshape\selectfont From: S. Lauesen ''Software Requirements'' \textcopyright~Addison-Wesley 2002}
+\end{minipage}
+
 
 > file = data-flow-diagrams
-# Data-flow diagrams
-\footnotesize\url{https://en.wikipedia.org/wiki/Data-flow_diagram}
-
+# Data-flow diagram example
 \begin{minipage}[t]{0.6\textwidth}
-\vspace{-0.4em}\includegraphics[width=1.0\textwidth]{../img/data-flow-diagram}
+\vspace{0.4em}\includegraphics[width=1.0\textwidth]{../img/data-flow-diagram}
 \vspace{-1.4em}
 \end{minipage}%
 \hfill\begin{minipage}[t]{0.3\textwidth}
@@ -282,67 +314,112 @@ Each data entity (class) together with attributes (fields) are specified in stru
 
 > file = intro-proto
 \LectureOnly{\section{Prototyping}}
-# Why Prototype?
-* What?
-  * ...
-* Why?
-  * ...
+# What is prototyping?
+  * Prototyping is a creative practice within product design.
+  * A prototype can range from 
+    * a simple paper **sketch**, through 
+    * a computer-generated **mock-up**, to an 
+    * incomplete version of the production software
+  * Aspects of a prototype:
+    * Purpose 
+    * Scope 
+    * Media 
+    * Usage 
+
+> file = proto-purpose
+# Why prototype?
+  * Exploration and learning
+  * Communication: sales, alignment
+  * Incremental development
+  * Quality improvement
+  * Validation and testing
+    * investigate problem-solution / product-market fit
+    * investigate technical feasibility
+    * usability testing
+
 
 > file = proto-scoping
-# Prototyp Scoping
-* TODO
-  * ...
+# Prototype Scoping
+
+* Breadth of functionality
+* Functional refinement:
+  * Visual appearance
+  * Interactive and haptic behavior
+  * Data realism
 
 > file = proto-media
 # Prototyp Media
-* TODO
-  * ...
-
+* Sketches and mockups
+  * paper drawing
+  * computer drawing
+  * presentation tool
+  * GUI-builder
+* Video
+  * enacted usage
+  * interview
+* Executable software
+  * demonstrate single feature 
+  * MVP (minimum viable product)
 
 > file = proto-use
 # Prototype Usage
-* TODO
-  * ...
+  * Reviewers 
+    * internal
+    * with families, friends and foes
+    * external
+  * Prototype interaction 
+    * yes 
+    * no (demo)
+  * Review approach
+    * scenario-based
+    * free
+  * Usage environment
+    * *in vitro*: lab setting, different from final product usage 
+    * *in vivo*: real world setting, similar to final product usage
 
 > file = proto-explore
 # Exploration Strategy
-* TODO
-  * ...
+* How to traverse the solution space?
+  * Number of iterations:
+    * single iteration
+    * multiple iterations
+    * parallell explorations
+  * Iteration focus: 
+    * business
+    * product
+    * feature
+    * optimisation
+  * Iteration size: 
+    * effort
+    * lead-time
 
 > file = intro-delegated
 \LectureOnly{\section{Delegation}}
 # Delegated Requirements
-* What?
-  * ...
-* Why?
-  * ...
+* Refer to an **existing artifact** that acts as a **proxy** for requirements.
+* Examples:
+  * Standards as requirements
+    * require a standard query language, SQL
+    * require a standard communication protocol, e.g. HTTPS
+  * Regulatory requirements
+    * General Data Protection Regulation
+    * Artificial Intelligence Act
+    * Cyber Resilience Act 
+  * Test cases as requirements
+  * Development process requirements
+    * require usability testing to instead of explicit usability requirements
+    * require regression testing to instead of explicit reliability requirements
 
-> file = std-req
-# Standards as requirements
-* What?
-  * ...
-* Why?
-  * ...
+> file = delegated-pro-con
+# Delegated Requirements: Pros and cons
+* Advantages:
+  * less work
+  * aligned with accepted domain practice
+  * mature proxies have high quality
 
+* Disadvantages:
+  * gives a false sense of security
+  * hidden interpretation risks
+  * imposes premature design
 
-> file = regulatory-req
-# Regulatory requirements
-* What?
-  * ...
-* Why?
-  * ...
-
-> file = tests-as-req
-# Test cases as requirements
-* What?
-  * ...
-* Why?
-  * ...
-
-> file = process-reqs
-# Development process requirements
-* What?
-  * ...
-* Why?
-  * ...
 

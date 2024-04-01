@@ -25,6 +25,8 @@
 \end{beamercolorbox}%
 }
 
+\setbeamersize{text margin left=2em,text margin right=2em}
+
 \usepackage[utf8]{inputenc}
 \usepackage[swedish,main=english]{babel}
 \usepackage[T1]{fontenc}
@@ -62,6 +64,10 @@
 %\setbeamertemplate{itemize subsubitem}{$\cdot$}%{-}%
 %\setbeamertemplate{itemize subsubitem}{$\scalerel*{\cdot}{\bigodot}$}%{-}%
 \setbeamertemplate{itemize subsubitem}{$\circ$}%{-}%
+
+\setlength{\leftmargini}{1em}
+\setlength{\leftmarginii}{1em}
+\setlength{\leftmarginiii}{1em}
 
 \usepackage{marvosym} % icons https://ftp.acc.umu.se/mirror/CTAN/fonts/marvosym/doc/fonts/marvosym/marvodoc.pdf
 
