@@ -116,6 +116,18 @@ A requirements model...
   * \url{https://en.wikipedia.org/wiki/Ontology}
   * \url{https://en.wikipedia.org/wiki/Ontology_engineering}
 
+> file = func-overview
+# Examples of functional modeling techniques
+\begin{tabular}{l l  l}
+\textbf{\emph{Context}} & \textbf{\emph{Data}}  & \textbf{\emph{Business Logic}}  \\ \hline
+ Stakeholder models &  Data dictionary     & User stories\\
+ Goal models &  Data views          & Use cases and tasks \\
+ Context diagrams &  E/R-diagrams        & Narratives \\
+  &  Class diagrams      & State diagrams \\
+  &  Regular expressions & Interaction diagrams\\
+  &  Protocol specs      & Data-flow diagrams \\
+  &  \end{tabular}
+
 > file = data-modeling
 \LectureOnly{\section{Data}}
 # Data Modeling 
@@ -128,7 +140,7 @@ A requirements model...
   * boxes and arrows with data entities (classes), attributes (fields) and relations
   * **E/R-diagram**: focus on entities and their relations 
   * **Class diagram**: also inheritance, aggregation, methods
-* **Data format specifications**:
+* **Data format specs**:
   * Reqular expressions (regexp)
   * Protocol buffers (protobuf)
 
@@ -267,13 +279,13 @@ Also called **scenario-based requirements**
   * A model of many possible event sequences
   * {\footnotesize\url{https://en.wikipedia.org/wiki/State_diagram}}
 
-* Interaction Diagrams
+* Interaction diagrams
   * Messages between the system and its surroundings
   * A model of one specific interaction scenario
   * {\footnotesize\url{https://en.wikipedia.org/wiki/Message_sequence_chart}}
   * {\footnotesize\url{https://en.wikipedia.org/wiki/Sequence_diagram}}
 
-* Data Flow Diagrams
+* Data-flow diagrams
   * Flow of input/output to/from functions
   * A model of how functions are connected with data stores
   * {\footnotesize\url{https://en.wikipedia.org/wiki/Data-flow_diagram}}
