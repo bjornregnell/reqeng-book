@@ -89,7 +89,7 @@ A requirements model...
 
 * The picture below illustrates elaboration of reqs over time:
   * Time on x-axis. Different reqs on y-axis. 
-  * Lighter color means more elaboration.
+  * Lighter color means deeper knowledge, improved spec.
 
 \begin{minipage}[t]{1.0\textwidth}
 \vspace{-1.0em}\includegraphics[width=1.0\textwidth]{../img/details-time}
@@ -198,8 +198,17 @@ Each data entity (class) together with attributes (fields) are specified in stru
 > file = intro-logi
 \LectureOnly{\section{Logic}}
 # Business Logic Modeling
-* Functional modeling techniques with focus on **logic**:
-  * sadfadsf
+* Contextual usage modeling:
+  * User story: short description ''user ... wants ... to ...''
+  * Task: domain-focused model of user's work
+  * Use case: product-focused model of user's interaction
+  * Narrative: rich, detailed story of personas' experiences
+  * ...
+* System behavior modelling:
+  * State machines: event cause transition to next state
+  * Interaction diagrams: user--system interaction sequences
+  * Data-flow diagrams: input/output data to/from functions
+  *  ...
 
 > file = work-split
 # Work Split: When to decide who does what?
@@ -244,7 +253,7 @@ Each data entity (class) together with attributes (fields) are specified in stru
 
 * State Machines
 
-* Sequence Diagrams
+* Interaction Diagrams
 
 * Data Flow Diagrams
 
@@ -253,14 +262,23 @@ Each data entity (class) together with attributes (fields) are specified in stru
 # State Machines
 * ...
 
-> file = sequence-diagrams
-# Sequence Diagrams
+> file = interaction-diagrams
+# Interaction Diagrams
 * ...
 
 > file = data-flow-diagrams
-# Data Flow Diagrams
-* ...
+# Data-flow diagrams
+\footnotesize\url{https://en.wikipedia.org/wiki/Data-flow_diagram}
 
+\begin{minipage}[t]{0.6\textwidth}
+\vspace{-0.4em}\includegraphics[width=1.0\textwidth]{../img/data-flow-diagram}
+\vspace{-1.4em}
+\end{minipage}%
+\hfill\begin{minipage}[t]{0.3\textwidth}
+\vspace{-0.1em}\includegraphics[width=0.8\textwidth]{../img/data-flow-diagram-symbols}
+\end{minipage}%
+
+{\vspace*{1em}\fontsize{5}{5}\fontfamily{qtm}\itshape\selectfont From: S. Lauesen ''Software Requirements'' \textcopyright~Addison-Wesley 2002}
 
 > file = intro-proto
 \LectureOnly{\section{Prototyping}}
