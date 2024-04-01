@@ -127,7 +127,7 @@ A requirements model...
 * **Data diagrams**: 
   * boxes and arrows with data entities (classes), attributes (fields) and relations
   * **E/R-diagram**: focus on entities and their relations 
-  * **UML Class diagram**: also inheritance, aggregation, methods
+  * **Class diagram**: also inheritance, aggregation, methods
 * **Data format specifications**:
   * Reqular expressions (regexp)
   * Protocol buffers (protobuf)
@@ -182,7 +182,7 @@ Each data entity (class) together with attributes (fields) are specified in stru
 {\hfill\fontsize{5}{5}\fontfamily{qtm}\itshape\selectfont From: S. Lauesen ''Software Requirements'' \textcopyright~Addison-Wesley 2002}
 
 > file = ulm-class-diagram
-# UML Class diagram
+# Class diagram
 \footnotesize\url{https://en.wikipedia.org/wiki/Class_diagram}
 
 \begin{minipage}[t]{0.82\textwidth}
@@ -293,7 +293,7 @@ Also called **scenario-based requirements**
 * Time progresses downwards 
 * One timeline for each user, product, other systems
 * Events/messages are drawn as arrows between timelines
-* Example UML Sequence diagram:
+* Example sequence diagram:
 \hfill\begin{minipage}[t]{0.8\textwidth}
 \vspace{0.4em}\includegraphics[width=1.0\textwidth]{../img/uml-sequence-diagram}
 {\vspace*{1em}\fontsize{5}{5}\fontfamily{qtm}\itshape\selectfont From: S. Lauesen ''Software Requirements'' \textcopyright~Addison-Wesley 2002}
