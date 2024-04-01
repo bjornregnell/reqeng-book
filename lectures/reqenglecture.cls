@@ -3,8 +3,12 @@
 \ProvidesClass{reqenglecture}[2023/10/14 Document class simpleslides based on beamer]
 %\LoadClass[handout]{beamer} %without pauses
 \LoadClass[aspectratio=43]{beamer}
-\setbeamersize{text margin left=12mm, text margin right=10mm}
 
+%For nice handout:
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{resize to}[a4paper,border shrink=2.5mm,landscape]
+
+\setbeamersize{text margin left=12mm, text margin right=10mm}
 \beamertemplatenavigationsymbolsempty
 %https://tex.stackexchange.com/questions/432054/missing-frame-numbers-with-paloalto-theme
 %\setbeamertemplate{footline}[frame number]  % fix for ubuntu 18.04 see link above
