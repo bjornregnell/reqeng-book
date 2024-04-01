@@ -119,37 +119,39 @@ A requirements model...
 > file = data-modeling
 \LectureOnly{\section{Data}}
 # Data Modeling 
-* Functional modeling techniques with focus on **data**:
-  * **Data dictionary**:  
-    * a list of data entities (classes) with textual descriptions of data attributes (fields) and relations among entities.
-    * \url{https://en.wikipedia.org/wiki/Data_dictionary}
-  * **Data views**: (a.k.a ''virtual windows'')
-    * examples of data values (instances) shown in a specific usage context sketched as a mockup screen
-    * *not* intended as interface design -- instead the focus is on modeling of stored and processed data 
-  * **Data diagrams**: 
-    * boxes and arrows with data entities (classes), attributes (fields) and relations
-    * E/R-diagrams: focus on entities and their relations 
-    * UML Class diagrams: also inheritance, aggregation, methods
+* **Data dictionary**:  
+  * a list of data entities (classes) with textual descriptions of data attributes (fields) and relations among entities.
+* **Data views**: (a.k.a ''virtual windows'')
+  * examples of data values (instances) shown in a specific usage context sketched as a mockup screen
+  * *not* intended as interface design -- instead the focus is on modeling of stored and processed data 
+* **Data diagrams**: 
+  * boxes and arrows with data entities (classes), attributes (fields) and relations
+  * **E/R-diagram**: focus on entities and their relations 
+  * **UML Class diagram**: also inheritance, aggregation, methods
+* **Data format specifications**:
+  * Reqular expressions (regexp)
+  * Protocol buffers (protobuf)
 
 > file = data-dictionaries
 # Data dictionary example
-Parts of a data dictionary for a music streaming app:
+Each data entity (class) together with attributes (fields) are specified in structured natural language.
+
 ```reqt
-* Class: listener has
-  * Spec: A user that listens to music.
-  * Field: id has
-    * Spec: A unique identifier of listener. Must not contain whitespace.
-    * Example: abc.edf123
-  * Field: password has
-    * Spec: ...
-* Class: artist has
-  * Spec: ...
-* Class: track has
-  * Spec: ...
-* Class: album has
-  * Spec: ...
+* Product: MusicStreamingApp
+* Data: Dictionary
+  * Class: listener has
+    * Spec: A user that listens to music.
+    * Field: id has
+      * Spec: A unique identifier of listener. Must only contain letters and digits.
+      * Example: abc123
+    * Field: password has
+      * Spec: ...
+  * Class: artist has Spec: ...
+  * Class: track has Spec: ...
+  * Class: album has Spec: ...
 ```
-Each data entity (class) together with attributes (fields) are specified in natural language.
+
+{\small\url{https://en.wikipedia.org/wiki/Data_dictionary}}
 
 > file = data-views
 # Data Views
@@ -162,12 +164,35 @@ Each data entity (class) together with attributes (fields) are specified in natu
 * Not a user interface design.
 \end{minipage}%
 \begin{minipage}[t]{0.45\textwidth}
-\vspace{-1.0em}\hfill\includegraphics[width=0.8\textwidth]{../img/virtual-window}
+\vspace{-1.0em}\hfill\includegraphics[width=0.85\textwidth]{../img/virtual-window}
+
+{\hfill\fontsize{4}{4}\fontfamily{qtm}\itshape\selectfont From: S. Lauesen ''Software Requirements'' \textcopyright~Addison-Wesley 2002}
+
 \end{minipage}
 
-> file = data-diagrams
-# Data diagrams
-* \TODO example
+> file = er-diagram
+# Entity-Relationship-diagram
+\footnotesize\url{https://en.wikipedia.org/wiki/Entity-relationship_model}
+
+\begin{minipage}[t]{0.9\textwidth}
+\vspace{-0.4em}\includegraphics[width=1.0\textwidth]{../img/ER-diagram}
+\vspace{-0.1em}
+\end{minipage}
+
+{\hfill\fontsize{5}{5}\fontfamily{qtm}\itshape\selectfont From: S. Lauesen ''Software Requirements'' \textcopyright~Addison-Wesley 2002}
+
+> file = ulm-class-diagram
+# UML Class diagram
+\footnotesize\url{https://en.wikipedia.org/wiki/Class_diagram}
+
+\begin{minipage}[t]{0.82\textwidth}
+\vspace{-0.4em}\includegraphics[width=1.0\textwidth]{../img/uml-class-diagram}
+\vspace{-1.4em}
+\end{minipage}
+
+{\hfill\fontsize{5}{5}\fontfamily{qtm}\itshape\selectfont From: S. Lauesen ''Software Requirements'' \textcopyright~Addison-Wesley 2002}
+
+
 
 
 > file = intro-logi

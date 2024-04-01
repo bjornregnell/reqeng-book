@@ -1,19 +1,20 @@
 \begin{Slide}{Data dictionary example}
-Parts of a data dictionary for a music streaming app:
+Each data entity (class) together with attributes (fields) are specified in structured natural language.
+
 \begin{Code}[language=reqt]
-* Class: listener has
-  * Spec: A user that listens to music.
-  * Field: id has
-    * Spec: A unique identifier of listener. Must not contain whitespace.
-    * Example: abc.edf123
-  * Field: password has
-    * Spec: ...
-* Class: artist has
-  * Spec: ...
-* Class: track has
-  * Spec: ...
-* Class: album has
-  * Spec: ...
+* Product: MusicStreamingApp
+* Data: Dictionary
+  * Class: listener has
+    * Spec: A user that listens to music.
+    * Field: id has
+      * Spec: A unique identifier of listener. Must only contain letters and digits.
+      * Example: abc123
+    * Field: password has
+      * Spec: ...
+  * Class: artist has Spec: ...
+  * Class: track has Spec: ...
+  * Class: album has Spec: ...
 \end{Code}
-Each data entity (class) together with attributes (fields) are specified in natural language.
+
+{\small\url{https://en.wikipedia.org/wiki/Data_dictionary}}
 \end{Slide}
