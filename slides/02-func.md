@@ -48,9 +48,9 @@ A requirements model...
 
 # Which modeling technique is best? 
 
-* A modeling technique may be more or less suitable for  representing a certain aspect.
+* A modeling technique may be more or less suitable for representing some aspects of requirements from some stakeholders' viewpoint.
 
-* A well-balanced combination of techniques can capture a larger set of aspects in a better way than a single model.
+* A **well-balanced combination** of modeling techniques can capture a more aspects in a better way than a single technique.
 
 * What modeling technique is best depends on...
   * abstraction level
