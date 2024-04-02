@@ -475,7 +475,7 @@ Also called **scenario-based requirements**
   * less work: the knowledge is already elicited, specified, validated
   * more concise specification
   * aligned with accepted domain practice
-  * mature proxies have high quality, high credibility
+  * mature/established proxies have high quality, high credibility
 
 * Disadvantages:
   * gives a false sense of security: proxy may be ambiguous, incomplete
