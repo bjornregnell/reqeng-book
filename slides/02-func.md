@@ -120,13 +120,23 @@ A requirements model...
 # Examples of functional modeling techniques
 \begin{tabular}{l l  l}
 \textbf{\emph{Context}} & \textbf{\emph{Data}}  & \textbf{\emph{Business Logic}}  \\ \hline
- Stakeholder models &  Data dictionary     & User stories\\
- Goal models &  Data views          & Use cases and tasks \\
- Context diagrams &  E/R-diagrams        & Narratives \\
-  &  Class diagrams      & State diagrams \\
-  &  Regular expressions & Interaction diagrams\\
-  &  Protocol specs      & Data-flow diagrams \\
-  &  \end{tabular}
+ Business model     &  Data dictionary     & User stories\\
+ Stakeholder model  &  Data views          & Use cases and tasks \\
+ Goal model         &  E/R-diagrams        & Narratives \\
+ Context diagram    &  Class diagrams      & State diagrams \\
+                    &  Regular expressions & Interaction diagrams\\
+                    &  Protocol data specs & Data-flow diagrams \\
+\end{tabular}
+
+\vspace{1em}
+
+In complement or alternative to above techniques:
+* **Feature requirements** in natural language:
+  * explicit textual requirements ''The system shall...''
+  * a product property that can be selected for a release or postponed
+  * can combine functional aspects (data, logic) and quality aspects
+  * link to above models
+
 
 > file = data-modeling
 \LectureOnly{\section{Data}}
@@ -262,13 +272,50 @@ Also called **scenario-based requirements**
 
 
 > file = use-cases
-# Use Cases and Tasks
-* \TODO example
+# Use cases
+* Definition according to \url{https://en.wikipedia.org/wiki/Use_case}
+  *  A usage scenario for a piece of software.
+  *  A potential scenario in which a system receives an external request and responds to it.
+
+\vspace{-0.5em}
+\begin{minipage}[t]{0.55\textwidth}
+* Contents of textual use case:
+  * Title
+  * Primary Actor
+  * Brief (corresponds to user story)
+  * Stakeholders
+  * Pre- and postconditions
+  * Triggers
+  * Basic flows
+  * Extensions
+\end{minipage}%
+\hfill\begin{minipage}[t]{0.45\textwidth}
+\vspace{-0.4em}\includegraphics[width=1.0\textwidth]{../img/use-case-edit-article}
+\end{minipage}
+
+> file = tasks
+# Tasks
+\begin{minipage}[t]{0.87\textwidth}
+\vspace{-0.4em}\includegraphics[width=1.0\textwidth]{../img/tasks-hotel}
+\vspace{-0.5em}
+\end{minipage}
+
+{\fontsize{5}{5}\fontfamily{qtm}\itshape\selectfont From: S. Lauesen ''Software Requirements'' \textcopyright~Addison-Wesley 2002}
 
 
 > file = narratives
-# Narratives and Personas
-* \TODO example
+# Narratives and personas
+
+* \footnotesize\url{https://en.wikipedia.org/wiki/Scenario_(computing)}
+* \url{https://en.wikipedia.org/wiki/Persona_(user_experience)}
+
+\begin{minipage}[t]{0.85\textwidth}
+\vspace{-0.4em}\includegraphics[width=1.0\textwidth]{../img/vivid-scenario}
+\vspace{-1.0em}
+\end{minipage}
+
+{\fontsize{5}{5}\fontfamily{qtm}\itshape\selectfont From: S. Lauesen ''Software Requirements'' \textcopyright~Addison-Wesley 2002}
+
 
 > file = system-behavior
 \LectureOnly{\section{Behavior}}
@@ -425,13 +472,16 @@ Also called **scenario-based requirements**
 > file = delegated-pro-con
 # Delegated Requirements: Pros and cons
 * Advantages:
-  * less work
+  * less work: the knowledge is already elicited, specified, validated
+  * more concise specification
   * aligned with accepted domain practice
-  * mature proxies have high quality
+  * mature proxies have high quality, high credibility
 
 * Disadvantages:
-  * gives a false sense of security
-  * hidden interpretation risks
-  * imposes premature design
+  * gives a false sense of security: proxy may be ambiguous, incomplete
+  * proxy may impose premature design
+  * proxy may be difficult to understand
+  * proxy may be ''over-kill'', include unnecessary requirements
+  * All or nothing if you want to claim compliance \\$\rightarrow$ unwanted requirements must be implemented
 
 
