@@ -48,11 +48,11 @@ A requirements model...
 
 # Which modeling technique is best? 
 
-* A modeling technique may be more or less suitable for representing some aspects of requirements from some stakeholders' viewpoint.
+* A modeling technique may be **more or less suitable** for representing some aspects of requirements from some stakeholders' viewpoint.
 
 * A **well-balanced combination** of modeling techniques can capture a more aspects in a better way than a single technique.
 
-* What modeling technique is best depends on...
+* Choice of modeling techniques depends on...
   * abstraction level
   * project type
   * stakeholders
@@ -61,10 +61,10 @@ A requirements model...
   * ...
 
 * Model interpretation often requires specific knowledge: 
-  * Choose modeling technique based on stakeholders' ability to understand and validate!
+  * Choose techniques so stakeholders can **understand** and validate.
 
 * How do you know that your chosen mix of models fit together and does not contradict each other?
-  * Make sure to check model inter-consistency in validation!
+  * Make sure to check model **inter-consistency** in validation.
 
 > file = abstraction-iceberg
 # Abstraction and level of detail
@@ -147,16 +147,16 @@ In complement or alternative to above techniques:
   * examples of data values (instances) shown in a specific usage context sketched as a mockup screen
   * *not* intended as interface design -- instead the focus is on modeling of stored and processed data 
 * **Data diagrams**: 
-  * boxes and arrows with data entities (classes), attributes (fields) and relations
-  * **E/R-diagram**: focus on entities and their relations 
-  * **Class diagram**: also inheritance, aggregation, methods
+  * boxes with data entities (classes), attributes (fields), relations
+    * **E/R-diagram**: focus on data entities and their relations 
+    * **Class diagram**: also inheritance, aggregation, methods
 * **Data format specs**:
   * Reqular expressions (regexp)
   * Protocol buffers (protobuf)
 
 > file = data-dictionaries
 # Data dictionary example
-Each data entity (class) together with attributes (fields) are specified in structured natural language.
+Each data entity (class) together with attributes (fields) are specified ii ii in structured natural language.
 
 ```reqt
 * Product: MusicStreamingApp
@@ -164,7 +164,7 @@ Each data entity (class) together with attributes (fields) are specified in stru
   * Class: listener has
     * Spec: A user that listens to music.
     * Field: id has
-      * Spec: A unique identifier of listener. Must only contain letters and digits.
+      * Spec: A unique identifier of a listener. Must only contain letters and digits, no whitespace or special characters.
       * Example: abc123
     * Field: password has
       * Spec: ...
@@ -220,16 +220,16 @@ Each data entity (class) together with attributes (fields) are specified in stru
 > file = intro-logi
 \LectureOnly{\section{Logic}}
 # Business Logic Modeling
-* Contextual usage modeling:
-  * User story: short description ''user ... wants ... to ...''
-  * Task: domain-focused model of user's work
-  * Use case: product-focused model of user's interaction
-  * Narrative: rich, detailed story of personas' experiences
+* **Contextual usage modeling**:
+  * **User story**: goal-focused brief ''user ... wants ... to ...''
+  * **Task:** domain-focused model of a user's piece of work
+  * **Use case**: product-focused model of user's interaction
+  * **Narrative**: rich, detailed story of personas' experiences
   * ...
-* System behavior modelling:
-  * State machines: events trigger transitions between states
-  * Interaction diagrams: user--system interaction sequences
-  * Data-flow diagrams: flow of input/output to/from functions
+* **System behavior modelling**:
+  * **State machines**: events trigger transitions between states
+  * **Interaction diagrams**: user--system interaction sequences
+  * **Data-flow diagrams**: flow of input/output to/from functions
   *  ...
 
 > file = work-split
