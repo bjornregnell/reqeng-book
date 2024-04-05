@@ -119,6 +119,7 @@
 \renewcommand{\l@subsubsection}{\@dottedtocline{3}{3.4em}{4.1em}}
 \makeatother
 
+\usepackage{adjustbox}
 
 \usepackage[normalem]{ulem}  % for strikethrough: \sout{Hello World}
 
@@ -260,9 +261,9 @@
   emphstyle={[2]\ttfamily\itshape\color{relationColor}},
   emph={[3]Benefit,Capacity,Comment,Constraints,Cost,Damage,Deprecated,Example,Expectation,Failure,Frequency,Gist,Input,Location,Max,Min,Order,Output,Prio,Probability,Profit,Spec,Text,Title,Value,Why},
   emphstyle={[3]\ttfamily\color{attributeColor}},  
-  %morekeywords={},
-  %otherkeywords={*},
-  %keywordstyle=\bfseries\ttfamily\selectfont,%\color{blue},
+  morekeywords={},
+  otherkeywords={*},
+  keywordstyle=\ttfamily\selectfont,%\color{blue},
 }
 
 
