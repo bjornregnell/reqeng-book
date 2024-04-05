@@ -193,7 +193,9 @@
   %\setlength{\itemsep}{0.0em}
   %\setlist{nosep} %this is from enumitem package but clashes with paralist
   %https://tex.stackexchange.com/questions/58050/how-can-i-modify-the-settings-of-the-margin-item-in-a-list
-  \setlist{topsep=0em,itemsep=0em,partopsep=0pt}
+  %\setlist{topsep=0em}
+  %\setlist{itemsep=0em}
+  %\setlist{partopsep=0pt}
   \setlength{\leftmargini}{1em}
   \setlength{\leftmarginii}{1em}
   \setlength{\leftmarginiii}{1em}

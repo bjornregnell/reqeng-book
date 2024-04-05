@@ -24,28 +24,40 @@ Requirements Engineering for Software Developers
 \end{minipage}%
 \pagebreak
 
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
+
 
 \begin{multicols*}{3}  % * means unbalanced columns allowed
-\fontsize{8.4}{11}\selectfont
+\fontsize{8.4}{10}\selectfont
+%\fontsize{9}{11}\selectfont
 
 \tableofcontents
 \end{multicols*}
 
+
+\setcounter{chapter}{-1}
+\begin{multicols*}{2}  % * means unbalanced columns allowed
+\chapter{Preface}
+About the book. Audience. How to read. How to use in a course, by students and teachers.
+\end{multicols*}
+
+
 \newgeometry{hmargin={45mm,148.5mm},vmargin={15mm,15mm}}
+\pagebreak
+
 
 \part{Domain Knowledge}  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\input{../chapters/00-intro.tex}
-\input{../chapters/01-context.tex}
-\input{../chapters/02-elicit.tex}
-\input{../chapters/03-prio.tex}
+\input{../chapters/01-intro.tex}
+\input{../chapters/02-context.tex}
+\input{../chapters/03-elicit.tex}
+\input{../chapters/04-prio.tex}
 
 \part{Functionality}  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\input{../chapters/04-data.tex}
-\input{../chapters/05-logic.tex}
+\input{../chapters/05-data.tex}
+\input{../chapters/06-logic.tex}
 
 
 \chapter{Prototyping}
@@ -153,13 +165,14 @@ Subcategory of efficiency.
 
 Interaction requirements, quality of interaction design.
 
-\subsection{Safety and Security}
+\subsection{Security and safety}
+
+\url{https://en.wikipedia.org/wiki/Information_security}
 
 \section{Quality road-mapping with QUPER}
 
 
 
-\url{https://en.wikipedia.org/wiki/Information_security}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -209,7 +222,7 @@ bundles of features and use cases, a bundle that delivers value
 
 \part{Special Contexts}
 
-\chapter{Special Development Modes}
+\chapter{Special Process Modes}
 
 \section{Agile RE}
 
@@ -218,7 +231,17 @@ bundles of features and use cases, a bundle that delivers value
 \section{Continuous RE}
 
 \subsection{CI/CD}
+
 \subsection{DevOps}
+
+
+
+\section{Contract-based RE} 
+
+\subsection{Subcontracting and integration}
+\subsection{Public procurement}
+
+
 
 \chapter{Special Product Types}
 
@@ -231,13 +254,13 @@ bundles of features and use cases, a bundle that delivers value
 \section{RE for Embedded Systems}
 \subsection{Hardware-Software co-design}
 
-\part{Appendicies}\appendix
+\part{Appendices}\appendix
 
-\chapter{Introduction to reqT}
+\chapter{Getting started with \texttt{reqT}}
 
-\chapter{Lab 1: Prioritization}
+\chapter{Tool lab: Prioritization}
 
-\chapter{Lab 2: Release Planning}
+\chapter{Tool lab: Release Planning}
 
 \chapter{Course Project}
 
@@ -252,6 +275,58 @@ bundles of features and use cases, a bundle that delivers value
 \subsection{Release 3: Validated}
 \subsection{Assessment Matrix}
 
+\chapter{Specification Templates}
+
+\section{How to structure a linear document?}
+
+\section{IEEE 830 Specification template}
+\begin{mdframed}[backgroundcolor=green!8]
+\begin{description}
+\item [1.]  \textbf{Introduction}
+\item [1.1] Purpose
+\item [1.2] Scope
+\item [1.3] Definitions, acronyms, and abbreviations
+\item [1.4] References
+\item [1.5] Overview
+\item [2.]  \textbf{Overall description}
+\item [2.1] Product perspective
+\item [2.2] Product functions
+\item [2.3] User characteristics
+\item [2.4] Constraints
+\item [2.5] Assumptions and dependencies
+\item [3.]       \textbf{Specific requirements}
+\item [3.1]      External interface requirements
+\item [3.1.1]    User interfaces
+\item [3.1.2]    Hardware interfaces
+\item [3.1.3]    Software interfaces
+\item [3.1.4]    Communications interfaces
+\item [3.2]      Functional requirements
+\item [3.2.1]    User class 1
+\item [3.2.1.1]  Feature 1.1
+\item [3.2.1.1.1] Introduction/Purpose of feature
+\item [3.2.1.1.2] Stimulus/Response sequence
+\item [3.2.1.1.3] Associated functional requirements
+\item [3.2.1.2]   Feature 1.2
+\item [3.2.1.2.1] Introduction/Purpose of feature
+\item [3.2.1.2.2] Stimulus/Response sequence
+\item [3.2.1.2.3] Associated functional requirements
+\item [...]
+\item [3.2.1.m] Feature 1.m
+\item [3.2.1.m.1] Introduction/Purpose of feature
+\item [3.2.1.m.2] Stimulus/Response sequence
+\item [3.2.1.m.3] Associated functional requirements
+\item [3.2.2] User class 2
+\item [...]
+\item [3.2.n] User class n
+\item [...]
+\item [3.3] Performance requirements
+\item [3.4] Design constraints
+\item [3.5] Software system attributes
+\item [3.6] Other requirements
+\item \textbf{Appendixes}
+\item \textbf{Index}
+\end{description}
+\end{mdframed}
 
 \chapter{Learning from RE Disasters}
 

@@ -45,7 +45,7 @@
   must, option, idea, innovation, intent, rationale, function, quality, design, feature, decision, constraint, ...
 
 * The most **general** meaning:\\
-  *any* kind of **information entity** used in RE
+  *any* kind of **entity** that *could* be included in a req spec
 
 > file = activities
 

@@ -125,17 +125,18 @@ A requirements model...
  Goal model         &  E/R-diagrams        & Narratives \\
  Context diagram    &  Class diagrams      & State diagrams \\
                     &  Regular expressions & Interaction diagrams\\
-                    &  Protocol data specs & Data-flow diagrams \\
+                    &  Protocol buffers    & Data-flow diagrams \\
 \end{tabular}
+%\vspace{0.5em}
+%{\itshape\footnotesize Singularis: often only one, Pluralis: often many needed}
 
-\vspace{1em}
-
-In complement or alternative to above techniques:
-* **Feature requirements** in natural language:
-  * explicit textual requirements ''The system shall...''
-  * a product property that can be selected for a release or postponed
-  * can combine functional aspects (data, logic) and quality aspects
-  * link to above models
+* *Singularis:* often only one, *pluralis:* often many needed %\vspace{0.5em}
+* Common complement to any technique:
+  * **Feature requirements** in natural language:
+    * explicit textual requirements ''The system shall...''
+    * a product property that can be selected for a release or postponed
+    * can combine functional aspects (data, logic) and quality aspects
+    * link to above models
 
 
 > file = data-modeling
