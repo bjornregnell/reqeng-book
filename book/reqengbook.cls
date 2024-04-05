@@ -24,15 +24,16 @@
 
 % Some good looking monospace fonts below: esp. noto is nice
 %  - add sfdefault after [ to have san serif as default normal font
-\usepackage{lmodern} % if included before serif package, it goes for headings only
+%\usepackage{lmodern} % if included before serif package, it goes for headings only
+\usepackage{tgheros} % sans serif: clone of Helvetica
 \usepackage{tgtermes} % serif: clone of Times
-%\usepackage[scaled=0.85]{beramono} % monospace
+%\usepackage[zerostyle=d]{newtxtt}
+\usepackage[scaled=0.87]{beramono} % monospace
 %\usepackage[scaled=0.85]{noto-mono}
 %\usepackage[scaled=0.85]{noto}
 %\usepackage[scaled=0.85]{noto-sans}
 %\usepackage[sfdefault,scaled=0.85]{noto}
 
-%\usepackage{tgheros} % sans serif: clone of Helvetica
 %\usepackage[scaled=0.85]{FiraSans}
 %\usepackage[sfdefault, scaled=0.85]{FiraSans}
 
@@ -63,12 +64,13 @@
 \definecolor{eclipseblue}{rgb}{0.16,0,1.0}
 \definecolor{eclipsegreen}{rgb}{0,0.5,0}
 
-%\usepackage{enumitem} SEMS TO CLASH WITH paralist
+\usepackage{enumitem} %https://ftpmirror1.infania.net/mirror/CTAN/macros/latex/contrib/enumitem/enumitem.pdf
+%SEMS TO CLASH WITH paralist
 %https://tex.stackexchange.com/questions/18411/what-are-the-differences-between-using-paralist-vs-enumitem
 
-\usepackage{paralist} %https://ftpmirror1.infania.net/mirror/CTAN/macros/latex/contrib/paralist/paralist.pdf
-\setdefaultleftmargin{2em}{2em}{1em}{1em}{.5em}{.5em}
-\setdefaultitem{\textbullet}{--}{-}{-}
+% \usepackage{paralist} %https://ftpmirror1.infania.net/mirror/CTAN/macros/latex/contrib/paralist/paralist.pdf
+% \setdefaultleftmargin{2em}{2em}{1em}{1em}{.5em}{.5em}
+% \setdefaultitem{\textbullet}{--}{-}{-}
 
 \usepackage[yyyymmdd]{datetime}
 \renewcommand{\dateseparator}{-}
@@ -121,7 +123,7 @@
 \usepackage[normalem]{ulem}  % for strikethrough: \sout{Hello World}
 
 \usepackage{hyphenat} % for controloing hyphenation
- \hyphenation{sekvens-algoritmer}
+  \hyphenation{sekvens-algoritmer}
 
 \usepackage[colaction]{multicol} 
 \setlength{\columnsep}{7.5mm}  % for multocolumn parts
@@ -184,12 +186,17 @@
   \renewcommand{\labelitemii}{\color{myslideheadcolor}{$\scalerel*{\cdot}{\bigodot}$}}
   \renewcommand{\labelitemiii}{\color{myslideheadcolor}{$\circ$}}
   %\renewcommand{\labelitemiii}{\color{myslideheadcolor}{$\cdot$}}
-  \fontfamily{lmss}%qhv phv lmss cmss
+  \fontfamily{qhv}%qhv phv lmss cmss
   \fontsize{9}{11}\selectfont  
   \textcolor{myslideheadcolor}{\textbf{#1}}
   %\setlength{\parskip}{0.0em}
-  %\setlength{\itemsep}{-0.5em}
+  %\setlength{\itemsep}{0.0em}
   %\setlist{nosep} %this is from enumitem package but clashes with paralist
+  %https://tex.stackexchange.com/questions/58050/how-can-i-modify-the-settings-of-the-margin-item-in-a-list
+  \setlist{topsep=0em,itemsep=0em,partopsep=0pt}
+  \setlength{\leftmargini}{1em}
+  \setlength{\leftmarginii}{1em}
+  \setlength{\leftmarginiii}{1em}
   \begin{flushleft}
   }{%
 \end{flushleft}%
@@ -243,7 +250,8 @@
   %showstringspaces=false,
   showspaces=false,
   %breakatwhitespace=true,
-  basicstyle=\fontfamily{qtm}\selectfont\footnotesize,
+  basicstyle=\footnotesize\fontfamily{qtm}\selectfont,
+  %basicstyle=\footnotesize\ttfamily,
   emph={Barrier,Breakpoint,Class,Component,Configuration,Data,Design,Domain,Epic,Event,Feature,Field,Function,Goal,Idea,Image,Interface,Issue,Label,Member,Module,Product,Prototype,Quality,Relationship,Release,Req,Resource,Risk,Screen,Section,Stakeholder,State,Story,System,Target,Task,Term,Test,UseCase,User,Variant,VariationPoint},
   emphstyle=\ttfamily\bfseries\color{entityColor},
   emph={[2]binds,deprecates,excludes,has,helps,hurts,impacts,implements,inherits,interacts,precedes,relates,requires,verifies},
@@ -272,7 +280,8 @@
     framextopmargin=2pt,
     framexbottommargin=2pt,
     showstringspaces=false,
-    columns=fullflexible,keepspaces
+    columns=fullflexible%,keepspaces,
+    %postbreak=\mbox{\space\space\space},
 }
 
 \lstset{literate=%
