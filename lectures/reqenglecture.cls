@@ -8,7 +8,6 @@
 % \usepackage{pgfpages}
 % \pgfpagesuselayout{resize to}[a4paper,border shrink=2.5mm,landscape]
 
-\setbeamersize{text margin left=12mm, text margin right=10mm}
 \beamertemplatenavigationsymbolsempty
 %https://tex.stackexchange.com/questions/432054/missing-frame-numbers-with-paloalto-theme
 %\setbeamertemplate{footline}[frame number]  % fix for ubuntu 18.04 see link above
@@ -24,16 +23,18 @@
   \hfill~\insertframenumber~/~\inserttotalframenumber\hspace*{3mm}\vskip3mm}
 \end{beamercolorbox}%
 }
-
-\setbeamersize{text margin left=2em,text margin right=2em}
+\setbeamersize{text margin left=2.7em, text margin right=3.7em}
+%\setbeamersize{text margin left=2em,text margin right=2em}
 
 \usepackage[utf8]{inputenc}
 \usepackage[swedish,main=english]{babel}
 \usepackage[T1]{fontenc}
-%\usepackage[scaled=0.85]{noto}
-\usepackage{lmodern} % if included before serif package, it goes for headings only
-%\usepackage[scaled=0.85]{beramono}
-%\usepackage[scale=1.0]{tgheros}
+%\usepackage{lmodern} % if included before serif package, it goes for headings only
+\usepackage[scale=0.9]{tgheros}
+%\usepackage[zerostyle=d,scale=1.0]{newtxtt}
+\usepackage[scaled=0.87]{beramono}
+%\usepackage[scale=0.9]{tgcursor}  %% way too thin so not good
+%\usepackage[scaled=0.85]{noto} % replaces all fonts
 
 \usepackage{fancyvrb}
 \usepackage{xcolor}
@@ -108,7 +109,8 @@
   %showstringspaces=false,
   showspaces=false,
   %breakatwhitespace=true,
-  basicstyle=\fontfamily{qtm}\selectfont\footnotesize,
+  basicstyle=\footnotesize\fontfamily{qtm}\selectfont,
+  %basicstyle=\footnotesize\ttfamily,
   emph={Barrier,Breakpoint,Class,Component,Configuration,Data,Design,Domain,Epic,Event,Feature,Field,Function,Goal,Idea,Image,Interface,Issue,Label,Member,Module,Product,Prototype,Quality,Relationship,Release,Req,Resource,Risk,Screen,Section,Stakeholder,State,Story,System,Target,Task,Term,Test,UseCase,User,Variant,VariationPoint},
   emphstyle=\ttfamily\bfseries\color{entityColor},
   emph={[2]binds,deprecates,excludes,has,helps,hurts,impacts,implements,inherits,interacts,precedes,relates,requires,verifies},
@@ -137,7 +139,8 @@
     framextopmargin=2pt,
     framexbottommargin=2pt,
     showstringspaces=false,
-    columns=fullflexible,keepspaces
+    columns=fullflexible%,keepspaces,
+    %postbreak=\mbox{\space\space\space},
 }
 
 \lstset{literate=%
@@ -156,6 +159,7 @@
 {Ø}{{\O}}1
 {`}{{\`{}}}1
 {─}{{\textemdash}}1
+{·}{{$\cdot$}}1
 {└}{{|}}1
 {├}{{|}}1
 {│}{{|}}1
