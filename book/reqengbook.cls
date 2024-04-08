@@ -170,7 +170,6 @@
 \tikzstyle{umlclass}=[rectangle, draw=black,  thick, anchor=north, text width=3cm, rectangle split, rectangle split parts = 3]
 \tikzstyle{umlarrow}=[->, >=open triangle 90, thick]
 
-
 %\usepackage{framed}  %  allows:   \begin{framed}\end{framed}
 %https://ctan.math.illinois.edu/macros/latex/contrib/framed/framed.pdf
 \usepackage[framemethod=TikZ]{mdframed} %  allows:   \begin{mdframed}[backgroundcolor=blue!20]\end{mdframed}
